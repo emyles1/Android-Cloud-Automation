@@ -23,44 +23,9 @@ import objectrepository.Strings;
 public class PhotosAndVideo extends CloudBase {
 	
 
-//	@Test
-	public void FavExist() throws MalformedURLException, InterruptedException {
 
-		AndroidDriver driver = Capabilities();
 
-		ContextMenuRepository context = new ContextMenuRepository(driver);
-		CommonMethods Create = new CommonMethods(driver);
-		Strings string = new Strings();
-
-		Create.Xpath(Strings.homeHamburger).click();
-		Create.Xpath(Strings.PicAndVids).click();
-		Create.Xpath(Strings.allHeader).click();
-		Create.TouchActionPress(Strings.longPressPic);
-		Create.Xpath(Strings.Elipses).click();
-		Create.WaitForIt(Strings.overflowdelete);
-		List<WebElement> webElements = driver.findElementsByXPath(Strings.addFavMenu); // Make a method in common for this
-		if (webElements.size() == 0) {
-			System.out.println("favorite album exists");
-			// Press the back button twice
-			int count = 0;
-			while (count < 2) {
-				TimeUnit.SECONDS.sleep(1);
-				driver.pressKeyCode(AndroidKeyCode.BACK);
-				System.out.println(count);
-				count++;
-			}
-		} else {
-			System.out.println("favorite album does not exists");
-			Create.Xpath(Strings.addFavMenu).click();
-		}
-
-		Create.Xpath(Strings.albumHeader).click();
-
-		Assert.assertEquals(Create.AssertXpathExists(string.favAlbum), 1);
-
-	}
-
-	@Test(priority=0)
+	//@Test(priority=0)
 	public void ViewItem() throws IOException, MalformedURLException, InterruptedException {
 
 		AndroidDriver driver = Capabilities();
@@ -83,7 +48,7 @@ public class PhotosAndVideo extends CloudBase {
 
 	}
 
-//	@Test(priority=1)
+    //@Test(priority=1)
 	public void BInfo() throws IOException, MalformedURLException, InterruptedException {
 		AndroidDriver driver = Capabilities();
 
@@ -102,7 +67,7 @@ public class PhotosAndVideo extends CloudBase {
 
 	}
 
-//	@Test(priority=2)
+    //@Test(priority=2)
 	public void CCreateAlbum() throws IOException, MalformedURLException, InterruptedException {
 		AndroidDriver driver = Capabilities();
 
@@ -119,14 +84,13 @@ public class PhotosAndVideo extends CloudBase {
 		String result = ("Auto Album " + rannum);
 		Create.Xpath(Strings.addAlbumContent).click();
 		Create.multiSelect(3);
-		// photoVideo.multiSelect(3);
 		Create.Xpath(Strings.makeSelection).click();
 
 		Assert.assertEquals(result, ("Auto Album " + rannum));
 
 	}
 
-//	@Test
+	//@Test
 	public void PhotoVidDownload() throws IOException, MalformedURLException, InterruptedException {
 
 		AndroidDriver driver = Capabilities();
@@ -134,22 +98,23 @@ public class PhotosAndVideo extends CloudBase {
 		ContextMenuRepository context = new ContextMenuRepository(driver);
 		CommonMethods Create = new CommonMethods(driver);
 
-
 		Create.Xpath(Strings.homeHamburger).click();
 		Create.Xpath(Strings.PicAndVids).click();
 		Create.Xpath(Strings.timelineHeader).click();
 		Create.Xpath(Strings.firstTimelineitem).click();
-		Create.multiSelect(2);
+		Create.multiSelect(1);
 		Create.Xpath(Strings.Elipses).click();
 		Create.TouchActionPress(Strings.overflowdownload);
-		//t.press(Create.Xpath(Strings.overflowdownload)).waitAction(Duration.ofMillis(1000)).release().perform();
 		Create.DuplicateFile();
-	
+		driver.openNotifications();
+		
+		Assert.assertEquals(Create.AssertXpathExists(Strings.downloadComplete), 1);
+
 	}
 		
 
 
-//	@Test
+	//@Test
 	public void PhotoVidDelete() throws IOException, MalformedURLException, InterruptedException {
 
 		AndroidDriver driver = Capabilities();
@@ -161,14 +126,17 @@ public class PhotosAndVideo extends CloudBase {
 		Create.Xpath(Strings.homeHamburger).click();
 		Create.Xpath(Strings.PicAndVids).click();
 		Create.Xpath(Strings.allHeader).click();
-		Create.multiSelect(2);
+		Create.multiSelect(1);
 		Create.Xpath(Strings.Elipses).click();
 		t.press(Create.Xpath(Strings.overflowdelete)).waitAction(Duration.ofMillis(1000)).release().perform();
 		Create.Xpath(Strings.deleteYes).click();
+		
+		Assert.assertEquals(Create.AssertXpathExists(Strings.deleting), 1);
+
 
 	}
 
-//	@Test
+	@Test
 	public void PhotoVidFav() throws IOException, MalformedURLException, InterruptedException {
 
 		AndroidDriver driver = Capabilities();
@@ -182,7 +150,78 @@ public class PhotosAndVideo extends CloudBase {
 		Create.Xpath(Strings.allHeader).click();
 		Create.multiSelect(1);
 		Create.Xpath(Strings.Elipses).click();
-		context.FavSwitch();
+		//context.FavSwitch();
+		
+		WebDriverWait wait = new WebDriverWait(driver, 30);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(Strings.overflowdelete)));
+		List<WebElement> webElements = driver.findElementsByXPath(Strings.addFavMenu);
+		System.out.println(webElements);
+
+		if (webElements.size() == 1) {
+			Create.Xpath(Strings.addFavMenu).click();
+			Create.Xpath(Strings.albumHeader).click();
+			
+			Assert.assertEquals(Create.AssertXpathExists(Strings.favAlbum), 1);
+			
+		}
+
+		else {
+
+			driver.pressKeyCode(AndroidKeyCode.BACK);
+			Create.ResourceID(Strings.selectioncheckmark).click();
+			Create.Xpath(Strings.albumHeader).click();
+			Create.WaitForIt("//android.widget.ImageView[@index = '0']");
+			Create.Xpath(Strings.favAlbum).click();
+			Create.multiSelect(1);
+			Create.Xpath(Strings.Elipses).click();
+			Create.Xpath(Strings.removeFavMenu).click();
+			
+		}
+		
+		Create.Xpath(Strings.allHeader).click();
+		Create.multiSelect(1);
+		Create.Xpath(Strings.Elipses).click();
+		Assert.assertEquals(Create.AssertXpathExists(Strings.addFavMenu), 1);
+
 
 	}
+	
+//	@Test
+	public void FavExist() throws MalformedURLException, InterruptedException {
+
+		AndroidDriver driver = Capabilities();
+
+		ContextMenuRepository context = new ContextMenuRepository(driver);
+		CommonMethods Create = new CommonMethods(driver);
+		Strings string = new Strings();
+
+		Create.Xpath(Strings.homeHamburger).click();
+		Create.Xpath(Strings.PicAndVids).click();
+		Create.Xpath(Strings.allHeader).click();
+		Create.TouchActionPress(Strings.longPressPic);
+		Create.Xpath(Strings.Elipses).click();
+		Create.WaitForIt(Strings.overflowdelete);
+		List<WebElement> webElements = driver.findElementsByXPath(Strings.addFavMenu); // Make a method in common for this
+		if (webElements.size() == 0) {
+			System.out.println("favorite album exists");
+			// Press the back button twice
+			int count = 0;
+			while (count < 2) {
+				TimeUnit.SECONDS.sleep(3);
+				driver.pressKeyCode(AndroidKeyCode.BACK);
+				System.out.println(count);
+				count++;
+			}
+		} else {
+			System.out.println("favorite album does not exists");
+			Create.Xpath(Strings.addFavMenu).click();
+		}
+
+		Create.Xpath(Strings.albumHeader).click();
+
+		Assert.assertEquals(Create.AssertXpathExists(Strings.favAlbum), 1);
+
+	}
+	
+	
 }

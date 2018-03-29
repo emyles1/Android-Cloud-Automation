@@ -1,8 +1,10 @@
 package objectrepository;
 
+import io.appium.java_client.android.AndroidKeyCode;
+
 public class Strings {
 
-	// NavBarRepository strings  https://www.youtube.com/watch?v=SWYqp7iY_Tc
+	// NavBarRepository strings  
 	public final static String homeHamburger = "//android.widget.ImageButton[@index ='0']";
 	public final static String PicAndVids = "//android.widget.TextView[@index = '1' and contains(@text,'Photos & Videos (')]";
 	public final static String Documents = "//android.widget.TextView[@index = '3' and contains(@text,'Documents')]";
@@ -44,7 +46,7 @@ public class Strings {
 	public final static String makeSelection = "//android.widget.ImageView[@index='0']";
 	public final static String tapFullview = "//android.widget.ImageView[@resource-id = 'com.vcast.mediamanager:id/flipper_image_view_0']";
 	public final static String Copyright = "//android.widget.Button[@text = 'OK']";
-	public final static String Check = "com.vcast.mediamanager:id/action_mode_close_button";
+	public final static String selectioncheckmark = "com.vcast.mediamanager:id/action_mode_close_button";
 	public final static String completeactionusing = "//android.widget.TextView[@text = 'Complete action using']";
 	public final static String copyrightNotice = "//android.widget.TextView[@text = 'Copyright Notice']";
 
@@ -52,6 +54,10 @@ public class Strings {
 	public final static String deleteYes = "//android.widget.Button[@text ='YES']";
 	public final static String deleteNo = "//android.widget.Button[@text ='NO']";
 	public final static String infoClose = "//android.widget.Button[@text ='CLOSE']";
+	public final static String deleting = "//android.widget.TextView[@text ='Deleting. Please wait…']";
+	
+	//Notifications strings
+	public final static String downloadComplete = "//android.widget.TextView[@text ='Download complete']";
 
 }
 
@@ -61,3 +67,5 @@ public class Strings {
 // driver.findElementByAndroidUIAutomator("resourceId(\"com.raaga.android:id/music_home_raaga_live\")").click();
 // driver.findElementById("com.raaga.android:id/toolbar_logo").click();
 // driver.findElementByXPath("//*[@content-desc='15']")
+//driver.openNotifications();
+//driver.pressKeyCode(AndroidKeyCode.BACK);

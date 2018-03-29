@@ -96,7 +96,7 @@ public class ContextMenuRepository {
 
 			driver.pressKeyCode(AndroidKeyCode.BACK);
 			
-			Create.Xpath(Strings.Check).click();
+			Create.Xpath(Strings.selectioncheckmark).click();
 			Create.Xpath(Strings.albumHeader).click();
 			WebDriverWait waitb = new WebDriverWait(driver, 30);
 			waitb.until(ExpectedConditions

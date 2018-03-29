@@ -38,10 +38,23 @@ public class CommonMethods {
 
 	public WebElement TouchActionPress(String string) {
 		TouchAction t = new TouchAction(driver);
+		WebDriverWait wait = new WebDriverWait(driver, 30);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(string)));
 		t.press(driver.findElementByXPath(string)).waitAction(Duration.ofMillis(1000)).release().perform();
 		return null;
 
 	}
+	
+	public WebElement ResourceID(String string) {
+		WebDriverWait wait = new WebDriverWait(driver, 30);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(string)));
+		
+		WebElement webElement = driver.findElementById(string);
+		return webElement;
+
+	}
+	
+	// driver.findElementById("com.raaga.android:id/toolbar_logo").click();
 	
 	public void WaitForIt(String string) {
 
