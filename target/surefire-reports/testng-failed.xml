@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="-1" guice-stage="DEVELOPMENT" verbose="0" name="Failed suite [PhotoAndVideo Test]">
+  <test verbose="0" name="PhotoAndVideo Testcases(failed)">
+    <classes>
+      <class name="testcases.PhotosAndVideo">
+        <methods>
+          <include name="AViewItem"/>
+        </methods>
+      </class> <!-- testcases.PhotosAndVideo -->
+    </classes>
+  </test> <!-- PhotoAndVideo Testcases(failed) -->
+</suite> <!-- Failed suite [PhotoAndVideo Test] -->
