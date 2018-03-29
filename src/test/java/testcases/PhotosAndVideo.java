@@ -150,7 +150,6 @@ public class PhotosAndVideo extends CloudBase {
 		Create.Xpath(Strings.allHeader).click();
 		Create.multiSelect(1);
 		Create.Xpath(Strings.Elipses).click();
-		//context.FavSwitch();
 		
 		WebDriverWait wait = new WebDriverWait(driver, 30);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(Strings.overflowdelete)));
@@ -175,6 +174,7 @@ public class PhotosAndVideo extends CloudBase {
 			Create.multiSelect(1);
 			Create.Xpath(Strings.Elipses).click();
 			Create.Xpath(Strings.removeFavMenu).click();
+			driver.pressKeyCode(AndroidKeyCode.BACK);
 			
 		}
 		

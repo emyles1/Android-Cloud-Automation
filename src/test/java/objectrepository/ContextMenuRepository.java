@@ -74,45 +74,4 @@ public class ContextMenuRepository {
 
 	}
 
-	public void FavSwitch() throws InterruptedException {
-		// AndroidDriver driver = Capabilities();
-
-		ContextMenuRepository context = new ContextMenuRepository(driver);
-		CommonMethods Create = new CommonMethods(driver);
-		// List<WebElement> webElements =
-		// driver.findElementsByXPath("//android.widget.TextView[@text='Add to
-		// Favorites']");
-
-		WebDriverWait wait = new WebDriverWait(driver, 30);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(Strings.overflowdelete)));
-		List<WebElement> webElements = driver.findElementsByXPath(Strings.addFavMenu);
-		System.out.println(webElements);
-
-		if (webElements.size() == 1) {
-			Create.Xpath(Strings.addFavMenu).click();
-		}
-
-		else {
-
-			driver.pressKeyCode(AndroidKeyCode.BACK);
-			
-			Create.Xpath(Strings.selectioncheckmark).click();
-			Create.Xpath(Strings.albumHeader).click();
-			WebDriverWait waitb = new WebDriverWait(driver, 30);
-			waitb.until(ExpectedConditions
-					.visibilityOfElementLocated(By.xpath("//android.widget.ImageView[@index = '0']")));
-			
-			
-			Create.Xpath(Strings.favAlbum).click();
-			//photoVideo.FavAlbum().click();
-			Create.multiSelect(1);
-			Create.Xpath(Strings.Elipses).click();
-			//context.ContextElipses().click();
-			Create.Xpath(Strings.removeFavMenu).click();
-
-		}
-	}
-
-
-
 }
