@@ -30,6 +30,7 @@ public class Strings {
 	public final static String sortBySize = "//android.widget.RelativeLayout[@index ='3']";
 	public final static String sortByFileName = "//android.widget.RelativeLayout[@index ='1']";
 	public final static String sortByOK = "//android.widget.Button[@text ='OK']";
+	public final static String sortByRadioBtnSize = "//android.widget.CheckedTextView[@text ='Size' and @checkable = 'true']";
 
 	// ContextMenuRespostitory strings
 	public final static String addFavMenu = "//android.widget.TextView[@text ='Add to Favorites']";
@@ -61,11 +62,11 @@ public class Strings {
 
 }
 
-// driver.findElementByXPath("//android.widget.ImageView[@index = '0' and
-// contains(@content-desc,'Favorites : Count')]")
+// driver.findElementByXPath("//android.widget.ImageView[@index = '0' and contains(@content-desc,'Favorites : Count')]")
+//driver.findElementByXPath("//android.widget.CheckedTextView[@text ='Size' and @checkable = 'true']")
 // driver.findElementByAndroidUIAutomator("text(\"Views\")").click();
 // driver.findElementByAndroidUIAutomator("resourceId(\"com.raaga.android:id/music_home_raaga_live\")").click();
 // driver.findElementById("com.raaga.android:id/toolbar_logo").click();
-// driver.findElementByXPath("//*[@content-desc='15']")
+// 	CONTENT DESC driver.findElementByXPath("//android.widget.ImageView[@content-desc='Photo : IMAG0159.jpg]").click();
 //driver.openNotifications();
 //driver.pressKeyCode(AndroidKeyCode.BACK);

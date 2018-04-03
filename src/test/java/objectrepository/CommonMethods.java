@@ -36,6 +36,19 @@ public class CommonMethods {
 
 	}
 
+	public int GetNavCount(String string, String attribute) {
+
+		CommonMethods Create = new CommonMethods(driver);
+		String data_option = Create.Xpath(string).getAttribute(attribute);
+		int openbracket = (data_option.indexOf('('));
+		int closebracket = (data_option.indexOf(')'));
+		String count = (data_option.substring(openbracket + 1, closebracket));
+		int beforeDelete = Integer.parseInt(count);
+
+		return beforeDelete;
+
+	}
+
 	public WebElement TouchActionPress(String string) {
 		TouchAction t = new TouchAction(driver);
 		WebDriverWait wait = new WebDriverWait(driver, 30);
@@ -44,34 +57,32 @@ public class CommonMethods {
 		return null;
 
 	}
-	
+
 	public WebElement ResourceID(String string) {
 		WebDriverWait wait = new WebDriverWait(driver, 30);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(string)));
-		
+
 		WebElement webElement = driver.findElementById(string);
 		return webElement;
 
 	}
-	
+
 	// driver.findElementById("com.raaga.android:id/toolbar_logo").click();
-	
+
 	public void WaitForIt(String string) {
 
 		WebDriverWait wait = new WebDriverWait(driver, 30);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(string)));
 
 	}
-	
-	
+
 	public void multiSelect(int x) {
-		
+
 		TouchAction t = new TouchAction(driver);
 
 		for (int i = 0; i < x; i++) {
 			// System.out.println("XPATH = " +
 			// "//android.widget.ImageView[@index= '"+i);
-			
 
 			t.press(driver.findElementByXPath("//android.widget.ImageView[@index= '" + i
 					+ "' and @resource-id='com.vcast.mediamanager:id/icon']")).waitAction(Duration.ofMillis(1000))
@@ -96,9 +107,9 @@ public class CommonMethods {
 	}
 
 	public int AssertXpathExists(String string) {
-		
+
 		CommonMethods Create = new CommonMethods(driver);
-		
+
 		Create.WaitForIt(string);
 		List<WebElement> webElements = driver.findElementsByXPath(string);
 		System.out.println(webElements);

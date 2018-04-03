@@ -26,6 +26,7 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.Augmenter;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -36,7 +37,7 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidKeyCode;
 import io.appium.java_client.remote.AndroidMobileCapabilityType;
 import objectrepository.CommonMethods;
-import objectrepository.ContextMenuRepository;
+import objectrepository.Strings;
 
 
 
@@ -74,13 +75,59 @@ public class Playground extends CloudBase {
 
 	// public static void main(String[] args) throws InterruptedException,
 	// IOException {
+	
+	
+	
+	//@Test
+	public void DocumentsShare() throws IOException, MalformedURLException, InterruptedException {
+
+		AndroidDriver driver = Capabilities();
+
+
+		CommonMethods Create = new CommonMethods(driver);
+
+		Create.Xpath(Strings.homeHamburger).click();
+		String data_option = Create.Xpath(Strings.PicAndVids).getAttribute("text");
+		System.out.println("The value is: "+ data_option);
+		
+		
+//	      System.out.println(Str.replace('(','y'));
+//	      System.out.println(Str.substring(10,11));
+//	      System.out.println(Str.length());
+
+	      int openbracket = (data_option.indexOf('('));
+	      int closebracket =(data_option.indexOf(')'));
+	      String count =(data_option.substring(openbracket +1,closebracket));
+	      int result = Integer.parseInt(count);	
+	      System.out.println(result);
+	          
+	          }
 
 	@Test
+	public void scroll() throws IOException, MalformedURLException, InterruptedException {
+
+		AndroidDriver driver = Capabilities();
+
+
+		CommonMethods Create = new CommonMethods(driver);
+		
+		
+		Create.Xpath("//android.widget.ImageView[@content-desc='Photo : IMAG0168.jpg]").click();
+
+//		WebElement element = driver.findElementByXPath("//android.widget.ImageView[@content-desc='Photo : IMAG0159.jpg']");
+//		Actions actions = new Actions(driver);
+//		actions.moveToElement(element);
+//		actions.perform();
+//	
+	}
+	
+	
+
+	//@Test
 	public void Test() throws IOException, MalformedURLException, InterruptedException {
 
 		AndroidDriver driver = Capabilities();
 
-		ContextMenuRepository context = new ContextMenuRepository(driver);
 		TouchAction t = new TouchAction(driver);
 
 		WebDriverWait wait = new WebDriverWait(driver, 30);
@@ -99,7 +146,7 @@ public class Playground extends CloudBase {
 
 		AndroidDriver driver = Capabilities();
 
-		ContextMenuRepository context = new ContextMenuRepository(driver);
+
 		TouchAction t = new TouchAction(driver);
 
 		File file = new File("/Users/eamon.myles/Desktop/cloud-01.png");
@@ -170,7 +217,7 @@ public class Playground extends CloudBase {
 
 		AndroidDriver driver = Capabilities();
 
-		ContextMenuRepository context = new ContextMenuRepository(driver);
+
 
 		CommonMethods use = new CommonMethods(driver);
 		TouchAction t = new TouchAction(driver);
@@ -199,7 +246,6 @@ public class Playground extends CloudBase {
 		AndroidDriver driver = Capabilities();
 		// navBarPRepository navBarP = new navBarPRepository(driver);
 
-		ContextMenuRepository context = new ContextMenuRepository(driver);
 
 		CommonMethods use = new CommonMethods(driver);
 
