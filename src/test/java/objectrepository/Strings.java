@@ -1,17 +1,39 @@
 package objectrepository;
 
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
 import io.appium.java_client.android.AndroidKeyCode;
 
 public class Strings {
+	
+	
+	
+	public final static String TextView = "//android.widget.TextView";
+	public final static String ImageView = "//android.widget.ImageView";
+	public final static String Text = "@text =";
+	public final static String ContentDesc = "@content-desc = ";
+
 
 	// NavBarRepository strings  
 	public final static String homeHamburger = "//android.widget.ImageButton[@index ='0']";
+	public final static String Home = "//android.widget.TextView[@index = '0' and contains(@text,'Home')]";
 	public final static String PicAndVids = "//android.widget.TextView[@index = '1' and contains(@text,'Photos & Videos (')]";
 	public final static String Documents = "//android.widget.TextView[@index = '3' and contains(@text,'Documents')]";
 	public final static String Appsusingcloud = "//android.widget.TextView[@text = 'Apps Using Cloud')]";
+	public final static String AllFiles = "//android.widget.TextView[@index = '8' and contains(@text,'All Files')]";
+	
+
 
 	// PhotoAndVideoRespository strings
+	
+	
 	public final static String allHeader = "//android.widget.TextView[@text = 'All']";
+
 	public final static String timelineHeader = "//android.widget.TextView[@text = 'Timeline']";
 	public final static String albumHeader = "//android.widget.TextView[@text = 'Albums']";
 	public final static String favAlbum = "//android.widget.ImageView[@index = '0' and contains(@content-desc,'Favorites : Count')]";
@@ -31,8 +53,13 @@ public class Strings {
 	public final static String sortByFileName = "//android.widget.RelativeLayout[@index ='1']";
 	public final static String sortByOK = "//android.widget.Button[@text ='OK']";
 	public final static String sortByRadioBtnSize = "//android.widget.CheckedTextView[@text ='Size' and @checkable = 'true']";
+	
+	//All files Strings
+	public final static String mobileRepro = "//android.widget.TextView[@text= 'Mobile']";
+	public final static String folderTitle = "//android.widget.TextView[@index = '1' and @resource-id = 'com.vcast.mediamanager:id/title']";
+	public final static String allfileItem = "//android.widget.TextView[@index = '1' and @resource-id = 'com.vcast.mediamanager:id/title']";
 
-	// ContextMenuRespostitory strings
+	// ContextMenuRespostitory strings 
 	public final static String addFavMenu = "//android.widget.TextView[@text ='Add to Favorites']";
 	public final static String removeFavMenu = "//android.widget.TextView[@text ='Remove from Favorites']";
 	public final static String Elipses = "//android.widget.ImageView[@content-desc = 'OVERFLOW']";
@@ -70,3 +97,4 @@ public class Strings {
 // 	CONTENT DESC driver.findElementByXPath("//android.widget.ImageView[@content-desc='Photo : IMAG0159.jpg]").click();
 //driver.openNotifications();
 //driver.pressKeyCode(AndroidKeyCode.BACK);
+//driver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(text(\"Documents\"));");

@@ -23,39 +23,39 @@ import objectrepository.Strings;
 
 public class Documents extends CloudBase {
 
-	//@Test
+	@Test
 	public void DocumentsSort() throws IOException, MalformedURLException, InterruptedException {
 		AndroidDriver driver = Capabilities();
 
-		CommonMethods Create = new CommonMethods(driver);
+		CommonMethods get = new CommonMethods(driver);
 
-		Create.Xpath(Strings.homeHamburger).click();
-		Create.Xpath(Strings.Documents).click();
+		get.Xpath(Strings.homeHamburger).click();
+		get.Xpath(Strings.Documents).click();
 		
-		Create.Xpath(Strings.Elipses).click();
-		Create.Xpath(Strings.SortView).click();
-		Create.Xpath(Strings.sortByDateUploaded).click();
-		Create.Xpath(Strings.sortByOK).click();
+		get.Xpath(Strings.Elipses).click();
+		get.Xpath(Strings.SortView).click();
+		get.Xpath(Strings.sortByDateUploaded).click();
+		get.Xpath(Strings.sortByOK).click();
 		
-		Create.Xpath(Strings.Elipses).click();
-		Create.Xpath(Strings.SortView).click();
-		Create.Xpath(Strings.sortByFileName).click();
-		Create.Xpath(Strings.sortByOK).click();
+		get.Xpath(Strings.Elipses).click();
+		get.Xpath(Strings.SortView).click();
+		get.Xpath(Strings.sortByFileName).click();
+		get.Xpath(Strings.sortByOK).click();
 		
-		Create.Xpath(Strings.Elipses).click();
-		Create.Xpath(Strings.SortView).click();
-		Create.Xpath(Strings.sortByExt).click();
-		Create.Xpath(Strings.sortByOK).click();
+		get.Xpath(Strings.Elipses).click();
+		get.Xpath(Strings.SortView).click();
+		get.Xpath(Strings.sortByExt).click();
+		get.Xpath(Strings.sortByOK).click();
 		
-		Create.Xpath(Strings.Elipses).click();
-		Create.Xpath(Strings.SortView).click();
-		Create.Xpath(Strings.sortBySize).click();
-		Create.Xpath(Strings.sortByOK).click();
+		get.Xpath(Strings.Elipses).click();
+		get.Xpath(Strings.SortView).click();
+		get.Xpath(Strings.sortBySize).click();
+		get.Xpath(Strings.sortByOK).click();
 		
-		Create.Xpath(Strings.Elipses).click();
-		Create.Xpath(Strings.SortView).click();
+		get.Xpath(Strings.Elipses).click();
+		get.Xpath(Strings.SortView).click();
 		
-		Assert.assertEquals(Create.AssertXpathExists(Strings.sortByRadioBtnSize), 1);
+		Assert.assertEquals(get.AssertXpathExists(Strings.sortByRadioBtnSize), 1);
 	}
 
 	//@Test
@@ -64,12 +64,12 @@ public class Documents extends CloudBase {
 		AndroidDriver driver = Capabilities();
 
 
-		CommonMethods Create = new CommonMethods(driver);
+		CommonMethods get = new CommonMethods(driver);
 
-		Create.Xpath(Strings.homeHamburger).click();
-		Create.Xpath(Strings.Documents).click();
-		Create.TouchActionPress(Strings.longPressDoc);
-		Create.Xpath(Strings.share).click();
+		get.Xpath(Strings.homeHamburger).click();
+		get.Xpath(Strings.Documents).click();
+		get.TouchActionPress(Strings.longPressDoc);
+		get.Xpath(Strings.share).click();
 		//context.Copyright();
 		
 		//List<WebElement> webElements = driver.findElementsByXPath(Strings.copyrightNotice);
@@ -79,7 +79,7 @@ public class Documents extends CloudBase {
 
 			WebDriverWait wait = new WebDriverWait(driver, 30);
 			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(Strings.completeactionusing)));
-			Create.Xpath(Strings.Copyright).click();
+			get.Xpath(Strings.Copyright).click();
 
 		}
 
@@ -90,7 +90,7 @@ public class Documents extends CloudBase {
 
 		}
 		
-		Assert.assertEquals(Create.AssertXpathExists(Strings.completeactionusing), 1);
+		Assert.assertEquals(get.AssertXpathExists(Strings.completeactionusing), 1);
 	}
 
 
@@ -100,16 +100,16 @@ public class Documents extends CloudBase {
 		AndroidDriver driver = Capabilities();
 
 
-		CommonMethods Create = new CommonMethods(driver);
+		CommonMethods get = new CommonMethods(driver);
 
-		Create.Xpath(Strings.homeHamburger).click();
-		Create.Xpath(Strings.Documents).click();
-		Create.TouchActionPress(Strings.longPressDoc);
-		Create.Xpath(Strings.Elipses).click();
-		Create.Xpath(Strings.overflowcopysharelink).click();
+		get.Xpath(Strings.homeHamburger).click();
+		get.Xpath(Strings.Documents).click();
+		get.TouchActionPress(Strings.longPressDoc);
+		get.Xpath(Strings.Elipses).click();
+		get.Xpath(Strings.overflowcopysharelink).click();
 		
-		Create.Xpath(Strings.Elipses).click();
-		Assert.assertEquals(Create.AssertXpathExists(Strings.overflowcopysharelink), 1);
+		get.Xpath(Strings.Elipses).click();
+		Assert.assertEquals(get.AssertXpathExists(Strings.overflowcopysharelink), 1);
 
 	}
 
@@ -118,26 +118,26 @@ public class Documents extends CloudBase {
 
 		AndroidDriver driver = Capabilities();
 
-		CommonMethods Create = new CommonMethods(driver);
+		CommonMethods get = new CommonMethods(driver);
 
 
-		Create.Xpath(Strings.homeHamburger).click();
-		Create.Xpath(Strings.Documents).click();
-		Create.TouchActionPress(Strings.longPressDoc);
-		Create.Xpath(Strings.Elipses).click();
+		get.Xpath(Strings.homeHamburger).click();
+		get.Xpath(Strings.Documents).click();
+		get.TouchActionPress(Strings.longPressDoc);
+		get.Xpath(Strings.Elipses).click();
 		//context.DocFavSwitch();
 		TimeUnit.SECONDS.sleep(3);
 		List<WebElement> webElements = driver.findElementsByXPath(Strings.addFavMenu);
 
 		if (webElements.size() == 1) {
-			Create.Xpath(Strings.addFavMenu).click();
+			get.Xpath(Strings.addFavMenu).click();
 			System.out.println("is here");
 		} else {	
-			Create.Xpath(Strings.removeFavMenu).click();
+			get.Xpath(Strings.removeFavMenu).click();
 		}
 		
-		Create.Xpath(Strings.Elipses).click();
-		Assert.assertEquals(Create.AssertXpathExists(Strings.SortView), 1);
+		get.Xpath(Strings.Elipses).click();
+		Assert.assertEquals(get.AssertXpathExists(Strings.SortView), 1);
 	}
 
 
@@ -148,14 +148,14 @@ public class Documents extends CloudBase {
 		AndroidDriver driver = Capabilities();
 
 
-		CommonMethods Create = new CommonMethods(driver);
+		CommonMethods get = new CommonMethods(driver);
 
-		Create.Xpath(Strings.homeHamburger).click();
-		Create.Xpath(Strings.Documents).click();
-		Create.TouchActionPress(Strings.longPressDoc);
-		Create.Xpath(Strings.Elipses).click();
-		Create.Xpath(Strings.overflowdownload).click();
-		Create.DuplicateFile();
+		get.Xpath(Strings.homeHamburger).click();
+		get.Xpath(Strings.Documents).click();
+		get.TouchActionPress(Strings.longPressDoc);
+		get.Xpath(Strings.Elipses).click();
+		get.Xpath(Strings.overflowdownload).click();
+		get.DuplicateFile();
 	}
 
 	@Test
@@ -164,13 +164,13 @@ public class Documents extends CloudBase {
 		AndroidDriver driver = Capabilities();
 
 
-		CommonMethods Create = new CommonMethods(driver);
+		CommonMethods get = new CommonMethods(driver);
 
-		Create.Xpath(Strings.homeHamburger).click();
-		Create.Xpath(Strings.Documents).click();
-		Create.TouchActionPress(Strings.longPressDoc);
-		Create.Xpath(Strings.Elipses).click();
-		Create.Xpath(Strings.overflowinfo).click();
+		get.Xpath(Strings.homeHamburger).click();
+		get.Xpath(Strings.Documents).click();
+		get.TouchActionPress(Strings.longPressDoc);
+		get.Xpath(Strings.Elipses).click();
+		get.Xpath(Strings.overflowinfo).click();
 
 	}
 
@@ -180,15 +180,15 @@ public class Documents extends CloudBase {
 		AndroidDriver driver = Capabilities();
 
 
-		CommonMethods Create = new CommonMethods(driver);
+		CommonMethods get = new CommonMethods(driver);
 
 
-		Create.Xpath(Strings.homeHamburger).click();
-		Create.Xpath(Strings.Documents).click();
-		Create.TouchActionPress(Strings.longPressDoc);
-		Create.Xpath(Strings.Elipses).click();
-		Create.Xpath(Strings.overflowdelete).click();
-		Create.Xpath(Strings.deleteYes).click();
+		get.Xpath(Strings.homeHamburger).click();
+		get.Xpath(Strings.Documents).click();
+		get.TouchActionPress(Strings.longPressDoc);
+		get.Xpath(Strings.Elipses).click();
+		get.Xpath(Strings.overflowdelete).click();
+		get.Xpath(Strings.deleteYes).click();
 
 	}
 
@@ -197,14 +197,14 @@ public class Documents extends CloudBase {
 
 		AndroidDriver driver = Capabilities();
 		
-		CommonMethods Create = new CommonMethods(driver);
+		CommonMethods get = new CommonMethods(driver);
 
-		Create.Xpath(Strings.homeHamburger).click();
-		Create.Xpath(Strings.Documents).click();
-		Create.TouchActionPress(Strings.longPressDoc);
-		Create.Xpath(Strings.Elipses).click();
-		Create.Xpath(Strings.overflowdelete).click();
-		Create.Xpath(Strings.deleteNo).click();
+		get.Xpath(Strings.homeHamburger).click();
+		get.Xpath(Strings.Documents).click();
+		get.TouchActionPress(Strings.longPressDoc);
+		get.Xpath(Strings.Elipses).click();
+		get.Xpath(Strings.overflowdelete).click();
+		get.Xpath(Strings.deleteNo).click();
 
 	}
 
@@ -214,13 +214,13 @@ public class Documents extends CloudBase {
 		AndroidDriver driver = Capabilities();
 
 
-		CommonMethods Create = new CommonMethods(driver);
+		CommonMethods get = new CommonMethods(driver);
 
-		Create.Xpath(Strings.homeHamburger).click();
-		Create.Xpath(Strings.Documents).click();
-		Create.TouchActionPress(Strings.longPressDoc);
-		Create.Xpath(Strings.Elipses).click();
-		Create.Xpath(Strings.overflowOpen).click();
+		get.Xpath(Strings.homeHamburger).click();
+		get.Xpath(Strings.Documents).click();
+		get.TouchActionPress(Strings.longPressDoc);
+		get.Xpath(Strings.Elipses).click();
+		get.Xpath(Strings.overflowOpen).click();
 
 	}
 }

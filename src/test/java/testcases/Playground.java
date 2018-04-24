@@ -5,6 +5,8 @@ import java.net.MalformedURLException;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
+import org.openqa.selenium.JavascriptExecutor;
+
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.remote.AndroidMobileCapabilityType;
 import io.appium.java_client.remote.MobileCapabilityType;
@@ -16,6 +18,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.Duration;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
 import javax.swing.ImageIcon;
@@ -25,25 +28,109 @@ import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.interactions.touch.TouchActions;
 import org.openqa.selenium.remote.Augmenter;
+import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import io.appium.java_client.PerformsTouchActions;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidKeyCode;
+import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.remote.AndroidMobileCapabilityType;
 import objectrepository.CommonMethods;
 import objectrepository.Strings;
 
-
-
-
 @SuppressWarnings("unused")
-public class Playground extends CloudBase {
+//public class Playground extends CloudBase {
+	
+
+public class Playground extends CloudBase{ 
+	
+	
+	
+	@Test
+	public void FindExt() throws MalformedURLException, InterruptedException {
+
+		AndroidDriver driver = Capabilities();
+		CommonMethods get = new CommonMethods(driver);
+
+		get.Xpath(Strings.homeHamburger).click();
+		get.Xpath(Strings.Home).click();
+		get.Xpath(Strings.homeHamburger).click();
+		get.Xpath(Strings.AllFiles).click();
+		get.Xpath(Strings.mobileRepro).click();
+		String foldername = get.GetText(Strings.folderTitle);
+		String devicefolder = get.XpathBuilder(Strings.TextView, Strings.Text, foldername);
+		get.Xpath(devicefolder).click();
+		String RepoTitle = get.XpathBuilder(Strings.TextView, Strings.Text, "My "+foldername);
+		
+		String s = get.GetText(Strings.allfileItem);
+		
+		s.substring(s.lastIndexOf('.') + 1);
+		
+		System.out.println("printed output: "+ s.substring(s.lastIndexOf('.') + 1));
+		
+		
+		//get.Xpath(Strings.allfileItem).click();
+		
+
+
+	}
+	 
+	
+	public String getTypeOfDayWithSwitchStatement(String dayOfWeekArg) {
+	     String typeOfDay;
+	     switch (dayOfWeekArg) {
+	         case "Monday":
+	             typeOfDay = "Start of work week";
+	             break;
+	         case "Tuesday":
+	         case "Wednesday":
+	         case "Thursday":
+	             typeOfDay = "Midweek";
+	             break;
+	         case "Friday":
+	             typeOfDay = "End of work week";
+	             break;
+	         case "Saturday":
+	         case "Sunday":
+	             typeOfDay = "Weekend";
+	             break;
+	         default:
+	             throw new IllegalArgumentException("Invalid day of the week: " + dayOfWeekArg);
+	     }
+	     return typeOfDay;
+	}
+
+
+	//@Test(priority=1)
+	public void ViewItem2() throws IOException, MalformedURLException, InterruptedException {
+
+		AndroidDriver driver = Capabilities();
+		CommonMethods Create = new CommonMethods(driver);
+		
+		Strings string = new Strings();
+
+		Create.Xpath(Strings.homeHamburger).click();
+		Create.Xpath(Strings.PicAndVids).click();
+		Create.Xpath(Strings.allHeader).click();
+		Create.Xpath(Strings.firstAllitem).click();
+		Create.Xpath(Strings.tapFullview).click();
+
+		Assert.assertEquals(Create.AssertXpathExists(string.Elipses), 1);
+
+	}
+	
+	
 
 	/*
 	 * public static void main(String[] args) throws MalformedURLException,
@@ -75,55 +162,68 @@ public class Playground extends CloudBase {
 
 	// public static void main(String[] args) throws InterruptedException,
 	// IOException {
-	
-	
-	
+
+	private Object driver;
+
 	//@Test
-	public void DocumentsShare() throws IOException, MalformedURLException, InterruptedException {
+	public void OpenMobileRepro() throws MalformedURLException, InterruptedException {
 
 		AndroidDriver driver = Capabilities();
 
+		CommonMethods Create = new CommonMethods(driver);
+
+		// Create.XpathBuilder(Strings.ANDROIDWIDGETIMAGEBUTTON,Strings.INDEX,Strings.ZERO).click();
+		Create.XpathBuilder("//android.widget.ImageButton", "@index =", "0");
+
+	}
+
+	// @Test
+	public void DocumentsShare() throws IOException, MalformedURLException, InterruptedException {
+
+		AndroidDriver driver = Capabilities();
 
 		CommonMethods Create = new CommonMethods(driver);
 
 		Create.Xpath(Strings.homeHamburger).click();
 		String data_option = Create.Xpath(Strings.PicAndVids).getAttribute("text");
-		System.out.println("The value is: "+ data_option);
-		
-		
-//	      System.out.println(Str.replace('(','y'));
-//	      System.out.println(Str.substring(10,11));
-//	      System.out.println(Str.length());
+		System.out.println("The value is: " + data_option);
 
-	      int openbracket = (data_option.indexOf('('));
-	      int closebracket =(data_option.indexOf(')'));
-	      String count =(data_option.substring(openbracket +1,closebracket));
-	      int result = Integer.parseInt(count);	
-	      System.out.println(result);
-	          
-	          }
+		// System.out.println(Str.replace('(','y'));
+		// System.out.println(Str.substring(10,11));
+		// System.out.println(Str.length());
 
-	@Test
+		int openbracket = (data_option.indexOf('('));
+		int closebracket = (data_option.indexOf(')'));
+		String count = (data_option.substring(openbracket + 1, closebracket));
+		int result = Integer.parseInt(count);
+		System.out.println(result);
+
+	}
+
+	// @Test
 	public void scroll() throws IOException, MalformedURLException, InterruptedException {
 
 		AndroidDriver driver = Capabilities();
 
-
 		CommonMethods Create = new CommonMethods(driver);
-		
-		
-		Create.Xpath("//android.widget.ImageView[@content-desc='Photo : IMAG0168.jpg]").click();
 
-//		WebElement element = driver.findElementByXPath("//android.widget.ImageView[@content-desc='Photo : IMAG0159.jpg']");
-//		Actions actions = new Actions(driver);
-//		actions.moveToElement(element);
-//		actions.perform();
-//	
+		verticalSwipe();
+
+		// Create.Xpath("//android.widget.ImageView[@content-desc='Photo :
+		// IMAG0168.jpg]").click();
+
+		// Actions actions = new Actions(driver);
+		// actions.moveToElement(element);
+		// actions.perform();
+		//
 	}
-	
-	
 
-	//@Test
+	private void verticalSwipe() {
+		// TODO Auto-generated method stub
+
+	}
+
+	// @Test
 	public void Test() throws IOException, MalformedURLException, InterruptedException {
 
 		AndroidDriver driver = Capabilities();
@@ -145,7 +245,6 @@ public class Playground extends CloudBase {
 	public void Push() throws IOException, MalformedURLException, InterruptedException {
 
 		AndroidDriver driver = Capabilities();
-
 
 		TouchAction t = new TouchAction(driver);
 
@@ -200,7 +299,8 @@ public class Playground extends CloudBase {
 		Dimension size = driver.manage().window().getSize();
 
 		WebDriverWait wait = new WebDriverWait(driver, 30);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//android.widget.ImageView[@index='0']")));
+		wait.until(
+				ExpectedConditions.visibilityOfElementLocated(By.xpath("//android.widget.ImageView[@text='Albums']")));
 
 		int startx = driver.findElement(By.xpath("//android.widget.ImageView[@text='Flashbacks']")).getLocation()
 				.getX();
@@ -212,12 +312,115 @@ public class Playground extends CloudBase {
 		t.press(startx, starty).moveTo(endx, endy).release().perform();
 	}
 
-	// @Test
+//	@Test
+//	 public void scroll2() throws MalformedURLException {
+//			AndroidDriver driver = Capabilities();
+//			
+//			List<WebElement> webElements = driver.findElementsByXPath("//android.widget.ImageView[@content-desc = 'Album jtt : Count 1' ]");
+//			
+//			
+//			   while (webElements.size() < 1) {
+//
+//	       System.out.println("Appium Helper Swiping " + "down");
+//	       JavascriptExecutor js = driver;
+//	       HashMap<Object, Object> params = new HashMap();
+//	       params.put("direction", "down");
+//	       params.put("name", webElements);
+//	       js.executeScript("mobile: swipe", params);
+//	   }
+//	}
+	
+			
+			   
+//	@Test
+//	public void scroll3() throws MalformedURLException {
+//		AndroidDriver driver = Capabilities();
+//		CommonMethods Create = new CommonMethods(driver);
+//		Create.WaitForIt(Strings.albumHeader);
+//
+//		//List<WebElement> webElements = driver.findElementsByXPath("//android.widget.ImageView[@content-desc = 'Album jtt : Count 1' ]");
+//		WebElement element = driver.findElementByXPath("//android.widget.ImageView[@content-desc = 'Album eamon : Count 3' ]");
+//		TouchActions action = new TouchActions(driver);
+//		action.scroll(element, 10, 100);
+//		action.perform();
+//
+//	}
+
+
+	//@Test(priority = 2)
+	public void CCreateAlbum() throws IOException, MalformedURLException, InterruptedException {
+		AndroidDriver driver = Capabilities();
+
+		CommonMethods Create = new CommonMethods(driver);
+		Create.Xpath(Strings.homeHamburger).click();
+		Create.Xpath(Strings.PicAndVids).click();
+		Create.Xpath(Strings.albumHeader).click();
+		Create.WaitForIt(Strings.albumHeader);
+		
+		Boolean isFoundElement;
+
+		String test = "Album jgih : Count 1 ";
+//		
+//		String webElements = Create.XpathBuilder(Strings.ImageView, Strings.ContentDesc, test);
+//		System.out.println(webElements);
+		//List<WebElement> webElements = driver.findElementsByXPath("//android.widget.ImageView[@content-desc = 'Album jgih : Count 1' ]");
+		
+
+		
+		//System.out.println(Create.XpathBuilder(Strings.ImageView, Strings.ContentDesc, test));
+														
+		List<WebElement> webElements = driver.findElementsByXPath(Create.XpathBuilder(Strings.ImageView, Strings.ContentDesc, test));
+
+		System.out.println(webElements);
+		
+	}
+
+	
+	//@Test
+	public void WorkingScroll() throws IOException, MalformedURLException, InterruptedException {
+		AndroidDriver driver = Capabilities();
+
+		CommonMethods Create = new CommonMethods(driver);
+		Create.Xpath(Strings.homeHamburger).click();
+		Create.Xpath(Strings.PicAndVids).click();
+		Create.Xpath(Strings.albumHeader).click();
+		Create.WaitForIt(Strings.albumHeader);
+		
+		Boolean isFoundElement;
+		
+		String test = "Album jgih : Count 1 ";
+
+		List<WebElement> webElements = driver.findElementsByXPath(Create.XpathBuilder(Strings.ImageView, Strings.ContentDesc, test));
+
+
+		isFoundElement = webElements.size() > 0;
+		System.out.println(isFoundElement);
+		
+		while (isFoundElement == false){
+
+		Dimension size = driver.manage().window().getSize();
+		int startX = size.getWidth() / 2;
+		int startY = size.getHeight() / 2;
+		int endX = 0;
+		int endY = (int) (startY * -1 * 0.05);
+
+		TouchAction action = new TouchAction(driver);
+		action.press(startX, startY).moveTo(endX, endY).release().perform();
+		
+		isFoundElement = webElements.size() > 0;
+		System.out.println(isFoundElement);
+		 webElements = driver.findElementsByXPath("//android.widget.ImageView[@content-desc = 'Album jgih : Count 1' ]");
+		Thread.sleep(3000);
+		}
+				System.out.println("nailed it");
+	}
+
+
+
+	 //@Test
 	public void pasttime() throws IOException, MalformedURLException, InterruptedException {
 
 		AndroidDriver driver = Capabilities();
-
-
 
 		CommonMethods use = new CommonMethods(driver);
 		TouchAction t = new TouchAction(driver);
@@ -246,7 +449,6 @@ public class Playground extends CloudBase {
 		AndroidDriver driver = Capabilities();
 		// navBarPRepository navBarP = new navBarPRepository(driver);
 
-
 		CommonMethods use = new CommonMethods(driver);
 
 		int i = 0;
@@ -270,6 +472,6 @@ public class Playground extends CloudBase {
 			i++;
 			System.out.println(i);
 		}
-
 	}
+
 }

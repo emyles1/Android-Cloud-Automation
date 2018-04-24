@@ -3,11 +3,11 @@
 <suite thread-count="-1" guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="testcases.Playground">
+      <class name="testcases.AllFiles">
         <methods>
-          <include name="scroll"/>
+          <include name="FindExt"/>
         </methods>
-      </class> <!-- testcases.Playground -->
+      </class> <!-- testcases.AllFiles -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

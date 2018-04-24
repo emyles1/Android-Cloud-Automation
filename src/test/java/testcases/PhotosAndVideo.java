@@ -6,6 +6,7 @@ import java.time.Duration;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -24,20 +25,16 @@ public class PhotosAndVideo extends CloudBase {
 
 		AndroidDriver driver = Capabilities();
 
-		CommonMethods Create = new CommonMethods(driver);
+		CommonMethods get = new CommonMethods(driver);
 		Strings string = new Strings();
 
-		// navBar.OpenHamburger().click();
-		Create.Xpath(Strings.homeHamburger).click();
-		// navBar.picAndVids().click();
-		Create.Xpath(Strings.PicAndVids).click();
-		// photoVideo.SelectAll().click();
-		Create.Xpath(Strings.allHeader).click();
-		// photoVideo.FullView().click();
-		Create.Xpath(Strings.firstAllitem).click();
-		Create.Xpath(Strings.tapFullview).click();
+		get.Xpath(Strings.homeHamburger).click();
+		get.Xpath(Strings.PicAndVids).click();
+		get.Xpath(Strings.allHeader).click();
+		get.Xpath(Strings.firstAllitem).click();
+		get.Xpath(Strings.tapFullview).click();
 
-		Assert.assertEquals(Create.AssertXpathExists(string.Elipses), 1);
+		Assert.assertEquals(get.AssertXpathExists(string.Elipses), 1);
 
 	}
 
@@ -45,40 +42,42 @@ public class PhotosAndVideo extends CloudBase {
 	public void BInfo() throws IOException, MalformedURLException, InterruptedException {
 		AndroidDriver driver = Capabilities();
 
-		CommonMethods Create = new CommonMethods(driver);
+		CommonMethods get = new CommonMethods(driver);
 
-		Create.Xpath(Strings.homeHamburger).click();
-		Create.Xpath(Strings.PicAndVids).click();
-		Create.Xpath(Strings.allHeader).click();
-		Create.Xpath(Strings.firstAllitem).click();
-		Create.Xpath(Strings.tapFullview).click();
-		Create.Xpath(Strings.Elipses).click();
-		Create.Xpath(Strings.overflowinfo).click();
+		get.Xpath(Strings.homeHamburger).click();
+		get.Xpath(Strings.PicAndVids).click();
+		get.Xpath(Strings.allHeader).click();
+		get.Xpath(Strings.firstAllitem).click();
+		get.Xpath(Strings.tapFullview).click();
+		get.Xpath(Strings.Elipses).click();
+		get.Xpath(Strings.overflowinfo).click();
 
-		Assert.assertEquals(Create.AssertXpathExists(Strings.infodatetaken), 1);
+		Assert.assertEquals(get.AssertXpathExists(Strings.infodatetaken), 1);
 
 	}
 
-	// @Test(priority=2)
+	@Test(priority = 2)
 	public void CCreateAlbum() throws IOException, MalformedURLException, InterruptedException {
 		AndroidDriver driver = Capabilities();
 
-		CommonMethods Create = new CommonMethods(driver);
+		CommonMethods get = new CommonMethods(driver);
 
 		int rannum = (int) (Math.random() * 256);
+		System.out.println(rannum);
 
-		Create.Xpath(Strings.homeHamburger).click();
-		Create.Xpath(Strings.PicAndVids).click();
-		Create.Xpath(Strings.albumHeader).click();
-		Create.Xpath(Strings.createAlbum).click();
-		Create.Xpath(Strings.enterAlbumName).sendKeys("Auto Album " + rannum);
-		String result = ("Auto Album " + rannum);
-		Create.Xpath(Strings.addAlbumContent).click();
-		Create.multiSelect(3);
-		Create.Xpath(Strings.makeSelection).click();
-
-		Assert.assertEquals(result, ("Auto Album " + rannum));
-
+		get.Xpath(Strings.homeHamburger).click();
+		get.Xpath(Strings.PicAndVids).click();
+		get.Xpath(Strings.albumHeader).click();
+		get.Xpath(Strings.createAlbum).click();
+		get.Xpath(Strings.enterAlbumName).sendKeys("Auto Album" + rannum);
+		String result = ("Album Auto Album" + rannum + " : Count 3");
+		get.Xpath(Strings.addAlbumContent).click();
+		get.multiSelect(3);
+		get.Xpath(Strings.makeSelection).click();
+		Thread.sleep(5000);
+		get.ScrolltoFind(Strings.ImageView, Strings.ContentDesc, result);
+		Assert.assertEquals(
+				get.AssertXpathExists(get.XpathBuilder(Strings.ImageView, Strings.ContentDesc, result)), 1);
 	}
 
 	// @Test
@@ -86,41 +85,40 @@ public class PhotosAndVideo extends CloudBase {
 
 		AndroidDriver driver = Capabilities();
 
-		CommonMethods Create = new CommonMethods(driver);
+		CommonMethods get = new CommonMethods(driver);
 
-		Create.Xpath(Strings.homeHamburger).click();
-		Create.Xpath(Strings.PicAndVids).click();
-		Create.Xpath(Strings.timelineHeader).click();
-		Create.Xpath(Strings.firstTimelineitem).click();
-		Create.multiSelect(1);
-		Create.Xpath(Strings.Elipses).click();
-		Create.TouchActionPress(Strings.overflowdownload);
-		Create.DuplicateFile();
+		get.Xpath(Strings.homeHamburger).click();
+		get.Xpath(Strings.PicAndVids).click();
+		get.Xpath(Strings.timelineHeader).click();
+		get.Xpath(Strings.firstTimelineitem).click();
+		get.multiSelect(1);
+		get.Xpath(Strings.Elipses).click();
+		get.TouchActionPress(Strings.overflowdownload);
+		get.DuplicateFile();
 		driver.openNotifications();
 
-		Assert.assertEquals(Create.AssertXpathExists(Strings.downloadComplete), 1);
+		Assert.assertEquals(get.AssertXpathExists(Strings.downloadComplete), 1);
 
 	}
 
-	//@Test
+	// @Test
 	public void PhotoVidDelete() throws IOException, MalformedURLException, InterruptedException {
 
 		AndroidDriver driver = Capabilities();
+		CommonMethods get = new CommonMethods(driver);
 
-		CommonMethods Create = new CommonMethods(driver);
+		get.Xpath(Strings.homeHamburger).click();
+		int beforeDelete = get.GetNavCount(Strings.PicAndVids, "text");
 
-		Create.Xpath(Strings.homeHamburger).click();
-		int beforeDelete = Create.GetNavCount(Strings.PicAndVids, "text");
+		get.Xpath(Strings.PicAndVids).click();
+		get.Xpath(Strings.allHeader).click();
+		get.multiSelect(1);
+		get.Xpath(Strings.Elipses).click();
+		get.TouchActionPress(Strings.overflowdelete);
+		get.Xpath(Strings.deleteYes).click();
 
-		Create.Xpath(Strings.PicAndVids).click();
-		Create.Xpath(Strings.allHeader).click();
-		Create.multiSelect(1);
-		Create.Xpath(Strings.Elipses).click();
-		Create.TouchActionPress(Strings.overflowdelete);
-		Create.Xpath(Strings.deleteYes).click();
-
-		Create.Xpath(Strings.homeHamburger).click();
-		int afterDelete = Create.GetNavCount(Strings.PicAndVids, "text");
+		get.Xpath(Strings.homeHamburger).click();
+		int afterDelete = get.GetNavCount(Strings.PicAndVids, "text");
 
 		Assert.assertEquals(beforeDelete, afterDelete + 1);
 
@@ -131,14 +129,14 @@ public class PhotosAndVideo extends CloudBase {
 
 		AndroidDriver driver = Capabilities();
 
-		CommonMethods Create = new CommonMethods(driver);
+		CommonMethods get = new CommonMethods(driver);
 		TouchAction t = new TouchAction(driver);
 
-		Create.Xpath(Strings.homeHamburger).click();
-		Create.Xpath(Strings.PicAndVids).click();
-		Create.Xpath(Strings.allHeader).click();
-		Create.multiSelect(1);
-		Create.Xpath(Strings.Elipses).click();
+		get.Xpath(Strings.homeHamburger).click();
+		get.Xpath(Strings.PicAndVids).click();
+		get.Xpath(Strings.allHeader).click();
+		get.multiSelect(1);
+		get.Xpath(Strings.Elipses).click();
 
 		WebDriverWait wait = new WebDriverWait(driver, 30);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(Strings.overflowdelete)));
@@ -146,31 +144,31 @@ public class PhotosAndVideo extends CloudBase {
 		System.out.println(webElements);
 
 		if (webElements.size() == 1) {
-			Create.Xpath(Strings.addFavMenu).click();
-			Create.Xpath(Strings.albumHeader).click();
+			get.Xpath(Strings.addFavMenu).click();
+			get.Xpath(Strings.albumHeader).click();
 
-			Assert.assertEquals(Create.AssertXpathExists(Strings.favAlbum), 1);
+			Assert.assertEquals(get.AssertXpathExists(Strings.favAlbum), 1);
 
 		}
 
 		else {
 
 			driver.pressKeyCode(AndroidKeyCode.BACK);
-			Create.ResourceID(Strings.selectioncheckmark).click();
-			Create.Xpath(Strings.albumHeader).click();
-			Create.WaitForIt("//android.widget.ImageView[@index = '0']");
-			Create.Xpath(Strings.favAlbum).click();
-			Create.multiSelect(1);
-			Create.Xpath(Strings.Elipses).click();
-			Create.Xpath(Strings.removeFavMenu).click();
+			get.ResourceID(Strings.selectioncheckmark).click();
+			get.Xpath(Strings.albumHeader).click();
+			get.WaitForIt("//android.widget.ImageView[@index = '0']");
+			get.Xpath(Strings.favAlbum).click();
+			get.multiSelect(1);
+			get.Xpath(Strings.Elipses).click();
+			get.Xpath(Strings.removeFavMenu).click();
 			driver.pressKeyCode(AndroidKeyCode.BACK);
 
 		}
 
-		Create.Xpath(Strings.allHeader).click();
-		Create.multiSelect(1);
-		Create.Xpath(Strings.Elipses).click();
-		Assert.assertEquals(Create.AssertXpathExists(Strings.addFavMenu), 1);
+		get.Xpath(Strings.allHeader).click();
+		get.multiSelect(1);
+		get.Xpath(Strings.Elipses).click();
+		Assert.assertEquals(get.AssertXpathExists(Strings.addFavMenu), 1);
 
 	}
 
@@ -179,22 +177,16 @@ public class PhotosAndVideo extends CloudBase {
 
 		AndroidDriver driver = Capabilities();
 
-		CommonMethods Create = new CommonMethods(driver);
+		CommonMethods get = new CommonMethods(driver);
 		Strings string = new Strings();
 
-		Create.Xpath(Strings.homeHamburger).click();
-		Create.Xpath(Strings.PicAndVids).click();
-		Create.Xpath(Strings.allHeader).click();
-		Create.TouchActionPress(Strings.longPressPic);
-		Create.Xpath(Strings.Elipses).click();
-		Create.WaitForIt(Strings.overflowdelete);
-		List<WebElement> webElements = driver.findElementsByXPath(Strings.addFavMenu); // Make
-																						// a
-																						// method
-																						// in
-																						// common
-																						// for
-																						// this
+		get.Xpath(Strings.homeHamburger).click();
+		get.Xpath(Strings.PicAndVids).click();
+		get.Xpath(Strings.allHeader).click();
+		get.TouchActionPress(Strings.longPressPic);
+		get.Xpath(Strings.Elipses).click();
+		get.WaitForIt(Strings.overflowdelete);
+		List<WebElement> webElements = driver.findElementsByXPath(Strings.addFavMenu); 
 		if (webElements.size() == 0) {
 			System.out.println("favorite album exists");
 			// Press the back button twice
@@ -207,12 +199,12 @@ public class PhotosAndVideo extends CloudBase {
 			}
 		} else {
 			System.out.println("favorite album does not exists");
-			Create.Xpath(Strings.addFavMenu).click();
+			get.Xpath(Strings.addFavMenu).click();
 		}
 
-		Create.Xpath(Strings.albumHeader).click();
+		get.Xpath(Strings.albumHeader).click();
 
-		Assert.assertEquals(Create.AssertXpathExists(Strings.favAlbum), 1);
+		Assert.assertEquals(get.AssertXpathExists(Strings.favAlbum), 1);
 
 	}
 

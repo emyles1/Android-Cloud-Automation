@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -23,9 +24,50 @@ public class CommonMethods {
 	public CommonMethods(AndroidDriver driver) {
 
 		this.driver = driver;
+		
 		// add for the Factory object model
 		// PageFactory.initElements(driver, this);
 		PageFactory.initElements(new AppiumFieldDecorator(driver), this);
+	}
+	
+	public String XpathBuilder(String classpath, String attribute, String value) {
+		
+//		WebDriverWait wait = new WebDriverWait(driver, 30);
+//		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(classpath+  "["   + attribute+   "'"  + value +   "'" +  "]" )));
+		
+		String webElement = (classpath+  "["   + attribute+   "'"  + value +   "'" +  "]"   );
+		return webElement;
+
+	}
+	
+
+	public void ScrolltoFind(String string1, String string2, String result) throws InterruptedException {
+		
+	CommonMethods Create = new CommonMethods(driver);
+	Boolean isFoundElement;
+	String string = Create.XpathBuilder(string1, string2, result);
+	List<WebElement> webElements = driver.findElementsByXPath(Create.XpathBuilder(string1, string2, result));
+	System.out.println(string);
+
+	isFoundElement = webElements.size() > 0;
+	
+	while (isFoundElement == false){
+
+	Dimension size = driver.manage().window().getSize();
+	int startX = size.getWidth() / 2;
+	int startY = size.getHeight() / 2;
+	int endX = 0;
+	int endY = (int) (startY * -1 * 0.05);
+
+	TouchAction action = new TouchAction(driver);
+	action.press(startX, startY).moveTo(endX, endY).release().perform();
+	
+	isFoundElement = webElements.size() > 0;
+	System.out.println(isFoundElement);
+	 webElements = driver.findElementsByXPath(Create.XpathBuilder(Strings.ImageView, Strings.ContentDesc, result));
+	Thread.sleep(3000);
+	}
+
 	}
 
 	public WebElement Xpath(String string) {
@@ -35,20 +77,7 @@ public class CommonMethods {
 		return webElement;
 
 	}
-
-	public int GetNavCount(String string, String attribute) {
-
-		CommonMethods Create = new CommonMethods(driver);
-		String data_option = Create.Xpath(string).getAttribute(attribute);
-		int openbracket = (data_option.indexOf('('));
-		int closebracket = (data_option.indexOf(')'));
-		String count = (data_option.substring(openbracket + 1, closebracket));
-		int beforeDelete = Integer.parseInt(count);
-
-		return beforeDelete;
-
-	}
-
+	
 	public WebElement TouchActionPress(String string) {
 		TouchAction t = new TouchAction(driver);
 		WebDriverWait wait = new WebDriverWait(driver, 30);
@@ -67,13 +96,36 @@ public class CommonMethods {
 
 	}
 
-	// driver.findElementById("com.raaga.android:id/toolbar_logo").click();
-
 	public void WaitForIt(String string) {
 
 		WebDriverWait wait = new WebDriverWait(driver, 30);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(string)));
 
+	}
+	
+	public int GetNavCount(String string, String attribute) {
+
+		CommonMethods Create = new CommonMethods(driver);
+		String data_option = Create.Xpath(string).getAttribute(attribute);
+		int openbracket = (data_option.indexOf('('));
+		int closebracket = (data_option.indexOf(')'));
+		String count = (data_option.substring(openbracket + 1, closebracket));
+		int beforeDelete = Integer.parseInt(count);
+
+		return beforeDelete;
+
+	}
+	
+	public String GetText(String string) {
+
+		CommonMethods Create = new CommonMethods(driver);
+		
+		WebDriverWait wait = new WebDriverWait(driver, 30);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(string)));
+		
+		String text = Create.Xpath(string).getText();
+
+		return text;
 	}
 
 	public void multiSelect(int x) {
@@ -81,14 +133,12 @@ public class CommonMethods {
 		TouchAction t = new TouchAction(driver);
 
 		for (int i = 0; i < x; i++) {
-			// System.out.println("XPATH = " +
-			// "//android.widget.ImageView[@index= '"+i);
-
 			t.press(driver.findElementByXPath("//android.widget.ImageView[@index= '" + i
 					+ "' and @resource-id='com.vcast.mediamanager:id/icon']")).waitAction(Duration.ofMillis(1000))
 					.release().perform();
 		}
 	}
+	
 
 	public void DuplicateFile() throws InterruptedException {
 
@@ -96,7 +146,6 @@ public class CommonMethods {
 
 		TimeUnit.SECONDS.sleep(5);
 		List<WebElement> webElements = driver.findElementsByXPath(Strings.duplicateFile);
-		// System.out.println(webElements.size());
 		if (webElements.size() == 1) {
 			Create.Xpath(Strings.deleteYes).click();
 		}
