@@ -23,6 +23,7 @@ public class Strings {
 	public final static String homeHamburger = "//android.widget.ImageButton[@index ='0']";
 	public final static String Home = "//android.widget.TextView[@index = '0' and contains(@text,'Home')]";
 	public final static String PicAndVids = "//android.widget.TextView[@index = '1' and contains(@text,'Photos & Videos (')]";
+	public final static String Music = "//android.widget.TextView[@index = '2' and contains(@text,'Music')]";
 	public final static String Documents = "//android.widget.TextView[@index = '3' and contains(@text,'Documents')]";
 	public final static String Appsusingcloud = "//android.widget.TextView[@text = 'Apps Using Cloud')]";
 	public final static String AllFiles = "//android.widget.TextView[@index = '8' and contains(@text,'All Files')]";
@@ -44,6 +45,16 @@ public class Strings {
 	public final static String longPressPic = "//android.widget.ImageView[@index='2']";
 	public final static String duplicateFile = "//android.widget.TextView[@text='Duplicate file']";
 	public final static String infodatetaken = "//android.widget.TextView[@text = 'Date Taken']";
+	
+	// MusicRespository strings
+	public final static String artistsHeader = "//android.widget.TextView[@text = 'Artists']";
+	public final static String albumsHeader = "//android.widget.TextView[@text = 'Albums']";
+	public final static String songsHeader = "//android.widget.TextView[@text = 'Songs']";
+	public final static String genresHeader = "//android.widget.TextView[@text = 'Genres']";
+	public final static String playlistsHeader = "//android.widget.TextView[@text = 'Playlists']";
+	public final static String listItem = "com.vcast.mediamanager:id/item_wraper";
+	public final static String longPressMusic = "//android.widget.LinearLayout[@index= 0]";
+	
 
 	// DocRespository strings
 	public final static String longPressDoc = "//android.widget.RelativeLayout[@index= '0']";
@@ -51,7 +62,7 @@ public class Strings {
 	public final static String sortByExt = "//android.widget.RelativeLayout[@index ='2']";
 	public final static String sortBySize = "//android.widget.RelativeLayout[@index ='3']";
 	public final static String sortByFileName = "//android.widget.RelativeLayout[@index ='1']";
-	public final static String sortByOK = "//android.widget.Button[@text ='OK']";
+
 	public final static String sortByRadioBtnSize = "//android.widget.CheckedTextView[@text ='Size' and @checkable = 'true']";
 	
 	//All files Strings
@@ -73,16 +84,17 @@ public class Strings {
 	public final static String createAlbum = "//android.widget.TextView[@resource-id ='com.vcast.mediamanager:id/new_album']";
 	public final static String makeSelection = "//android.widget.ImageView[@index='0']";
 	public final static String tapFullview = "//android.widget.ImageView[@resource-id = 'com.vcast.mediamanager:id/flipper_image_view_0']";
-	public final static String Copyright = "//android.widget.Button[@text = 'OK']";
 	public final static String selectioncheckmark = "com.vcast.mediamanager:id/action_mode_close_button";
 	public final static String completeactionusing = "//android.widget.TextView[@text = 'Complete action using']";
 	public final static String copyrightNotice = "//android.widget.TextView[@text = 'Copyright Notice']";
+	public final static String AddtoPlaylist = "//android.widget.TextView[@text = 'Add to Playlist']";
 
 	// CommonMethods strings
 	public final static String deleteYes = "//android.widget.Button[@text ='YES']";
 	public final static String deleteNo = "//android.widget.Button[@text ='NO']";
 	public final static String infoClose = "//android.widget.Button[@text ='CLOSE']";
 	public final static String deleting = "//android.widget.TextView[@text ='Deleting. Please wait…']";
+	public final static String ButtonOK = "//android.widget.Button[@text ='OK']";
 	
 	//Notifications strings
 	public final static String downloadComplete = "//android.widget.TextView[@text ='Download complete']";

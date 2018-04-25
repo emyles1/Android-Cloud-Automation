@@ -22,38 +22,38 @@ import objectrepository.CommonMethods;
 import objectrepository.Strings;
 
 public class Documents extends CloudBase {
-
+	int waitinsec = 30;
 	@Test
 	public void DocumentsSort() throws IOException, MalformedURLException, InterruptedException {
 		AndroidDriver driver = Capabilities();
 
 		CommonMethods get = new CommonMethods(driver);
 
-		get.Xpath(Strings.homeHamburger).click();
-		get.Xpath(Strings.Documents).click();
+		get.Xpath(Strings.homeHamburger,waitinsec).click();
+		get.Xpath(Strings.Documents,waitinsec).click();
 		
-		get.Xpath(Strings.Elipses).click();
-		get.Xpath(Strings.SortView).click();
-		get.Xpath(Strings.sortByDateUploaded).click();
-		get.Xpath(Strings.sortByOK).click();
+		get.Xpath(Strings.Elipses,waitinsec).click();
+		get.Xpath(Strings.SortView,waitinsec).click();
+		get.Xpath(Strings.sortByDateUploaded,waitinsec).click();
+		get.Xpath(Strings.ButtonOK,waitinsec).click();
 		
-		get.Xpath(Strings.Elipses).click();
-		get.Xpath(Strings.SortView).click();
-		get.Xpath(Strings.sortByFileName).click();
-		get.Xpath(Strings.sortByOK).click();
+		get.Xpath(Strings.Elipses,waitinsec).click();
+		get.Xpath(Strings.SortView,waitinsec).click();
+		get.Xpath(Strings.sortByFileName,waitinsec).click();
+		get.Xpath(Strings.ButtonOK,waitinsec).click();
 		
-		get.Xpath(Strings.Elipses).click();
-		get.Xpath(Strings.SortView).click();
-		get.Xpath(Strings.sortByExt).click();
-		get.Xpath(Strings.sortByOK).click();
+		get.Xpath(Strings.Elipses,waitinsec).click();
+		get.Xpath(Strings.SortView,waitinsec).click();
+		get.Xpath(Strings.sortByExt,waitinsec).click();
+		get.Xpath(Strings.ButtonOK,waitinsec).click();
 		
-		get.Xpath(Strings.Elipses).click();
-		get.Xpath(Strings.SortView).click();
-		get.Xpath(Strings.sortBySize).click();
-		get.Xpath(Strings.sortByOK).click();
+		get.Xpath(Strings.Elipses,waitinsec).click();
+		get.Xpath(Strings.SortView,waitinsec).click();
+		get.Xpath(Strings.sortBySize,waitinsec).click();
+		get.Xpath(Strings.ButtonOK,waitinsec).click();
 		
-		get.Xpath(Strings.Elipses).click();
-		get.Xpath(Strings.SortView).click();
+		get.Xpath(Strings.Elipses,waitinsec).click();
+		get.Xpath(Strings.SortView,waitinsec).click();
 		
 		Assert.assertEquals(get.AssertXpathExists(Strings.sortByRadioBtnSize), 1);
 	}
@@ -66,10 +66,10 @@ public class Documents extends CloudBase {
 
 		CommonMethods get = new CommonMethods(driver);
 
-		get.Xpath(Strings.homeHamburger).click();
-		get.Xpath(Strings.Documents).click();
+		get.Xpath(Strings.homeHamburger,waitinsec).click();
+		get.Xpath(Strings.Documents,waitinsec).click();
 		get.TouchActionPress(Strings.longPressDoc);
-		get.Xpath(Strings.share).click();
+		get.Xpath(Strings.share,waitinsec).click();
 		//context.Copyright();
 		
 		//List<WebElement> webElements = driver.findElementsByXPath(Strings.copyrightNotice);
@@ -79,7 +79,7 @@ public class Documents extends CloudBase {
 
 			WebDriverWait wait = new WebDriverWait(driver, 30);
 			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(Strings.completeactionusing)));
-			get.Xpath(Strings.Copyright).click();
+			get.Xpath(Strings.ButtonOK,waitinsec).click();
 
 		}
 
@@ -102,13 +102,13 @@ public class Documents extends CloudBase {
 
 		CommonMethods get = new CommonMethods(driver);
 
-		get.Xpath(Strings.homeHamburger).click();
-		get.Xpath(Strings.Documents).click();
+		get.Xpath(Strings.homeHamburger,waitinsec).click();
+		get.Xpath(Strings.Documents,waitinsec).click();
 		get.TouchActionPress(Strings.longPressDoc);
-		get.Xpath(Strings.Elipses).click();
-		get.Xpath(Strings.overflowcopysharelink).click();
+		get.Xpath(Strings.Elipses,waitinsec).click();
+		get.Xpath(Strings.overflowcopysharelink,waitinsec).click();
 		
-		get.Xpath(Strings.Elipses).click();
+		get.Xpath(Strings.Elipses,waitinsec).click();
 		Assert.assertEquals(get.AssertXpathExists(Strings.overflowcopysharelink), 1);
 
 	}
@@ -121,22 +121,22 @@ public class Documents extends CloudBase {
 		CommonMethods get = new CommonMethods(driver);
 
 
-		get.Xpath(Strings.homeHamburger).click();
-		get.Xpath(Strings.Documents).click();
+		get.Xpath(Strings.homeHamburger,waitinsec).click();
+		get.Xpath(Strings.Documents,waitinsec).click();
 		get.TouchActionPress(Strings.longPressDoc);
-		get.Xpath(Strings.Elipses).click();
+		get.Xpath(Strings.Elipses,waitinsec).click();
 		//context.DocFavSwitch();
 		TimeUnit.SECONDS.sleep(3);
 		List<WebElement> webElements = driver.findElementsByXPath(Strings.addFavMenu);
 
 		if (webElements.size() == 1) {
-			get.Xpath(Strings.addFavMenu).click();
+			get.Xpath(Strings.addFavMenu,waitinsec).click();
 			System.out.println("is here");
 		} else {	
-			get.Xpath(Strings.removeFavMenu).click();
+			get.Xpath(Strings.removeFavMenu,waitinsec).click();
 		}
 		
-		get.Xpath(Strings.Elipses).click();
+		get.Xpath(Strings.Elipses,waitinsec).click();
 		Assert.assertEquals(get.AssertXpathExists(Strings.SortView), 1);
 	}
 
@@ -150,11 +150,11 @@ public class Documents extends CloudBase {
 
 		CommonMethods get = new CommonMethods(driver);
 
-		get.Xpath(Strings.homeHamburger).click();
-		get.Xpath(Strings.Documents).click();
+		get.Xpath(Strings.homeHamburger,waitinsec).click();
+		get.Xpath(Strings.Documents,waitinsec).click();
 		get.TouchActionPress(Strings.longPressDoc);
-		get.Xpath(Strings.Elipses).click();
-		get.Xpath(Strings.overflowdownload).click();
+		get.Xpath(Strings.Elipses,waitinsec).click();
+		get.Xpath(Strings.overflowdownload,waitinsec).click();
 		get.DuplicateFile();
 	}
 
@@ -166,11 +166,11 @@ public class Documents extends CloudBase {
 
 		CommonMethods get = new CommonMethods(driver);
 
-		get.Xpath(Strings.homeHamburger).click();
-		get.Xpath(Strings.Documents).click();
+		get.Xpath(Strings.homeHamburger,waitinsec).click();
+		get.Xpath(Strings.Documents,waitinsec).click();
 		get.TouchActionPress(Strings.longPressDoc);
-		get.Xpath(Strings.Elipses).click();
-		get.Xpath(Strings.overflowinfo).click();
+		get.Xpath(Strings.Elipses,waitinsec).click();
+		get.Xpath(Strings.overflowinfo,waitinsec).click();
 
 	}
 
@@ -183,12 +183,12 @@ public class Documents extends CloudBase {
 		CommonMethods get = new CommonMethods(driver);
 
 
-		get.Xpath(Strings.homeHamburger).click();
-		get.Xpath(Strings.Documents).click();
+		get.Xpath(Strings.homeHamburger,waitinsec).click();
+		get.Xpath(Strings.Documents,waitinsec).click();
 		get.TouchActionPress(Strings.longPressDoc);
-		get.Xpath(Strings.Elipses).click();
-		get.Xpath(Strings.overflowdelete).click();
-		get.Xpath(Strings.deleteYes).click();
+		get.Xpath(Strings.Elipses,waitinsec).click();
+		get.Xpath(Strings.overflowdelete,waitinsec).click();
+		get.Xpath(Strings.deleteYes,waitinsec).click();
 
 	}
 
@@ -199,12 +199,12 @@ public class Documents extends CloudBase {
 		
 		CommonMethods get = new CommonMethods(driver);
 
-		get.Xpath(Strings.homeHamburger).click();
-		get.Xpath(Strings.Documents).click();
+		get.Xpath(Strings.homeHamburger,waitinsec).click();
+		get.Xpath(Strings.Documents,waitinsec).click();
 		get.TouchActionPress(Strings.longPressDoc);
-		get.Xpath(Strings.Elipses).click();
-		get.Xpath(Strings.overflowdelete).click();
-		get.Xpath(Strings.deleteNo).click();
+		get.Xpath(Strings.Elipses,waitinsec).click();
+		get.Xpath(Strings.overflowdelete,waitinsec).click();
+		get.Xpath(Strings.deleteNo,waitinsec).click();
 
 	}
 
@@ -216,11 +216,11 @@ public class Documents extends CloudBase {
 
 		CommonMethods get = new CommonMethods(driver);
 
-		get.Xpath(Strings.homeHamburger).click();
-		get.Xpath(Strings.Documents).click();
+		get.Xpath(Strings.homeHamburger,waitinsec).click();
+		get.Xpath(Strings.Documents,waitinsec).click();
 		get.TouchActionPress(Strings.longPressDoc);
-		get.Xpath(Strings.Elipses).click();
-		get.Xpath(Strings.overflowOpen).click();
+		get.Xpath(Strings.Elipses,waitinsec).click();
+		get.Xpath(Strings.overflowOpen,waitinsec).click();
 
 	}
 }

@@ -20,6 +20,8 @@ import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 public class CommonMethods {
 
 	AndroidDriver driver;
+	
+	
 
 	public CommonMethods(AndroidDriver driver) {
 
@@ -69,10 +71,19 @@ public class CommonMethods {
 	}
 
 	}
+	
+	public void WaitForIt(String string, int seconds) {
 
-	public WebElement Xpath(String string) {
-		WebDriverWait wait = new WebDriverWait(driver, 30);
+		WebDriverWait wait = new WebDriverWait(driver, seconds);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(string)));
+
+	}
+
+	public WebElement Xpath(String string, int seconds) {
+		CommonMethods Create = new CommonMethods(driver);
+		Create.WaitForIt(string,seconds);
+//		WebDriverWait wait = new WebDriverWait(driver, 120);
+//		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(string)));
 		WebElement webElement = driver.findElementByXPath(string);
 		return webElement;
 
@@ -96,17 +107,12 @@ public class CommonMethods {
 
 	}
 
-	public void WaitForIt(String string) {
 
-		WebDriverWait wait = new WebDriverWait(driver, 30);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(string)));
-
-	}
 	
 	public int GetNavCount(String string, String attribute) {
 
 		CommonMethods Create = new CommonMethods(driver);
-		String data_option = Create.Xpath(string).getAttribute(attribute);
+		String data_option = Create.Xpath(string,30).getAttribute(attribute);
 		int openbracket = (data_option.indexOf('('));
 		int closebracket = (data_option.indexOf(')'));
 		String count = (data_option.substring(openbracket + 1, closebracket));
@@ -123,7 +129,7 @@ public class CommonMethods {
 		WebDriverWait wait = new WebDriverWait(driver, 30);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(string)));
 		
-		String text = Create.Xpath(string).getText();
+		String text = Create.Xpath(string,30).getText();
 
 		return text;
 	}
@@ -147,7 +153,7 @@ public class CommonMethods {
 		TimeUnit.SECONDS.sleep(5);
 		List<WebElement> webElements = driver.findElementsByXPath(Strings.duplicateFile);
 		if (webElements.size() == 1) {
-			Create.Xpath(Strings.deleteYes).click();
+			Create.Xpath(Strings.deleteYes,30).click();
 		}
 
 		else {
@@ -159,7 +165,7 @@ public class CommonMethods {
 
 		CommonMethods Create = new CommonMethods(driver);
 
-		Create.WaitForIt(string);
+		Create.WaitForIt(string,30);
 		List<WebElement> webElements = driver.findElementsByXPath(string);
 		System.out.println(webElements);
 
