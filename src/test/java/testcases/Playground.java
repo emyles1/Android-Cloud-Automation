@@ -1,8 +1,24 @@
 package testcases;
 
+import android.content.Context;
+import android.content.Intent;
+import android.media.MediaScannerConnection;
+import android.media.MediaScannerConnection.MediaScannerConnectionClient;
+import android.net.Uri;
+import android.provider.MediaStore;
+import android.util.Log;
+import java.util.Scanner;
+
+
+import android.net.Uri;
+
+import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import java.net.MalformedURLException;
+import java.net.URI;
 
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
@@ -12,6 +28,7 @@ import io.appium.java_client.remote.AndroidMobileCapabilityType;
 import io.appium.java_client.remote.MobileCapabilityType;
 import java.awt.event.KeyEvent;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.nio.file.Files;
@@ -21,6 +38,8 @@ import java.time.Duration;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
+import java.util.Scanner;
+
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import org.apache.commons.codec.binary.Base64;
@@ -55,25 +74,26 @@ import objectrepository.Strings;
 
 public class Playground extends CloudBase{ 
 	
+	int waitinsec = 30;
 	
-	
-	@Test
+	//@Test
 	public void FindExt() throws MalformedURLException, InterruptedException {
 
 		AndroidDriver driver = Capabilities();
 		CommonMethods get = new CommonMethods(driver);
 
-		get.Xpath(Strings.homeHamburger).click();
-		get.Xpath(Strings.Home).click();
-		get.Xpath(Strings.homeHamburger).click();
-		get.Xpath(Strings.AllFiles).click();
-		get.Xpath(Strings.mobileRepro).click();
+		get.Xpath(Strings.homeHamburger,waitinsec).click();
+		get.Xpath(Strings.Home,waitinsec).click();
+		get.Xpath(Strings.homeHamburger,waitinsec).click();
+		get.Xpath(Strings.AllFiles,waitinsec).click();
+		get.Xpath(Strings.mobileRepro,waitinsec).click();
 		String foldername = get.GetText(Strings.folderTitle);
 		String devicefolder = get.XpathBuilder(Strings.TextView, Strings.Text, foldername);
-		get.Xpath(devicefolder).click();
+		get.Xpath(devicefolder,waitinsec).click();
 		String RepoTitle = get.XpathBuilder(Strings.TextView, Strings.Text, "My "+foldername);
 		
 		String s = get.GetText(Strings.allfileItem);
+		
 		
 		s.substring(s.lastIndexOf('.') + 1);
 		
@@ -85,393 +105,307 @@ public class Playground extends CloudBase{
 
 
 	}
+	
+	//User input
+	
+	@Test
+	public void OpenSettings() throws MalformedURLException, InterruptedException {
+	
+	Scanner reader = new Scanner(System.in);  // Reading from System.in
+	System.out.println("Enter a number: ");
+	int n = reader.nextInt(); // Scans the next token of the input as an int.
+	//once finished
+	reader.close();
+
+	}
 	 
 	
-	public String getTypeOfDayWithSwitchStatement(String dayOfWeekArg) {
-	     String typeOfDay;
-	     switch (dayOfWeekArg) {
-	         case "Monday":
-	             typeOfDay = "Start of work week";
-	             break;
-	         case "Tuesday":
-	         case "Wednesday":
-	         case "Thursday":
-	             typeOfDay = "Midweek";
-	             break;
-	         case "Friday":
-	             typeOfDay = "End of work week";
-	             break;
-	         case "Saturday":
-	         case "Sunday":
-	             typeOfDay = "Weekend";
-	             break;
-	         default:
-	             throw new IllegalArgumentException("Invalid day of the week: " + dayOfWeekArg);
-	     }
-	     return typeOfDay;
-	}
-
-
-	//@Test(priority=1)
-	public void ViewItem2() throws IOException, MalformedURLException, InterruptedException {
-
-		AndroidDriver driver = Capabilities();
-		CommonMethods Create = new CommonMethods(driver);
-		
-		Strings string = new Strings();
-
-		Create.Xpath(Strings.homeHamburger).click();
-		Create.Xpath(Strings.PicAndVids).click();
-		Create.Xpath(Strings.allHeader).click();
-		Create.Xpath(Strings.firstAllitem).click();
-		Create.Xpath(Strings.tapFullview).click();
-
-		Assert.assertEquals(Create.AssertXpathExists(string.Elipses), 1);
-
-	}
-	
-	
-
-	/*
-	 * public static void main(String[] args) throws MalformedURLException,
-	 * InterruptedException {
-	 * 
-	 * @Test public void LogIn() throws IOException, MalformedURLException,
-	 * InterruptedException {
-	 * 
-	 * 
-	 * AndroidDriver<WebElement> driver = Capabilities();
-	 * PhotoAndVideoRepository photoVideo = new PhotoAndVideoRepository(driver);
-	 * ContextMenuRepository contextMenu = new ContextMenuRepository(driver);
-	 * TouchAction t = new TouchAction(driver);
-	 * 
-	 * photoVideo.SelectAlbums().click(); contextMenu.CreateAlbum().click();
-	 * photoVideo.EnterAlbumName().sendKeys("Automated Album");
-	 * photoVideo.AddAlbumContent().click();
-	 * 
-	 * List<WebElement> webElements =
-	 * driver.findElementsById("com.vcast.mediamanager:id/icon");
-	 * System.out.println(webElements.size());
-	 * 
-	 * //for (WebElement webElement : webElements) {
-	 * //System.out.println(webElements); for(int i=0; i<3; i++){
-	 * t.press(((WebElement)
-	 * webElements.get(i))).waitAction(Duration.ofMillis(1000)).release().
-	 * perform(); //} }
-	 */
-
-	// public static void main(String[] args) throws InterruptedException,
-	// IOException {
-
-	private Object driver;
-
-	//@Test
-	public void OpenMobileRepro() throws MalformedURLException, InterruptedException {
-
-		AndroidDriver driver = Capabilities();
-
-		CommonMethods Create = new CommonMethods(driver);
-
-		// Create.XpathBuilder(Strings.ANDROIDWIDGETIMAGEBUTTON,Strings.INDEX,Strings.ZERO).click();
-		Create.XpathBuilder("//android.widget.ImageButton", "@index =", "0");
-
-	}
-
-	// @Test
-	public void DocumentsShare() throws IOException, MalformedURLException, InterruptedException {
-
-		AndroidDriver driver = Capabilities();
-
-		CommonMethods Create = new CommonMethods(driver);
-
-		Create.Xpath(Strings.homeHamburger).click();
-		String data_option = Create.Xpath(Strings.PicAndVids).getAttribute("text");
-		System.out.println("The value is: " + data_option);
-
-		// System.out.println(Str.replace('(','y'));
-		// System.out.println(Str.substring(10,11));
-		// System.out.println(Str.length());
-
-		int openbracket = (data_option.indexOf('('));
-		int closebracket = (data_option.indexOf(')'));
-		String count = (data_option.substring(openbracket + 1, closebracket));
-		int result = Integer.parseInt(count);
-		System.out.println(result);
-
-	}
-
-	// @Test
-	public void scroll() throws IOException, MalformedURLException, InterruptedException {
-
-		AndroidDriver driver = Capabilities();
-
-		CommonMethods Create = new CommonMethods(driver);
-
-		verticalSwipe();
-
-		// Create.Xpath("//android.widget.ImageView[@content-desc='Photo :
-		// IMAG0168.jpg]").click();
-
-		// Actions actions = new Actions(driver);
-		// actions.moveToElement(element);
-		// actions.perform();
-		//
-	}
-
-	private void verticalSwipe() {
-		// TODO Auto-generated method stub
-
-	}
-
-	// @Test
-	public void Test() throws IOException, MalformedURLException, InterruptedException {
-
-		AndroidDriver driver = Capabilities();
-
-		TouchAction t = new TouchAction(driver);
-
-		WebDriverWait wait = new WebDriverWait(driver, 30);
-		wait.until(
-				ExpectedConditions.visibilityOfElementLocated(By.xpath("//android.widget.TextView[@text = 'Albums']")));
-		driver.findElementByXPath(
-				"//android.widget.ImageView[@index = '0' and contains(@content-desc,'Favorites : Count')]").click();
-
-		// String documents = "//android.widget.ImageView[@index = '0' and
-		// contains(@content-desc,'Favorites : Count 4')]";
-
-	}
-
-	// @Test
-	public void Push() throws IOException, MalformedURLException, InterruptedException {
-
-		AndroidDriver driver = Capabilities();
-
-		TouchAction t = new TouchAction(driver);
-
-		File file = new File("/Users/eamon.myles/Desktop/cloud-01.png");
-		byte[] content = FileUtils.readFileToByteArray(file);
-		driver.pushFile("/sdcard/download/cloud-01.png", content);
-		Thread.sleep(100);
-		System.out.println("playground");
-		driver.findElementByXPath("//android.widget.TextView[@text ='Photos & Videos']").click();
-		System.out.println("Afterclick");
-
-	}
-
-	/*
-	 * public static void main(String args[]){ String s1="  hello string   ";
-	 * System.out.println(s1+"javatpoint");//without trim()
-	 * System.out.println(s1.trim()+"javatpoint");//with trim() }
-	 */
-
-	// public static void main(String[] args) throws InterruptedException,
-	// IOException {
-	// AndroidDriver driver = Capabilities();
-	// var screenshotFile = takeScreenshot(driver);
-
-	/*
-	 * @Test public void captureScreenshot(String testName) throws
-	 * MalformedURLException { AndroidDriver driver = Capabilities(); String
-	 * imagesLocation = "/Users/eamon.myles/Desktop/"; new
-	 * File(imagesLocation).mkdirs(); // Insure directory is there String
-	 * filename = imagesLocation + testName + ".jpg";
-	 * System.out.println(filename);
-	 * 
-	 * try { Thread.sleep(500); WebDriver augmentedDriver = new
-	 * Augmenter().augment(driver); File scrFile =
-	 * ((TakesScreenshot)augmentedDriver).getScreenshotAs(OutputType.FILE);
-	 * FileUtils.copyFile(scrFile, new File(filename), true); } catch (Exception
-	 * e) { System.out.println("Error capturing screen shot of " + testName +
-	 * " test failure."); // remove old pic to prevent wrong assumptions File f
-	 * = new File(filename); f.delete(); // don't really care if this doesn't
-	 * succeed, but would like it to. } }
-	 */
-
-	/*
-	 * }
-	 * 
-	 */
-	// @Test
-	public void Scroll() throws IOException, MalformedURLException, InterruptedException {
-
-		AndroidDriver driver = Capabilities();
-		TouchAction t = new TouchAction(driver);
-		Dimension size = driver.manage().window().getSize();
-
-		WebDriverWait wait = new WebDriverWait(driver, 30);
-		wait.until(
-				ExpectedConditions.visibilityOfElementLocated(By.xpath("//android.widget.ImageView[@text='Albums']")));
-
-		int startx = driver.findElement(By.xpath("//android.widget.ImageView[@text='Flashbacks']")).getLocation()
-				.getX();
-		int starty = driver.findElement(By.xpath("//android.widget.ImageView[@text='Flashbacks']")).getLocation()
-				.getY();
-		int endx = driver.findElement(By.xpath("//android.widget.ImageView[@text='Albums']")).getLocation().getX();
-		int endy = driver.findElement(By.xpath("//android.widget.ImageView[@text='Albums']")).getLocation().getY();
-		System.out.println(startx + " ::::::: " + starty + " ::::::: " + endx + " ::::::: " + endy);
-		t.press(startx, starty).moveTo(endx, endy).release().perform();
-	}
-
-//	@Test
-//	 public void scroll2() throws MalformedURLException {
-//			AndroidDriver driver = Capabilities();
-//			
-//			List<WebElement> webElements = driver.findElementsByXPath("//android.widget.ImageView[@content-desc = 'Album jtt : Count 1' ]");
-//			
-//			
-//			   while (webElements.size() < 1) {
-//
-//	       System.out.println("Appium Helper Swiping " + "down");
-//	       JavascriptExecutor js = driver;
-//	       HashMap<Object, Object> params = new HashMap();
-//	       params.put("direction", "down");
-//	       params.put("name", webElements);
-//	       js.executeScript("mobile: swipe", params);
-//	   }
+//	public String getTypeOfDayWithSwitchStatement(String dayOfWeekArg) {
+//	     String typeOfDay;
+//	     switch (dayOfWeekArg) {
+//	         case "Monday":
+//	             typeOfDay = "Start of work week";
+//	             break;
+//	         case "Tuesday":
+//	         case "Wednesday":
+//	         case "Thursday":
+//	             typeOfDay = "Midweek";
+//	             break;
+//	         case "Friday":
+//	             typeOfDay = "End of work week";
+//	             break;
+//	         case "Saturday":
+//	         case "Sunday":
+//	             typeOfDay = "Weekend";
+//	             break;
+//	         default:
+//	             throw new IllegalArgumentException("Invalid day of the week: " + dayOfWeekArg);
+//	     }
+//	     return typeOfDay;
 //	}
-	
-			
-			   
-//	@Test
-//	public void scroll3() throws MalformedURLException {
+//
+//
+//	//@Test(priority=1)
+//	public void ViewItem2() throws IOException, MalformedURLException, InterruptedException {
+//
 //		AndroidDriver driver = Capabilities();
 //		CommonMethods Create = new CommonMethods(driver);
-//		Create.WaitForIt(Strings.albumHeader);
+//		
+//		Strings string = new Strings();
 //
-//		//List<WebElement> webElements = driver.findElementsByXPath("//android.widget.ImageView[@content-desc = 'Album jtt : Count 1' ]");
-//		WebElement element = driver.findElementByXPath("//android.widget.ImageView[@content-desc = 'Album eamon : Count 3' ]");
-//		TouchActions action = new TouchActions(driver);
-//		action.scroll(element, 10, 100);
-//		action.perform();
+//		Create.Xpath(Strings.homeHamburger,waitinsec).click();
+//		Create.Xpath(Strings.PicAndVids,waitinsec).click();
+//		Create.Xpath(Strings.allHeader,waitinsec).click();
+//		Create.Xpath(Strings.firstAllitem,waitinsec).click();
+//		Create.Xpath(Strings.tapFullview,waitinsec).click();
+//
+//		Assert.assertEquals(Create.AssertXpathExists(string.Elipses), 1);
 //
 //	}
-
-
-	//@Test(priority = 2)
-	public void CCreateAlbum() throws IOException, MalformedURLException, InterruptedException {
-		AndroidDriver driver = Capabilities();
-
-		CommonMethods Create = new CommonMethods(driver);
-		Create.Xpath(Strings.homeHamburger).click();
-		Create.Xpath(Strings.PicAndVids).click();
-		Create.Xpath(Strings.albumHeader).click();
-		Create.WaitForIt(Strings.albumHeader);
-		
-		Boolean isFoundElement;
-
-		String test = "Album jgih : Count 1 ";
-//		
-//		String webElements = Create.XpathBuilder(Strings.ImageView, Strings.ContentDesc, test);
-//		System.out.println(webElements);
-		//List<WebElement> webElements = driver.findElementsByXPath("//android.widget.ImageView[@content-desc = 'Album jgih : Count 1' ]");
-		
-
-		
-		//System.out.println(Create.XpathBuilder(Strings.ImageView, Strings.ContentDesc, test));
-														
-		List<WebElement> webElements = driver.findElementsByXPath(Create.XpathBuilder(Strings.ImageView, Strings.ContentDesc, test));
-
-		System.out.println(webElements);
-		
-	}
+//	
+//	
+//
+//	/*
+//	 * public static void main(String[] args) throws MalformedURLException,
+//	 * InterruptedException {
+//	 * 
+//	 * @Test public void LogIn() throws IOException, MalformedURLException,
+//	 * InterruptedException {
+//	 * 
+//	 * 
+//	 * AndroidDriver<WebElement> driver = Capabilities();
+//	 * PhotoAndVideoRepository photoVideo = new PhotoAndVideoRepository(driver);
+//	 * ContextMenuRepository contextMenu = new ContextMenuRepository(driver);
+//	 * TouchAction t = new TouchAction(driver);
+//	 * 
+//	 * photoVideo.SelectAlbums().click(); contextMenu.CreateAlbum().click();
+//	 * photoVideo.EnterAlbumName().sendKeys("Automated Album");
+//	 * photoVideo.AddAlbumContent().click();
+//	 * 
+//	 * List<WebElement> webElements =
+//	 * driver.findElementsById("com.vcast.mediamanager:id/icon");
+//	 * System.out.println(webElements.size());
+//	 * 
+//	 * //for (WebElement webElement : webElements) {
+//	 * //System.out.println(webElements); for(int i=0; i<3; i++){
+//	 * t.press(((WebElement)
+//	 * webElements.get(i))).waitAction(Duration.ofMillis(1000)).release().
+//	 * perform(); //} }
+//	 */
+//
+//	// public static void main(String[] args) throws InterruptedException,
+//	// IOException {
+//
+//	private Object driver;
+//
+//	//@Test
+//	public void OpenMobileRepro() throws MalformedURLException, InterruptedException {
+//
+//		AndroidDriver driver = Capabilities();
+//
+//		CommonMethods Create = new CommonMethods(driver);
+//
+//		// Create.XpathBuilder(Strings.ANDROIDWIDGETIMAGEBUTTON,Strings.INDEX,Strings.ZERO).click();
+//		Create.XpathBuilder("//android.widget.ImageButton", "@index =", "0");
+//
+//	}
+//
+//	// @Test
+//	public void DocumentsShare() throws IOException, MalformedURLException, InterruptedException {
+//
+//		AndroidDriver driver = Capabilities();
+//
+//		CommonMethods Create = new CommonMethods(driver);
+//
+//		Create.Xpath(Strings.homeHamburger,waitinsec).click();
+//		String data_option = Create.Xpath(Strings.PicAndVids,waitinsec).getAttribute("text");
+//		System.out.println("The value is: " + data_option);
+//
+//		// System.out.println(Str.replace('(','y'));
+//		// System.out.println(Str.substring(10,11));
+//		// System.out.println(Str.length());
+//
+//		int openbracket = (data_option.indexOf('('));
+//		int closebracket = (data_option.indexOf(')'));
+//		String count = (data_option.substring(openbracket + 1, closebracket));
+//		int result = Integer.parseInt(count);
+//		System.out.println(result);
+//
+//	}
+//
+//	// @Test
+//	public void scroll() throws IOException, MalformedURLException, InterruptedException {
+//
+//		AndroidDriver driver = Capabilities();
+//
+//		CommonMethods Create = new CommonMethods(driver);
+//
+//		verticalSwipe();
+//
+//		// Create.Xpath("//android.widget.ImageView[@content-desc='Photo :
+//		// IMAG0168.jpg]").click();
+//
+//		// Actions actions = new Actions(driver);
+//		// actions.moveToElement(element);
+//		// actions.perform();
+//		//
+//	}
+//
+//	private void verticalSwipe() {
+//		// TODO Auto-generated method stub
+//
+//	}
+//
+//	// @Test
+//	public void Test() throws IOException, MalformedURLException, InterruptedException {
+//
+//		AndroidDriver driver = Capabilities();
+//
+//		TouchAction t = new TouchAction(driver);
+//
+//		WebDriverWait wait = new WebDriverWait(driver, 30);
+//		wait.until(
+//				ExpectedConditions.visibilityOfElementLocated(By.xpath("//android.widget.TextView[@text = 'Albums']")));
+//		driver.findElementByXPath(
+//				"//android.widget.ImageView[@index = '0' and contains(@content-desc,'Favorites : Count')]").click();
+//
+//		// String documents = "//android.widget.ImageView[@index = '0' and
+//		// contains(@content-desc,'Favorites : Count 4')]";
+//
+//	}
+//
+//	// @Test
+//	public void Push() throws IOException, MalformedURLException, InterruptedException {
+//
+//		AndroidDriver driver = Capabilities();
+//
+//		TouchAction t = new TouchAction(driver);
+//
+//		File file = new File("/Users/eamon.myles/Desktop/cloud-01.png");
+//		byte[] content = FileUtils.readFileToByteArray(file);
+//		driver.pushFile("/sdcard/download/cloud-01.png", content);
+//		Thread.sleep(100);
+//		System.out.println("playground");
+//		driver.findElementByXPath("//android.widget.TextView[@text ='Photos & Videos']").click();
+//		System.out.println("Afterclick");
+//
+//	}
+//
+//	/*
+//	 * public static void main(String args[]){ String s1="  hello string   ";
+//	 * System.out.println(s1+"javatpoint");//without trim()
+//	 * System.out.println(s1.trim()+"javatpoint");//with trim() }
+//	 */
+//
+//	 public static void main(String[] args) throws InterruptedException,
+//	 IOException {
+//	 AndroidDriver driver = Capabilities();
+//	 var screenshotFile = takeScreenshot(driver);
 
 	
-	//@Test
-	public void WorkingScroll() throws IOException, MalformedURLException, InterruptedException {
-		AndroidDriver driver = Capabilities();
-
-		CommonMethods Create = new CommonMethods(driver);
-		Create.Xpath(Strings.homeHamburger).click();
-		Create.Xpath(Strings.PicAndVids).click();
-		Create.Xpath(Strings.albumHeader).click();
-		Create.WaitForIt(Strings.albumHeader);
-		
-		Boolean isFoundElement;
-		
-		String test = "Album jgih : Count 1 ";
-
-		List<WebElement> webElements = driver.findElementsByXPath(Create.XpathBuilder(Strings.ImageView, Strings.ContentDesc, test));
-
-
-		isFoundElement = webElements.size() > 0;
-		System.out.println(isFoundElement);
-		
-		while (isFoundElement == false){
-
-		Dimension size = driver.manage().window().getSize();
-		int startX = size.getWidth() / 2;
-		int startY = size.getHeight() / 2;
-		int endX = 0;
-		int endY = (int) (startY * -1 * 0.05);
-
-		TouchAction action = new TouchAction(driver);
-		action.press(startX, startY).moveTo(endX, endY).release().perform();
-		
-		isFoundElement = webElements.size() > 0;
-		System.out.println(isFoundElement);
-		 webElements = driver.findElementsByXPath("//android.widget.ImageView[@content-desc = 'Album jgih : Count 1' ]");
-		Thread.sleep(3000);
-		}
-				System.out.println("nailed it");
-	}
-
-
-
-	 //@Test
-	public void pasttime() throws IOException, MalformedURLException, InterruptedException {
+	@Test
+	public void captureScreenshot() throws IOException {
 
 		AndroidDriver driver = Capabilities();
 
-		CommonMethods use = new CommonMethods(driver);
-		TouchAction t = new TouchAction(driver);
+		// Screenshot
+		File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+		FileUtils.copyFile(scrFile, new File("/Users/eamon.myles/Desktop/jars/test3.png"));
 
-		WebDriverWait wait = new WebDriverWait(driver, 30);
-		wait.until(
-				ExpectedConditions.visibilityOfElementLocated(By.xpath("//android.widget.ImageButton[@index = '0']")));
-
-		// navBar.Time("//android.widget.ImageButton[@index='0']");
-		// navBar.OpenChicken().click();
-		// driver.findElementByXPath("//android.widget.ImageButton[@index =
-		// '0']").click();
-		// String test = "//android.widget.ImageButton[@index = '0']";
-		// driver.findElement(By.xpath("//android.widget.ImageButton[@index =
-		// '0']")).click();
-		// System.out.println(test);
-		// driver.findElement(By.xpath(test)).click();
-		// System.out.println(navBar.pastXpath());
-		// driver.findElement(By.xpath(navBar.pastXpath())).click();
-
-	}
-
-	// @Test
-	public void multidelete() throws MalformedURLException, InterruptedException {
+		File file = new File("/Users/eamon.myles/Desktop/jars/test3.png");
+		byte[] content = FileUtils.readFileToByteArray(file); // file -> stream
+																// -> byte array
+		driver.pushFile("/sdcard/Pictures/Screenshots/test3.png", content); // works
+		
+//		Needs a media scan in order to get this working correctly.
+//		adb will work for this adb shell am broadcast -a android.intent.action.MEDIA_MOUNTED -d file:////sdcard/Pictures/Screenshots/
+		
+//		Intent intent = 
+//			      new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
+//			intent.setData(Uri.fromFile(file));
+//			sendBroadcast(intent);
+		
+    }
+	
+	
+	@BeforeSuite
+	public void takeAPic() throws IOException {
 
 		AndroidDriver driver = Capabilities();
-		// navBarPRepository navBarP = new navBarPRepository(driver);
+		CommonMethods get = new CommonMethods(driver);
 
-		CommonMethods use = new CommonMethods(driver);
-
-		int i = 0;
-		while (i <= 5000) {
-			WebDriverWait wait = new WebDriverWait(driver, 30);
-			wait.until(
-					ExpectedConditions.visibilityOfElementLocated(By.xpath("//android.widget.TextView[@index='0']")));
-			driver.findElementByXPath("//android.widget.TextView[@index='0']").click();
-			WebDriverWait wait1 = new WebDriverWait(driver, 30);
-			wait.until(ExpectedConditions
-					.visibilityOfElementLocated(By.xpath("//android.widget.Button[@content-desc='More options']")));
-			driver.findElementByXPath("//android.widget.Button[@content-desc='More options']").click();
-			WebDriverWait wait2 = new WebDriverWait(driver, 30);
-			wait.until(ExpectedConditions
-					.visibilityOfElementLocated(By.xpath("//android.widget.TextView[@text='Delete']")));
-			driver.findElementByXPath("//android.widget.TextView[@text='Delete']").click();
-			WebDriverWait wait3 = new WebDriverWait(driver, 30);
-			wait.until(ExpectedConditions
-					.visibilityOfElementLocated(By.xpath("//android.widget.TextView[@text='Group and members']")));
-			driver.findElementByXPath("//android.widget.TextView[@text='Group and members']").click();
-			i++;
-			System.out.println(i);
-		}
-	}
-
+		// adb shell input keyevent 3 Homescreen
+		//adb shell input keyevent 27 Takes a pic if camera is open
+		get.Xpath(Strings.homeHamburger,waitinsec).click();
+		driver.pressKeyCode(AndroidKeyCode.KEYCODE_HOME);
+		String CameraPath = get.XpathBuilder("//android.widget.TextView", Strings.Text, "Camera");
+		System.out.println(CameraPath);
+		get.Xpath(CameraPath, 30).click();
+		driver.pressKeyCode(AndroidKeyCode.KEYCODE_CAMERA);
+    }
 }
+	  
+//
+//
+//
+//
+//
+//
+//	 //@Test
+//	public void pasttime() throws IOException, MalformedURLException, InterruptedException {
+//
+//		AndroidDriver driver = Capabilities();
+//
+//		CommonMethods use = new CommonMethods(driver);
+//		TouchAction t = new TouchAction(driver);
+//
+//		WebDriverWait wait = new WebDriverWait(driver, 30);
+//		wait.until(
+//				ExpectedConditions.visibilityOfElementLocated(By.xpath("//android.widget.ImageButton[@index = '0']")));
+//
+//		// navBar.Time("//android.widget.ImageButton[@index='0']");
+//		// navBar.OpenChicken().click();
+//		// driver.findElementByXPath("//android.widget.ImageButton[@index =
+//		// '0']").click();
+//		// String test = "//android.widget.ImageButton[@index = '0']";
+//		// driver.findElement(By.xpath("//android.widget.ImageButton[@index =
+//		// '0']")).click();
+//		// System.out.println(test);
+//		// driver.findElement(By.xpath(test)).click();
+//		// System.out.println(navBar.pastXpath());
+//		// driver.findElement(By.xpath(navBar.pastXpath())).click();
+//
+//	}
+//
+//	// @Test
+//	public void multidelete() throws MalformedURLException, InterruptedException {
+//
+//		AndroidDriver driver = Capabilities();
+//		// navBarPRepository navBarP = new navBarPRepository(driver);
+//
+//		CommonMethods use = new CommonMethods(driver);
+//
+//		int i = 0;
+//		while (i <= 5000) {
+//			WebDriverWait wait = new WebDriverWait(driver, 30);
+//			wait.until(
+//					ExpectedConditions.visibilityOfElementLocated(By.xpath("//android.widget.TextView[@index='0']")));
+//			driver.findElementByXPath("//android.widget.TextView[@index='0']").click();
+//			WebDriverWait wait1 = new WebDriverWait(driver, 30);
+//			wait.until(ExpectedConditions
+//					.visibilityOfElementLocated(By.xpath("//android.widget.Button[@content-desc='More options']")));
+//			driver.findElementByXPath("//android.widget.Button[@content-desc='More options']").click();
+//			WebDriverWait wait2 = new WebDriverWait(driver, 30);
+//			wait.until(ExpectedConditions
+//					.visibilityOfElementLocated(By.xpath("//android.widget.TextView[@text='Delete']")));
+//			driver.findElementByXPath("//android.widget.TextView[@text='Delete']").click();
+//			WebDriverWait wait3 = new WebDriverWait(driver, 30);
+//			wait.until(ExpectedConditions
+//					.visibilityOfElementLocated(By.xpath("//android.widget.TextView[@text='Group and members']")));
+//			driver.findElementByXPath("//android.widget.TextView[@text='Group and members']").click();
+//			i++;
+//			System.out.println(i);
+//		}
+//	}
+//
+//}

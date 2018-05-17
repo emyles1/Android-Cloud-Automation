@@ -20,6 +20,7 @@ import objectrepository.CommonMethods;
 import objectrepository.Strings;
 
 public class AllFiles extends CloudBase {
+	int waitinsec = 30;
 
 	//@Test
 	public void OpenMobileRepro() throws MalformedURLException, InterruptedException {
@@ -27,16 +28,16 @@ public class AllFiles extends CloudBase {
 		AndroidDriver driver = Capabilities();
 		CommonMethods get = new CommonMethods(driver);
 
-		get.Xpath(Strings.homeHamburger).click();
-		get.Xpath(Strings.Home).click();
-		get.Xpath(Strings.homeHamburger).click();
-		get.Xpath(Strings.AllFiles).click();
-		get.Xpath(Strings.mobileRepro).click();
+		get.Xpath(Strings.homeHamburger,waitinsec).click();
+		get.Xpath(Strings.Home,waitinsec).click();
+		get.Xpath(Strings.homeHamburger,waitinsec).click();
+		get.Xpath(Strings.AllFiles,waitinsec).click();
+		get.Xpath(Strings.mobileRepro,waitinsec).click();
 
 		String foldername = get.GetText(Strings.folderTitle);
 
 		String devicefolder = get.XpathBuilder(Strings.TextView, Strings.Text, foldername);
-		get.Xpath(devicefolder).click();
+		get.Xpath(devicefolder,waitinsec).click();
 		String RepoTitle = get.XpathBuilder(Strings.TextView, Strings.Text, "My "+foldername);
 
 		Assert.assertEquals(get.AssertXpathExists(RepoTitle), 1);
@@ -48,14 +49,14 @@ public class AllFiles extends CloudBase {
 		AndroidDriver driver = Capabilities();
 		CommonMethods get = new CommonMethods(driver);
 
-		get.Xpath(Strings.homeHamburger).click();
-		get.Xpath(Strings.Home).click();
-		get.Xpath(Strings.homeHamburger).click();
-		get.Xpath(Strings.AllFiles).click();
-		get.Xpath(Strings.mobileRepro).click();
+		get.Xpath(Strings.homeHamburger,waitinsec).click();
+		get.Xpath(Strings.Home,waitinsec).click();
+		get.Xpath(Strings.homeHamburger,waitinsec).click();
+		get.Xpath(Strings.AllFiles,waitinsec).click();
+		get.Xpath(Strings.mobileRepro,waitinsec).click();
 		String foldername = get.GetText(Strings.folderTitle);
 		String devicefolder = get.XpathBuilder(Strings.TextView, Strings.Text, foldername);
-		get.Xpath(devicefolder).click();
+		get.Xpath(devicefolder,waitinsec).click();
 		String RepoTitle = get.XpathBuilder(Strings.TextView, Strings.Text, "My "+foldername);
 		
 		System.out.println(get.GetText(Strings.allfileItem));
@@ -70,51 +71,51 @@ public class AllFiles extends CloudBase {
 		case "jpg":
 			extention = "jpg";
 			get.XpathBuilder(Strings.TextView, Strings.Text, s);
-			get.Xpath(get.XpathBuilder(Strings.TextView, Strings.Text, s)).click();
-			get.Xpath(Strings.tapFullview).click();
-			get.Xpath(Strings.Elipses).click();
-			get.Xpath(Strings.overflowinfo).click();
+			get.Xpath(get.XpathBuilder(Strings.TextView, Strings.Text, s),waitinsec).click();
+			get.Xpath(Strings.tapFullview,waitinsec).click();
+			get.Xpath(Strings.Elipses,waitinsec).click();
+			get.Xpath(Strings.overflowinfo,waitinsec).click();
 			String Title = get.XpathBuilder(Strings.TextView, Strings.Text, s);
 			Assert.assertEquals(get.AssertXpathExists(Title), 1);
 			break;
 		case "png":
 			extention = "png";
 			get.XpathBuilder(Strings.TextView, Strings.Text, s);
-			get.Xpath(get.XpathBuilder(Strings.TextView, Strings.Text, s)).click();
-			get.Xpath(Strings.tapFullview).click();
-			get.Xpath(Strings.Elipses).click();
-			get.Xpath(Strings.overflowinfo).click();
+			get.Xpath(get.XpathBuilder(Strings.TextView, Strings.Text, s),waitinsec).click();
+			get.Xpath(Strings.tapFullview,waitinsec).click();
+			get.Xpath(Strings.Elipses,waitinsec).click();
+			get.Xpath(Strings.overflowinfo,waitinsec).click();
 			Title = get.XpathBuilder(Strings.TextView, Strings.Text, s);
 			Assert.assertEquals(get.AssertXpathExists(Title), 1);
 			break;
 		case "mp3":
 			extention = "mp3";
 			get.XpathBuilder(Strings.TextView, Strings.Text, s);
-			get.Xpath(get.XpathBuilder(Strings.TextView, Strings.Text, s)).click();
+			get.Xpath(get.XpathBuilder(Strings.TextView, Strings.Text, s),waitinsec).click();
 			Title = get.XpathBuilder(Strings.TextView, Strings.Text, s);
 			Assert.assertEquals(get.AssertXpathExists(Title), 1);
 			break;
 		case "mp4":
 			extention = "mp4";
 			get.XpathBuilder(Strings.TextView, Strings.Text, s);
-			get.Xpath(get.XpathBuilder(Strings.TextView, Strings.Text, s)).click();
-			get.Xpath(Strings.tapFullview).click();
-			get.Xpath(Strings.Elipses).click();
-			get.Xpath(Strings.overflowinfo).click();
+			get.Xpath(get.XpathBuilder(Strings.TextView, Strings.Text, s),waitinsec).click();
+			get.Xpath(Strings.tapFullview,waitinsec).click();
+			get.Xpath(Strings.Elipses,waitinsec).click();
+			get.Xpath(Strings.overflowinfo,waitinsec).click();
 			Title = get.XpathBuilder(Strings.TextView, Strings.Text, s);
 			Assert.assertEquals(get.AssertXpathExists(Title), 1);
 			break;
 		case "ogg":
 			extention = "ogg";
 			get.XpathBuilder(Strings.TextView, Strings.Text, s);
-			get.Xpath(get.XpathBuilder(Strings.TextView, Strings.Text, s)).click();
+			get.Xpath(get.XpathBuilder(Strings.TextView, Strings.Text, s),waitinsec).click();
 			Title = get.XpathBuilder(Strings.TextView, Strings.Text, s);
 			Assert.assertEquals(get.AssertXpathExists(Title), 1);
 			break;
 		case "mid":
 			extention = "mid";
 			get.XpathBuilder(Strings.TextView, Strings.Text, s);
-			get.Xpath(get.XpathBuilder(Strings.TextView, Strings.Text, s)).click();
+			get.Xpath(get.XpathBuilder(Strings.TextView, Strings.Text, s),waitinsec).click();
 			Title = get.XpathBuilder(Strings.TextView, Strings.Text, s);
 			Assert.assertEquals(get.AssertXpathExists(Title), 1);
 			break;
@@ -122,8 +123,8 @@ public class AllFiles extends CloudBase {
 			extention = "docx";
 			get.XpathBuilder(Strings.TextView, Strings.Text, s);
 			get.TouchActionPress(get.XpathBuilder(Strings.TextView, Strings.Text, s));
-			get.Xpath(Strings.Elipses).click();
-			get.Xpath(Strings.overflowinfo).click();
+			get.Xpath(Strings.Elipses,waitinsec).click();
+			get.Xpath(Strings.overflowinfo,waitinsec).click();
 			Title = get.XpathBuilder(Strings.TextView, Strings.Text, s);
 			Assert.assertEquals(get.AssertXpathExists(Title), 1);
 			break;
@@ -131,8 +132,8 @@ public class AllFiles extends CloudBase {
 			extention = "pdf";
 			get.XpathBuilder(Strings.TextView, Strings.Text, s);
 			get.TouchActionPress(get.XpathBuilder(Strings.TextView, Strings.Text, s));
-			get.Xpath(Strings.Elipses).click();
-			get.Xpath(Strings.overflowinfo).click();
+			get.Xpath(Strings.Elipses,waitinsec).click();
+			get.Xpath(Strings.overflowinfo,waitinsec).click();
 			Title = get.XpathBuilder(Strings.TextView, Strings.Text, s);
 			Assert.assertEquals(get.AssertXpathExists(Title), 1);
 			break;
@@ -140,8 +141,8 @@ public class AllFiles extends CloudBase {
 			extention = "xls";
 			get.XpathBuilder(Strings.TextView, Strings.Text, s);
 			get.TouchActionPress(get.XpathBuilder(Strings.TextView, Strings.Text, s));
-			get.Xpath(Strings.Elipses).click();
-			get.Xpath(Strings.overflowinfo).click();
+			get.Xpath(Strings.Elipses,waitinsec).click();
+			get.Xpath(Strings.overflowinfo,waitinsec).click();
 			Title = get.XpathBuilder(Strings.TextView, Strings.Text, s);
 			Assert.assertEquals(get.AssertXpathExists(Title), 1);
 			break;
@@ -149,8 +150,8 @@ public class AllFiles extends CloudBase {
 			extention = "ppt";
 			get.XpathBuilder(Strings.TextView, Strings.Text, s);
 			get.TouchActionPress(get.XpathBuilder(Strings.TextView, Strings.Text, s));
-			get.Xpath(Strings.Elipses).click();
-			get.Xpath(Strings.overflowinfo).click();
+			get.Xpath(Strings.Elipses,waitinsec).click();
+			get.Xpath(Strings.overflowinfo,waitinsec).click();
 			Title = get.XpathBuilder(Strings.TextView, Strings.Text, s);
 			Assert.assertEquals(get.AssertXpathExists(Title), 1);
 			break;

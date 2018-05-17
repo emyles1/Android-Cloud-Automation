@@ -20,7 +20,7 @@ import objectrepository.Strings;
 
 public class PhotosAndVideo extends CloudBase {
 	int waitinsec = 30;
-	@Test(priority=0)
+	//@Test(priority=0)
 	public void ViewItem() throws IOException, MalformedURLException, InterruptedException {
 
 		AndroidDriver driver = Capabilities();
@@ -207,5 +207,39 @@ public class PhotosAndVideo extends CloudBase {
 		Assert.assertEquals(get.AssertXpathExists(Strings.favAlbum), 1);
 
 	}
+	
+	//ANDRVC-8100
+	@Test
+	public void ShareCollage() throws MalformedURLException, InterruptedException {
 
+		AndroidDriver driver = Capabilities();
+
+		CommonMethods get = new CommonMethods(driver);
+		Strings string = new Strings();
+
+		get.Xpath(Strings.homeHamburger,waitinsec).click();
+		get.Xpath(Strings.PicAndVids,waitinsec).click();
+		get.Xpath(Strings.allHeader,waitinsec).click();
+		get.multiSelect(3);
+		get.Xpath(Strings.Elipses, waitinsec).click();
+		get.Xpath(Strings.CreateCollage, waitinsec).click();
+		get.Xpath(Strings.Save, waitinsec).click();
+		driver.pressKeyCode(AndroidKeyCode.BACK);
+		get.Xpath(Strings.homeHamburger, waitinsec).click();
+		get.Xpath(Strings.Settings, waitinsec).click();
+		get.Xpath(Strings.WhattoBackup, waitinsec).click();
+		List<WebElement> webElements = driver.findElementsByXPath(Strings.BackupChecks);
+		String result = webElements.get(1).getAttribute("checked");
+		if (result.equals("false")) {
+			webElements.get(1).click();
+		}
+		get.Xpath(Strings.ButtonOK, waitinsec).click();
+	    get.BackupNow();
+	}
 }
+	
+	
+
+	// Assert.assertEquals(get.AssertXpathExists(Strings.favAlbum), 1);
+
+

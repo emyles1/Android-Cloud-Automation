@@ -1,5 +1,6 @@
 package objectrepository;
 
+
 import java.net.MalformedURLException;
 import java.time.Duration;
 import java.util.List;
@@ -8,7 +9,7 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
+
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -18,22 +19,21 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
 public class CommonMethods {
-
-	AndroidDriver driver;
-	
-	
-
-	public CommonMethods(AndroidDriver driver) {
-
-		this.driver = driver;
+    AndroidDriver driver;
+    public CommonMethods(AndroidDriver driver) {
+	this.driver = driver;
 		
 		// add for the Factory object model
 		// PageFactory.initElements(driver, this);
 		PageFactory.initElements(new AppiumFieldDecorator(driver), this);
 	}
+    int waitinsec = 30;
+
 	
 	public String XpathBuilder(String classpath, String attribute, String value) {
 		
+		
+		//The scrolling method fail with the wait is commented in. It will wait forever for an items thats not there
 //		WebDriverWait wait = new WebDriverWait(driver, 30);
 //		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(classpath+  "["   + attribute+   "'"  + value +   "'" +  "]" )));
 		
@@ -42,7 +42,19 @@ public class CommonMethods {
 
 	}
 	
+	
+	public void BackupNow() throws MalformedURLException, InterruptedException {
 
+		CommonMethods get = new CommonMethods(driver);
+
+		get.Xpath(Strings.homeHamburger,waitinsec).click();
+		get.Xpath(Strings.Home,waitinsec).click();
+		get.ResourceID(Strings.Cloudicon).click();
+		get.ResourceID(Strings.Backupnow).click();
+
+	}
+	
+	
 	public void ScrolltoFind(String string1, String string2, String result) throws InterruptedException {
 		
 	CommonMethods Create = new CommonMethods(driver);
@@ -65,9 +77,9 @@ public class CommonMethods {
 	action.press(startX, startY).moveTo(endX, endY).release().perform();
 	
 	isFoundElement = webElements.size() > 0;
-	System.out.println(isFoundElement);
-	 webElements = driver.findElementsByXPath(Create.XpathBuilder(Strings.ImageView, Strings.ContentDesc, result));
-	Thread.sleep(3000);
+	System.out.println("Item found " + isFoundElement);
+	webElements = driver.findElementsByXPath(Create.XpathBuilder(string1, string2, result));
+	Thread.sleep(5000);
 	}
 
 	}
@@ -87,6 +99,20 @@ public class CommonMethods {
 		WebElement webElement = driver.findElementByXPath(string);
 		return webElement;
 
+	}
+	
+	
+	public void Checkboxes(String string, int seconds, String choice) {
+	List<WebElement> webElements = driver.findElementsByXPath(string);
+	
+	for (int i = 0; i < webElements.size(); i++) {
+
+		String result =webElements.get(i).getAttribute("checked");
+
+			if (result.equals(choice)){
+				webElements.get(i).click();
+			}
+			}
 	}
 	
 	public WebElement TouchActionPress(String string) {
@@ -130,20 +156,39 @@ public class CommonMethods {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(string)));
 		
 		String text = Create.Xpath(string,30).getText();
+		
 
 		return text;
 	}
 
 	public void multiSelect(int x) {
+		CommonMethods Create = new CommonMethods(driver);
 
 		TouchAction t = new TouchAction(driver);
 
-		for (int i = 0; i < x; i++) {
-			t.press(driver.findElementByXPath("//android.widget.ImageView[@index= '" + i
-					+ "' and @resource-id='com.vcast.mediamanager:id/icon']")).waitAction(Duration.ofMillis(1000))
-					.release().perform();
+		// for (int i = 0; i < x; i++) {
+		// t.press(driver.findElementByXPath("//android.widget.ImageView[@index=
+		// '" + i
+		// + "' and
+		// @resource-id='com.vcast.mediamanager:id/icon']")).waitAction(Duration.ofMillis(1000))
+		// .release().perform();
+		// }
+
+		t.press(driver.findElementByXPath(
+				"//android.widget.ImageView[@index= '0' and @resource-id='com.vcast.mediamanager:id/icon']"))
+				.waitAction(Duration.ofMillis(1000)).release().perform();
+
+		for (int i = 1; i < x; i++) {
+			// Create.WaitForIt("//android.widget.ImageView[@index = '2' ]",30);
+
+			driver.findElementByXPath(
+					"//android.widget.ImageView[@index = '" + i + "'and @resource-id='com.vcast.mediamanager:id/icon']")
+					.click();
+
 		}
 	}
+	   
+	
 	
 
 	public void DuplicateFile() throws InterruptedException {

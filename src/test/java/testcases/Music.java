@@ -24,7 +24,7 @@ public class Music extends CloudBase {
 	
 	int waitinsec = 30;
 
-	@Test
+	//@Test
 	public void ArtistView() throws MalformedURLException, InterruptedException {
 
 		AndroidDriver driver = Capabilities();
@@ -40,7 +40,7 @@ public class Music extends CloudBase {
 
 	}
 	
-	@Test
+	//@Test
 	public void ArtistDownload() throws MalformedURLException, InterruptedException {
 
 		AndroidDriver driver = Capabilities();
@@ -54,11 +54,12 @@ public class Music extends CloudBase {
 		get.TouchActionPress(Strings.overflowdownload);
 		get.DuplicateFile();
 		driver.openNotifications();
+		get.WaitForIt(Strings.downloadComplete, 120);
 		Assert.assertEquals(get.AssertXpathExists(Strings.downloadComplete), 1);
 
 	}
 	
-	@Test
+	//@Test
 	public void ArtistAddtoPlaylist() throws MalformedURLException, InterruptedException {
 
 		AndroidDriver driver = Capabilities();
@@ -78,6 +79,65 @@ public class Music extends CloudBase {
 		String result = ("Album Auto Album" + rannum + " : Count 3");
 		get.Xpath(Strings.ButtonOK,waitinsec).click();
 		
+	}
+	
+	
+	//@Test
+	public void DeleteSong() throws MalformedURLException, InterruptedException {
+
+		AndroidDriver driver = Capabilities();
+		CommonMethods get = new CommonMethods(driver);
+		
+		int rannum = (int) (Math.random() * 256);
+		System.out.println(rannum);
+
+		get.Xpath(Strings.homeHamburger,waitinsec).click();
+		get.Xpath(Strings.Music,waitinsec).click();
+		get.Xpath(Strings.songsHeader,waitinsec).click();
+		get.TouchActionPress(Strings.longPressMusic);
+		get.Xpath(Strings.Elipses,waitinsec).click();
+		get.TouchActionPress(Strings.overflowdelete);
+		get.Xpath(Strings.deleteYes,waitinsec).click();
+
+	}
+	
+	//@Test
+	public void CreatePlaylist() throws IOException, MalformedURLException, InterruptedException {
+		AndroidDriver driver = Capabilities();
+
+		CommonMethods get = new CommonMethods(driver);
+
+		int rannum = (int) (Math.random() * 256);
+		System.out.println(rannum);
+
+		get.Xpath(Strings.homeHamburger,waitinsec).click();
+		get.Xpath(Strings.Music,waitinsec).click();
+		get.Xpath(Strings.playlistsHeader,waitinsec).click();
+		get.Xpath(Strings.createAlbum,waitinsec).click();
+		get.Xpath(Strings.enterAlbumName,waitinsec).sendKeys("Auto Album" + rannum);
+		String result = ("Auto Album" + rannum);
+		get.Xpath(Strings.addPlaylistContent,waitinsec).click();
+		get.TouchActionPress(Strings.longPressMusic);
+		get.Xpath(Strings.makeSelection,waitinsec).click();
+		Thread.sleep(5000);
+		get.ScrolltoFind(Strings.TextView, Strings.Text, result);
+		Assert.assertEquals(
+				get.AssertXpathExists(get.XpathBuilder(Strings.TextView, Strings.Text, result)), 1);
+	}
+	
+	@Test
+	public void PlaySong() throws MalformedURLException, InterruptedException {
+
+		AndroidDriver driver = Capabilities();
+		CommonMethods get = new CommonMethods(driver);
+
+		get.Xpath(Strings.homeHamburger,waitinsec).click();
+		get.Xpath(Strings.Music,waitinsec).click();
+		get.Xpath(Strings.songsHeader,waitinsec).click();
+		get.Xpath(Strings.longPressMusic, waitinsec).click();
+		Assert.assertEquals(get.AssertXpathExists(Strings.nowPlaying), 1);
+
+
 	}
 
 
