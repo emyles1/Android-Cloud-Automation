@@ -2,15 +2,15 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="53717" started-at="2018-05-17T15:45:47Z" finished-at="2018-05-17T15:46:40Z">
+  <suite name="Default suite" duration-ms="52630" started-at="2018-05-28T15:49:27Z" finished-at="2018-05-28T15:50:19Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="53717" started-at="2018-05-17T15:45:47Z" finished-at="2018-05-17T15:46:40Z">
+    <test name="Default test" duration-ms="52630" started-at="2018-05-28T15:49:27Z" finished-at="2018-05-28T15:50:19Z">
       <class name="testcases.PhotosAndVideo">
-        <test-method status="PASS" signature="ShareCollage()[pri:0, instance:testcases.PhotosAndVideo@31dc339b]" name="ShareCollage" duration-ms="53682" started-at="2018-05-17T16:45:47Z" finished-at="2018-05-17T16:46:40Z">
+        <test-method status="PASS" signature="SwipeRight()[pri:0, instance:testcases.PhotosAndVideo@31dc339b]" name="SwipeRight" duration-ms="52603" started-at="2018-05-28T16:49:27Z" finished-at="2018-05-28T16:50:19Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- ShareCollage -->
+        </test-method> <!-- SwipeRight -->
       </class> <!-- testcases.PhotosAndVideo -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->

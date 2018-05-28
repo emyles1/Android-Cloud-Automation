@@ -108,7 +108,7 @@ public class Playground extends CloudBase{
 	
 	//User input
 	
-	@Test
+	//@Test
 	public void OpenSettings() throws MalformedURLException, InterruptedException {
 	
 	Scanner reader = new Scanner(System.in);  // Reading from System.in
@@ -117,6 +117,48 @@ public class Playground extends CloudBase{
 	//once finished
 	reader.close();
 
+	}
+	
+	
+	@Test
+	public void Swipe() throws MalformedURLException, InterruptedException {
+
+		AndroidDriver driver = Capabilities();
+		CommonMethods get = new CommonMethods(driver);
+
+		get.Xpath(Strings.homeHamburger, waitinsec).click();
+		int isFoundElement = get.GetNavCount(Strings.PicAndVids, "text");
+		get.Xpath(Strings.PicAndVids, waitinsec).click();
+		get.Xpath(Strings.allHeader, waitinsec).click();
+	//	get.Xpath(Strings.firstAllitem, waitinsec).click();
+		//get.WaitForIt(Strings.tapFullview, waitinsec);
+		
+		
+		
+		//int isFoundElement = get.GetNavCount(Strings.PicAndVids, "text");
+		double swipes = isFoundElement *0.04;
+		System.out.println(swipes);
+		System.out.println(isFoundElement);
+
+		int x = 0;
+		while (x <= swipes){
+
+			Dimension size = driver.manage().window().getSize();
+			int startX = size.getWidth() / 2;
+			int startY = size.getHeight() / 2;
+			int endX = 0;
+			int endY = (int) (startY * -1 * .30);
+			
+
+			TouchAction action = new TouchAction(driver);
+			action.press(startX, startY).moveTo(endX, endY).release().perform();
+	
+			System.out.println("Item found " + isFoundElement);
+			x++;
+			Thread.sleep(2000);
+
+		}
+		//get.SwipeRight();
 	}
 	 
 	
@@ -303,7 +345,7 @@ public class Playground extends CloudBase{
 //	 var screenshotFile = takeScreenshot(driver);
 
 	
-	@Test
+	//@Test
 	public void captureScreenshot() throws IOException {
 
 		AndroidDriver driver = Capabilities();
@@ -328,7 +370,7 @@ public class Playground extends CloudBase{
     }
 	
 	
-	@BeforeSuite
+	//@BeforeSuite
 	public void takeAPic() throws IOException {
 
 		AndroidDriver driver = Capabilities();

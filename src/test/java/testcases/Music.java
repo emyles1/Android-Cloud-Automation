@@ -34,7 +34,7 @@ public class Music extends CloudBase {
 		get.Xpath(Strings.Music,waitinsec).click();
 		get.Xpath(Strings.artistsHeader,waitinsec).click();
 		get.ResourceID(Strings.listItem).click();
-		Assert.assertEquals(get.AssertXpathExists(Strings.albumsHeader), 1);
+		Assert.assertEquals(get.AssertXpathExists(Strings.albumHeader), 1);
 		Assert.assertEquals(get.AssertXpathExists(Strings.songsHeader), 1);
 
 
@@ -120,11 +120,13 @@ public class Music extends CloudBase {
 		get.TouchActionPress(Strings.longPressMusic);
 		get.Xpath(Strings.makeSelection,waitinsec).click();
 		Thread.sleep(5000);
-		get.ScrolltoFind(Strings.TextView, Strings.Text, result);
+		get.ScrollDowntoFind(Strings.TextView, Strings.Text, result, 0.05);
 		Assert.assertEquals(
 				get.AssertXpathExists(get.XpathBuilder(Strings.TextView, Strings.Text, result)), 1);
 	}
 	
+	
+	//ANDRVC-807 - Not complete as per testcase
 	@Test
 	public void PlaySong() throws MalformedURLException, InterruptedException {
 

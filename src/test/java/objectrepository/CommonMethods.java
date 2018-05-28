@@ -13,6 +13,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.Test;
 
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
@@ -55,7 +56,7 @@ public class CommonMethods {
 	}
 	
 	
-	public void ScrolltoFind(String string1, String string2, String result) throws InterruptedException {
+	public void ScrollDowntoFind(String string1, String string2, String result, double scrollhgt) throws InterruptedException {
 		
 	CommonMethods Create = new CommonMethods(driver);
 	Boolean isFoundElement;
@@ -71,7 +72,7 @@ public class CommonMethods {
 	int startX = size.getWidth() / 2;
 	int startY = size.getHeight() / 2;
 	int endX = 0;
-	int endY = (int) (startY * -1 * 0.05);
+	int endY = (int) (startY * -1 * scrollhgt);
 
 	TouchAction action = new TouchAction(driver);
 	action.press(startX, startY).moveTo(endX, endY).release().perform();
@@ -79,10 +80,54 @@ public class CommonMethods {
 	isFoundElement = webElements.size() > 0;
 	System.out.println("Item found " + isFoundElement);
 	webElements = driver.findElementsByXPath(Create.XpathBuilder(string1, string2, result));
-	Thread.sleep(5000);
+	Thread.sleep(3000);
+		}
+	}
+	
+
+	public void ScrolltoEnd() throws MalformedURLException, InterruptedException {
+
+		CommonMethods get = new CommonMethods(driver);
+
+		get.Xpath(Strings.homeHamburger, waitinsec).click();
+		int NavCount = get.GetNavCount(Strings.PicAndVids, "text");
+		get.Xpath(Strings.PicAndVids, waitinsec).click();
+		double swipes = NavCount *0.04;
+
+		int x = 0;
+		while (x <= swipes){
+
+			Dimension size = driver.manage().window().getSize();
+			int startX = size.getWidth() / 2;
+			int startY = size.getHeight() / 2;
+			int endX = 0;
+			int endY = (int) (startY * -1 * .30);
+			
+
+			TouchAction action = new TouchAction(driver);
+			action.press(startX, startY).moveTo(endX, endY).release().perform();
+	
+			System.out.println("Item found " + NavCount);
+			x++;
+			Thread.sleep(2000);
+		}
+	}
+	
+	public void SwipeRight() throws MalformedURLException, InterruptedException {
+
+		CommonMethods get = new CommonMethods(driver);
+
+		Dimension size = driver.manage().window().getSize();
+
+		int startX = size.getWidth() / 2;
+		int startY = size.getHeight() / 2;
+		int endX = (int) (startY * -1 * 0.75);
+		int endY = 0;
+
+		TouchAction action = new TouchAction(driver);
+		action.press(startX, startY).moveTo(endX, endY).release().perform();
 	}
 
-	}
 	
 	public void WaitForIt(String string, int seconds) {
 
@@ -174,6 +219,7 @@ public class CommonMethods {
 		// .release().perform();
 		// }
 
+		Create.WaitForIt("//android.widget.ImageView[@index= '0' and @resource-id='com.vcast.mediamanager:id/icon']", 20);
 		t.press(driver.findElementByXPath(
 				"//android.widget.ImageView[@index= '0' and @resource-id='com.vcast.mediamanager:id/icon']"))
 				.waitAction(Duration.ofMillis(1000)).release().perform();
@@ -210,7 +256,7 @@ public class CommonMethods {
 
 		CommonMethods Create = new CommonMethods(driver);
 
-		Create.WaitForIt(string,30);
+		//Create.WaitForIt(string,30);
 		List<WebElement> webElements = driver.findElementsByXPath(string);
 		System.out.println(webElements);
 

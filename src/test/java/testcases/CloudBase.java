@@ -35,16 +35,13 @@ public class CloudBase {
 		cap.setCapability("autoGrantPermissions", true);
 		// The below capability will stop the automation reinstalling the appß
 		cap.setCapability("noReset", true);
-
-		
-		//cap.setCapability("platformVersion", "7.0");
-		//cap.setCapability(MobileCapabilityType.AUTOMATION_NAME, "uiautomator2");
+		cap.setCapability("platformVersion", "7.0");
+		cap.setCapability(MobileCapabilityType.AUTOMATION_NAME, "uiautomator2");
 
 
 		AndroidDriver driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), cap);
 		
-		cap.setCapability("platformVersion", "7.0");
-		cap.setCapability(MobileCapabilityType.AUTOMATION_NAME, "uiautomator2");
+	
 
 		return driver;
 

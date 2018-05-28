@@ -42,15 +42,17 @@ public class Strings {
 	public final static String favAlbum = "//android.widget.ImageView[@index = '0' and contains(@content-desc,'Favorites : Count')]";
 	public final static String firstAllitem = "//android.widget.ImageView[@resource-id = 'com.vcast.mediamanager:id/icon' and @index ='0']";
 	public final static String firstTimelineitem = "//android.widget.ImageView[@resource-id = 'com.vcast.mediamanager:id/icon' and @index ='1']";
+	public final static String AlbumSelect = "//android.widget.ImageView[@resource-id = 'com.vcast.mediamanager:id/icon' and @index ='1']";
 	public final static String enterAlbumName = "//android.widget.EditText[@resource-id = 'com.vcast.mediamanager:id/new_album_edit']";
 	public final static String addAlbumContent = "//android.widget.Button[@text = 'Add Content']";
 	public final static String longPressPic = "//android.widget.ImageView[@index='2']";
 	public final static String duplicateFile = "//android.widget.TextView[@text='Duplicate file']";
 	public final static String infodatetaken = "//android.widget.TextView[@text = 'Date Taken']";
+	public final static String filterByVideo = "//android.widget.CheckedTextView[@text = 'Videos']";
+	public final static String filterByPhotos = "//android.widget.CheckedTextView[@text = 'Photos']";
 	
 	//MusicRespository strings
 	public final static String artistsHeader = "//android.widget.TextView[@text = 'Artists']";
-	public final static String albumsHeader = "//android.widget.TextView[@text = 'Albums']";
 	public final static String songsHeader = "//android.widget.TextView[@text = 'Songs']";
 	public final static String genresHeader = "//android.widget.TextView[@text = 'Genres']";
 	public final static String playlistsHeader = "//android.widget.TextView[@text = 'Playlists']";
@@ -82,6 +84,7 @@ public class Strings {
 	public final static String overflowdownload = "//android.widget.TextView[@text ='Download']";
 	public final static String overflowOpen = "//android.widget.TextView[@text = 'Open']";
 	public final static String SortView = "//android.widget.TextView[@text ='Sort View']";
+	public final static String FilterBy = "//android.widget.TextView[@text ='Filter By']";
 	public final static String share = "//android.widget.TextView[@content-desc ='Share']";
 	public final static String overflowcopysharelink = "//android.widget.TextView[@text ='Copy Share Link']";
 	public final static String overflowdelete = "//android.widget.TextView[@text ='Delete']";
@@ -94,6 +97,7 @@ public class Strings {
 	public final static String copyrightNotice = "//android.widget.TextView[@text = 'Copyright Notice']";
 	public final static String AddtoPlaylist = "//android.widget.TextView[@text = 'Add to Playlist']";
 	public final static String CreateCollage = "//android.widget.TextView[@text = 'Create Collage']";
+	public final static String SelectAlbums = "//android.widget.TextView[@text = 'Select Albums']";
 
 	// CommonMethods strings
 	public final static String deleteYes = "//android.widget.Button[@text ='YES']";
