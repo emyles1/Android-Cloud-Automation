@@ -52,7 +52,7 @@ public class CommonMethods {
 		get.Xpath(Strings.Home,waitinsec).click();
 		get.ResourceID(Strings.Cloudicon).click();
 		get.ResourceID(Strings.Backupnow).click();
-
+		
 	}
 	
 	
@@ -90,7 +90,7 @@ public class CommonMethods {
 		CommonMethods get = new CommonMethods(driver);
 
 		get.Xpath(Strings.homeHamburger, waitinsec).click();
-		int NavCount = get.GetNavCount(Strings.PicAndVids, "text");
+		int NavCount = get.GetAttributeCount(Strings.PicAndVids, "text");
 		get.Xpath(Strings.PicAndVids, waitinsec).click();
 		double swipes = NavCount *0.04;
 
@@ -113,7 +113,7 @@ public class CommonMethods {
 		}
 	}
 	
-	public void SwipeRight() throws MalformedURLException, InterruptedException {
+	public void SwipeRight(int swipes) throws MalformedURLException, InterruptedException {
 
 		CommonMethods get = new CommonMethods(driver);
 
@@ -124,8 +124,13 @@ public class CommonMethods {
 		int endX = (int) (startY * -1 * 0.75);
 		int endY = 0;
 
+		int i = 0;
+		while (i < swipes) {
 		TouchAction action = new TouchAction(driver);
 		action.press(startX, startY).moveTo(endX, endY).release().perform();
+		++i;
+		}
+
 	}
 
 	
@@ -180,7 +185,7 @@ public class CommonMethods {
 
 
 	
-	public int GetNavCount(String string, String attribute) {
+	public int GetAttributeCount(String string, String attribute) {
 
 		CommonMethods Create = new CommonMethods(driver);
 		String data_option = Create.Xpath(string,30).getAttribute(attribute);
@@ -190,6 +195,14 @@ public class CommonMethods {
 		int beforeDelete = Integer.parseInt(count);
 
 		return beforeDelete;
+	}
+	
+	public String GetAttribute (String string, String attribute) {
+
+		CommonMethods Create = new CommonMethods(driver);
+		String retattribute = Create.Xpath(string,30).getAttribute(attribute);
+
+		return  retattribute;
 
 	}
 	
@@ -256,9 +269,8 @@ public class CommonMethods {
 
 		CommonMethods Create = new CommonMethods(driver);
 
-		//Create.WaitForIt(string,30);
+		Create.WaitForIt(string,30); //added back in the timelimit for Download photo test 
 		List<WebElement> webElements = driver.findElementsByXPath(string);
-		System.out.println(webElements);
 
 		if (webElements.size() == 1) {
 			return 1;

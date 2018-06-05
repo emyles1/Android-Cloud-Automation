@@ -31,8 +31,11 @@ public class Strings {
 	public final static String Appsusingcloud = "//android.widget.TextView[@text = 'Apps Using Cloud')]";
 	public final static String AllFiles = "//android.widget.TextView[@index = '8' and contains(@text,'All Files')]";
 	public final static String Settings = "//android.widget.TextView[@index = '9' and contains(@text,'Settings')]";
+	
+	//HomeRepository strings
 	public final static String Cloudicon = "com.vcast.mediamanager:id/status_icon";
 	public final static String Backupnow = "com.vcast.mediamanager:id/back_up_status";
+	public final static String CancelBackup = "//android.widget.TextView[@text = 'Cancel Backup']";
 
 
 	// PhotoAndVideoRespository strings
@@ -50,6 +53,7 @@ public class Strings {
 	public final static String infodatetaken = "//android.widget.TextView[@text = 'Date Taken']";
 	public final static String filterByVideo = "//android.widget.CheckedTextView[@text = 'Videos']";
 	public final static String filterByPhotos = "//android.widget.CheckedTextView[@text = 'Photos']";
+	public final static String tapFullview = "//android.widget.ImageView[@index = '0' and contains(@resource-id, 'com.vcast.mediamanager:id/flipper_image_view_')]";
 	
 	//MusicRespository strings
 	public final static String artistsHeader = "//android.widget.TextView[@text = 'Artists']";
@@ -60,9 +64,7 @@ public class Strings {
 	public final static String longPressMusic = "//android.widget.LinearLayout[@index= 0]";
 	public final static String addPlaylistContent = "//android.widget.Button[@text = 'Add Songs']";
 	public final static String nowPlaying = "//android.widget.TextView[@text = 'Now Playing']";
-	
 
-	
 
 	//DocRespository strings
 	public final static String longPressDoc = "//android.widget.RelativeLayout[@index= '0']";
@@ -89,9 +91,9 @@ public class Strings {
 	public final static String overflowcopysharelink = "//android.widget.TextView[@text ='Copy Share Link']";
 	public final static String overflowdelete = "//android.widget.TextView[@text ='Delete']";
 	public final static String overflowinfo = "//android.widget.TextView[@text ='Info']";
+	public final static String InfoTitle = "//android.widget.TextView[@resource-id = 'com.vcast.mediamanager:id/dialog_title']";
 	public final static String createAlbum = "//android.widget.TextView[@resource-id ='com.vcast.mediamanager:id/new_album']";
 	public final static String makeSelection = "//android.widget.ImageView[@index='0']";
-	public final static String tapFullview = "//android.widget.ImageView[@resource-id = 'com.vcast.mediamanager:id/flipper_image_view_0']";
 	public final static String selectioncheckmark = "com.vcast.mediamanager:id/action_mode_close_button";
 	public final static String completeactionusing = "//android.widget.TextView[@text = 'Complete action using']";
 	public final static String copyrightNotice = "//android.widget.TextView[@text = 'Copyright Notice']";
@@ -106,7 +108,7 @@ public class Strings {
 	public final static String deleting = "//android.widget.TextView[@text ='Deleting. Please wait…']";
 	public final static String ButtonOK = "//android.widget.Button[@text ='OK']";
 	public final static String ButtonCancel = "//android.widget.Button[@text ='CANCEL']";
-	public final static String Save = "//android.widget.Button[@text ='Save']";
+	public final static String Save = "//android.widget.Button[@text ='SAVE']"; //capitalized for the collage save
 	
 	
 	//Notifications strings

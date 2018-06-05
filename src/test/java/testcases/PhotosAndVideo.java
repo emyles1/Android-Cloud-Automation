@@ -25,7 +25,7 @@ public class PhotosAndVideo extends CloudBase {
 	int waitinsec = 30;
 
 	// @Test(priority=0)
-	public void ViewItem() throws IOException, MalformedURLException, InterruptedException {
+	public void Fullview() throws IOException, MalformedURLException, InterruptedException {
 
 		AndroidDriver driver = Capabilities();
 
@@ -43,8 +43,8 @@ public class PhotosAndVideo extends CloudBase {
 	}
 
 	// ANDRVC-5799
-	// @Test(priority=1)
-	public void BInfo() throws IOException, MalformedURLException, InterruptedException {
+	// @Test
+	public void Info() throws IOException, MalformedURLException, InterruptedException {
 		AndroidDriver driver = Capabilities();
 
 		CommonMethods get = new CommonMethods(driver);
@@ -60,9 +60,9 @@ public class PhotosAndVideo extends CloudBase {
 		Assert.assertEquals(get.AssertXpathExists(Strings.infodatetaken), 1);
 
 	}
-	
-	//ANDRVC-87
-	//@Test
+
+	// ANDRVC-87
+	// @Test
 	public void CreateAlbums() throws IOException, MalformedURLException, InterruptedException {
 		AndroidDriver driver = Capabilities();
 
@@ -75,14 +75,15 @@ public class PhotosAndVideo extends CloudBase {
 		get.Xpath(Strings.PicAndVids, waitinsec).click();
 		get.Xpath(Strings.albumHeader, waitinsec).click();
 		get.Xpath(Strings.createAlbum, waitinsec).click();
-		//adding the following block to ensure at least 2 albums exist for following test cases.
-		get.Xpath(Strings.enterAlbumName, waitinsec).sendKeys("TestAlbum"+ rannum);
+		// adding the following block to ensure at least 2 albums exist for
+		// following test cases.
+		get.Xpath(Strings.enterAlbumName, waitinsec).sendKeys("TestAlbum" + rannum);
 		get.Xpath(Strings.addAlbumContent, waitinsec).click();
 		get.multiSelect(3);
 		get.Xpath(Strings.makeSelection, waitinsec).click();
 		get.WaitForIt(Strings.createAlbum, 30);
 		get.Xpath(Strings.createAlbum, waitinsec).click();
-		
+
 		get.Xpath(Strings.enterAlbumName, waitinsec).sendKeys("Auto Album" + rannum);
 		String result = ("Album Auto Album" + rannum + " : Count 3");
 		get.Xpath(Strings.addAlbumContent, waitinsec).click();
@@ -97,7 +98,7 @@ public class PhotosAndVideo extends CloudBase {
 	}
 
 	// ANDRVC-734 not complete
-	//@Test(dependsOnMethods = { "CreateAlbums" })
+	// @Test(dependsOnMethods = { "CreateAlbums" })
 	public void DeleteAlbum() throws IOException, MalformedURLException, InterruptedException {
 
 		AndroidDriver driver = Capabilities();
@@ -106,40 +107,52 @@ public class PhotosAndVideo extends CloudBase {
 		get.Xpath(Strings.homeHamburger, waitinsec).click();
 		get.Xpath(Strings.PicAndVids, waitinsec).click();
 		get.Xpath(Strings.albumHeader, waitinsec).click();
-		
+
 		get.TouchActionPress(Strings.AlbumSelect);
 		String Albumname = get.Xpath(Strings.AlbumSelect, waitinsec).getAttribute("contentDescription");
 		get.Xpath(Strings.Elipses, waitinsec).click();
 		get.Xpath(Strings.overflowdelete, waitinsec).click();
 		get.Xpath(Strings.deleteYes, waitinsec).click();
 		Thread.sleep(3000);
-		int itemDeleted = driver.findElementsByXPath(get.XpathBuilder(Strings.ImageView, Strings.ContentDesc, Albumname)).size();
+		int itemDeleted = driver
+				.findElementsByXPath(get.XpathBuilder(Strings.ImageView, Strings.ContentDesc, Albumname)).size();
 
 		Assert.assertEquals(itemDeleted, 0);
-	
+
 	}
-	
-	//ANDRVC-669 needs more work!!
-	@Test
+
+	// ANDRVC-669
+	//@Test
 	public void SwipeRight() throws IOException, MalformedURLException, InterruptedException {
 
 		AndroidDriver driver = Capabilities();
 		CommonMethods get = new CommonMethods(driver);
 
 		get.Xpath(Strings.homeHamburger, waitinsec).click();
+		int swipecount = get.GetAttributeCount(Strings.PicAndVids, "text");
 		get.Xpath(Strings.PicAndVids, waitinsec).click();
 		get.Xpath(Strings.allHeader, waitinsec).click();
-		Thread.sleep(3000);
-		get.ScrolltoEnd();
-		Thread.sleep(3000);
 		get.Xpath(Strings.firstAllitem, waitinsec).click();
-		get.WaitForIt(Strings.tapFullview, waitinsec); 
-		get.SwipeRight();
-	}
-	
+		get.WaitForIt(Strings.tapFullview, waitinsec);
+		get.SwipeRight(swipecount);
+		get.Xpath(Strings.tapFullview, waitinsec).click();
+		get.Xpath(Strings.Elipses, waitinsec).click();
+		get.Xpath(Strings.overflowinfo, waitinsec).click();
+		String title = (get.GetAttribute(Strings.InfoTitle, "text"));
+		get.Xpath(Strings.infoClose, waitinsec).click();
+		System.out.println(title);
+		get.SwipeRight(2);
+		get.Xpath(Strings.tapFullview, waitinsec).click();
+		get.Xpath(Strings.Elipses, waitinsec).click();
+		get.Xpath(Strings.overflowinfo, waitinsec).click();
+		String title2 = (get.GetAttribute(Strings.InfoTitle, "text"));
 
-	// @Test
+		Assert.assertEquals(title, title2);
+
+	}
+
 	public void PhotoVidDownload() throws IOException, MalformedURLException, InterruptedException {
+	// @Test
 
 		AndroidDriver driver = Capabilities();
 
@@ -168,7 +181,7 @@ public class PhotosAndVideo extends CloudBase {
 		int x = 3;
 
 		get.Xpath(Strings.homeHamburger, waitinsec).click();
-		int beforeDelete = get.GetNavCount(Strings.PicAndVids, "text");
+		int beforeDelete = get.GetAttributeCount(Strings.PicAndVids, "text");
 
 		get.Xpath(Strings.PicAndVids, waitinsec).click();
 		get.Xpath(Strings.allHeader, waitinsec).click();
@@ -178,7 +191,7 @@ public class PhotosAndVideo extends CloudBase {
 		get.Xpath(Strings.deleteYes, waitinsec).click();
 
 		get.Xpath(Strings.homeHamburger, waitinsec).click();
-		int afterDelete = get.GetNavCount(Strings.PicAndVids, "text");
+		int afterDelete = get.GetAttributeCount(Strings.PicAndVids, "text");
 		// the assertion here will take the after delete and add the number
 		// deleted to make them equal.
 		Assert.assertEquals(beforeDelete, afterDelete + x);
@@ -243,12 +256,12 @@ public class PhotosAndVideo extends CloudBase {
 			get.Xpath(Strings.removeFavMenu, waitinsec).click();
 			driver.pressKeyCode(AndroidKeyCode.BACK);
 
-		}
+			get.Xpath(Strings.allHeader, waitinsec).click();
+			get.multiSelect(1);
+			get.Xpath(Strings.Elipses, waitinsec).click();
+			Assert.assertEquals(get.AssertXpathExists(Strings.addFavMenu), 1);
 
-		get.Xpath(Strings.allHeader, waitinsec).click();
-		get.multiSelect(1);
-		get.Xpath(Strings.Elipses, waitinsec).click();
-		Assert.assertEquals(get.AssertXpathExists(Strings.addFavMenu), 1);
+		}
 
 	}
 
@@ -277,15 +290,14 @@ public class PhotosAndVideo extends CloudBase {
 				System.out.println(count);
 				count++;
 			}
+			get.Xpath(Strings.albumHeader, waitinsec).click();
+			Assert.assertEquals(get.AssertXpathExists(Strings.favAlbum), 1);
 		} else {
-			System.out.println("favorite album does not exists");
+			System.out.println("favorite album may not exists");
 			get.Xpath(Strings.addFavMenu, waitinsec).click();
+			get.Xpath(Strings.albumHeader, waitinsec).click();
+			Assert.assertEquals(get.AssertXpathExists(Strings.favAlbum), 1);
 		}
-
-		get.Xpath(Strings.albumHeader, waitinsec).click();
-
-		Assert.assertEquals(get.AssertXpathExists(Strings.favAlbum), 1);
-
 	}
 
 	// ANDRVC-8100
@@ -315,7 +327,10 @@ public class PhotosAndVideo extends CloudBase {
 		}
 		get.Xpath(Strings.ButtonOK, waitinsec).click();
 		get.BackupNow();
+		driver.pressKeyCode(AndroidKeyCode.BACK);
+		get.Xpath(Strings.homeHamburger, waitinsec).click();
+		get.Xpath(Strings.PicAndVids, waitinsec).click();
+		get.Xpath(Strings.allHeader, waitinsec).click();
+
 	}
 }
-
-// Assert.assertEquals(get.AssertXpathExists(Strings.favAlbum), 1);

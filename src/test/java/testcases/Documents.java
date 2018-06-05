@@ -58,6 +58,7 @@ public class Documents extends CloudBase {
 		Assert.assertEquals(get.AssertXpathExists(Strings.sortByRadioBtnSize), 1);
 	}
 
+	//ANDRVC-16
 	//@Test
 	public void DocumentsShare() throws IOException, MalformedURLException, InterruptedException {
 

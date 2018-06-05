@@ -74,6 +74,9 @@ import objectrepository.Strings;
 
 public class Playground extends CloudBase{ 
 	
+	
+	
+	
 	int waitinsec = 30;
 	
 	//@Test
@@ -106,6 +109,18 @@ public class Playground extends CloudBase{
 
 	}
 	
+	
+	@Test
+	public void waitforbackup() throws MalformedURLException, InterruptedException {
+
+		AndroidDriver driver = Capabilities();
+		CommonMethods get = new CommonMethods(driver);
+		
+		get.BackupNow();
+		
+	}
+
+	
 	//User input
 	
 	//@Test
@@ -120,14 +135,14 @@ public class Playground extends CloudBase{
 	}
 	
 	
-	@Test
+	//@Test
 	public void Swipe() throws MalformedURLException, InterruptedException {
 
 		AndroidDriver driver = Capabilities();
 		CommonMethods get = new CommonMethods(driver);
 
 		get.Xpath(Strings.homeHamburger, waitinsec).click();
-		int isFoundElement = get.GetNavCount(Strings.PicAndVids, "text");
+		int isFoundElement = get.GetAttributeCount(Strings.PicAndVids, "text");
 		get.Xpath(Strings.PicAndVids, waitinsec).click();
 		get.Xpath(Strings.allHeader, waitinsec).click();
 	//	get.Xpath(Strings.firstAllitem, waitinsec).click();

@@ -2,12 +2,12 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="52630" started-at="2018-05-28T15:49:27Z" finished-at="2018-05-28T15:50:19Z">
+  <suite name="Default suite" duration-ms="69678" started-at="2018-06-01T11:10:55Z" finished-at="2018-06-01T11:12:05Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="52630" started-at="2018-05-28T15:49:27Z" finished-at="2018-05-28T15:50:19Z">
+    <test name="Default test" duration-ms="69678" started-at="2018-06-01T11:10:55Z" finished-at="2018-06-01T11:12:05Z">
       <class name="testcases.PhotosAndVideo">
-        <test-method status="PASS" signature="SwipeRight()[pri:0, instance:testcases.PhotosAndVideo@31dc339b]" name="SwipeRight" duration-ms="52603" started-at="2018-05-28T16:49:27Z" finished-at="2018-05-28T16:50:19Z">
+        <test-method status="PASS" signature="SwipeRight()[pri:0, instance:testcases.PhotosAndVideo@31dc339b]" name="SwipeRight" duration-ms="69656" started-at="2018-06-01T12:10:55Z" finished-at="2018-06-01T12:12:05Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- SwipeRight -->
