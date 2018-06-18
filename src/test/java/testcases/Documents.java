@@ -59,7 +59,7 @@ public class Documents extends CloudBase {
 	}
 
 	//ANDRVC-16
-	//@Test
+	@Test
 	public void DocumentsShare() throws IOException, MalformedURLException, InterruptedException {
 
 		AndroidDriver driver = Capabilities();
@@ -95,7 +95,7 @@ public class Documents extends CloudBase {
 	}
 
 
-	//@Test
+	@Test
 	public void DocumentsCopyShareLink() throws MalformedURLException {
 
 		AndroidDriver driver = Capabilities();

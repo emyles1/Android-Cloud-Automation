@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Individual Smoke Test">
+	<test name="Individual Smoke Testcases">
+		<classes>
+			<class name="testcases.PhotosAndVideo">
+				<methods>
+					<include name="PhotoVidDelete" />
+					<include name="Fullview" />
+					<include name="Info" />
+				</methods>
+			</class>
+			<class name="testcases.Documents">
+				<methods>
+					<include name="DocumentsSort" />
+					<include name="DocumentsCopyShareLink" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+</suite>

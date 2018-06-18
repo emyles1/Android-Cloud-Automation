@@ -1,19 +1,9 @@
 package testcases;
 
-import java.io.IOException;
-import java.net.MalformedURLException;
-import java.util.List;
-import java.util.concurrent.TimeUnit;
 
-import org.aspectj.apache.bcel.Repository;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import java.net.MalformedURLException;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
-import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
 import objectrepository.CommonMethods;
 
@@ -22,7 +12,7 @@ import objectrepository.Strings;
 public class AllFiles extends CloudBase {
 	int waitinsec = 30;
 
-	//@Test
+	@Test
 	public void OpenMobileRepro() throws MalformedURLException, InterruptedException {
 
 		AndroidDriver driver = Capabilities();

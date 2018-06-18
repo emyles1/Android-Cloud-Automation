@@ -1,0 +1,12 @@
+testcases/PhotosAndVideo.class
+testcases/SwipeAction.class
+testcases/tuna.class
+testcases/Documents.class
+objectrepository/CommonMethods.class
+testcases/CloudBase.class
+testcases/Auth.class
+objectrepository/Strings.class
+testcases/Music.class
+testcases/AllFiles.class
+testcases/apples.class
+testcases/Settings.class

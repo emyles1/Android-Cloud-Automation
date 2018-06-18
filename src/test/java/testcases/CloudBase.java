@@ -33,9 +33,9 @@ public class CloudBase {
 
 		// cap.setCapability("automationName", "uiautomator2");
 		cap.setCapability("autoGrantPermissions", true);
-		// The below capability will stop the automation reinstalling the appß
+		// The below capability will stop the automation reinstalling the app
 		cap.setCapability("noReset", true);
-		cap.setCapability("platformVersion", "7.0");
+		//cap.setCapability("platformVersion", "7.0 ");
 		cap.setCapability(MobileCapabilityType.AUTOMATION_NAME, "uiautomator2");
 
 

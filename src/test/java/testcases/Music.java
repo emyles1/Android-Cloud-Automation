@@ -24,7 +24,7 @@ public class Music extends CloudBase {
 	
 	int waitinsec = 30;
 
-	//@Test
+	@Test
 	public void ArtistView() throws MalformedURLException, InterruptedException {
 
 		AndroidDriver driver = Capabilities();
@@ -40,7 +40,7 @@ public class Music extends CloudBase {
 
 	}
 	
-	//@Test
+	@Test
 	public void ArtistDownload() throws MalformedURLException, InterruptedException {
 
 		AndroidDriver driver = Capabilities();
@@ -59,7 +59,7 @@ public class Music extends CloudBase {
 
 	}
 	
-	//@Test
+	@Test
 	public void ArtistAddtoPlaylist() throws MalformedURLException, InterruptedException {
 
 		AndroidDriver driver = Capabilities();
@@ -82,7 +82,7 @@ public class Music extends CloudBase {
 	}
 	
 	
-	//@Test
+	@Test
 	public void DeleteSong() throws MalformedURLException, InterruptedException {
 
 		AndroidDriver driver = Capabilities();
@@ -101,7 +101,7 @@ public class Music extends CloudBase {
 
 	}
 	
-	//@Test
+	@Test
 	public void CreatePlaylist() throws IOException, MalformedURLException, InterruptedException {
 		AndroidDriver driver = Capabilities();
 

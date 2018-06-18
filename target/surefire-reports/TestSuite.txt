@@ -1,0 +1,105 @@
+-------------------------------------------------------------------------------
+Test set: TestSuite
+-------------------------------------------------------------------------------
+Tests run: 23, Failures: 6, Errors: 0, Skipped: 0, Time elapsed: 1,106.973 s <<< FAILURE! - in TestSuite
+DocDeleteCancel(testcases.Documents)  Time elapsed: 32.523 s  <<< FAILURE!
+org.openqa.selenium.StaleElementReferenceException: 
+android.support.test.uiautomator.StaleObjectException
+	at android.support.test.uiautomator.UiObject2.getAccessibilityNodeInfo(UiObject2.java:629)
+	at android.support.test.uiautomator.UiObject2.getVisibleBounds(UiObject2.java:210)
+	at io.appium.uiautomator2.model.UiObject2Element.getBounds(UiObject2Element.java:146)
+	at io.appium.uiautomator2.handler.Location.safeHandle(Location.java:31)
+	at io.appium.uiautomator2.handler.request.SafeRequestHandler.handle(SafeRequestHandler.java:56)
+	at io.appium.uiautomator2.server.AppiumServlet.handleRequest(AppiumServlet.java:202)
+	at io.appium.uiautomator2.server.AppiumServlet.handleHttpRequest(AppiumServlet.java:193)
+	at io.appium.uiautomator2.http.ServerHandler.channelRead(ServerHandler.java:44)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:366)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:352)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:345)
+	at io.netty.handler.codec.MessageToMessageDecoder.channelRead(MessageToMessageDecoder.java:102)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:366)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:352)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:345)
+	at io.netty.channel.CombinedChannelDuplexHandler$DelegatingChannelHandlerContext.fireChannelRead(CombinedChannelDuplexHandler.java:435)
+	at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:293)
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:267)
+	at io.netty.channel.CombinedChannelDuplexHandler.channelRead(CombinedChannelDuplexHandler.java:250)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:366)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:352)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:345)
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1294)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:366)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:352)
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:911)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:131)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:611)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysPlain(NioEventLoop.java:514)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:468)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:438)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:140)
+	at io.netty.util.concurrent.DefaultThreadFactory$DefaultRunnableDecorator.run(DefaultThreadFactory.java:144)
+	at java.lang.Thread.run(Thread.java:818)
+ (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/stale_element_reference.html
+Build info: version: '3.8.1', revision: '6e95a6684b', time: '2017-12-01T18:33:54.468Z'
+System info: host: 'IEC02N926BG3QT', ip: 'fe80:0:0:0:1480:349:de4a:f301%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.13.1', java.version: '1.8.0_25'
+Driver info: io.appium.java_client.android.AndroidDriver
+Capabilities {appActivity: com.newbay.syncdrive.androi..., appPackage: com.vcast.mediamanager, autoGrantPermissions: true, automationName: uiautomator2, deviceName: Android Device, javascriptEnabled: true, newCommandTimeout: 100, noReset: true, platform: ANDROID, platformName: ANDROID}
+Session ID: 38e22207-7cf9-4ca6-b273-445700ba39e3
+	at testcases.Documents.DocDeleteCancel(Documents.java:205)
+
+DocFavSwitch(testcases.Documents)  Time elapsed: 70.812 s  <<< FAILURE!
+org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.xpath: //android.widget.ImageView[@content-desc = 'OVERFLOW'] (tried for 30 second(s) with 500 MILLISECONDS interval)
+	at testcases.Documents.DocFavSwitch(Documents.java:140)
+Caused by: org.openqa.selenium.NoSuchElementException: 
+Cannot locate an element using By.xpath: //android.widget.ImageView[@content-desc = 'OVERFLOW']
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.8.1', revision: '6e95a6684b', time: '2017-12-01T18:33:54.468Z'
+System info: host: 'IEC02N926BG3QT', ip: 'fe80:0:0:0:1480:349:de4a:f301%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.13.1', java.version: '1.8.0_25'
+Driver info: driver.version: unknown
+	at testcases.Documents.DocFavSwitch(Documents.java:140)
+
+DocumentDownload(testcases.Documents)  Time elapsed: 39.999 s  <<< FAILURE!
+org.openqa.selenium.WebDriverException: 
+java.net.SocketException: Connection reset
+Build info: version: '3.8.1', revision: '6e95a6684b', time: '2017-12-01T18:33:54.468Z'
+System info: host: 'IEC02N926BG3QT', ip: 'fe80:0:0:0:1480:349:de4a:f301%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.13.1', java.version: '1.8.0_25'
+Driver info: driver.version: AppiumDriver
+	at testcases.Documents.DocumentDownload(Documents.java:159)
+Caused by: java.net.SocketException: Connection reset
+	at testcases.Documents.DocumentDownload(Documents.java:159)
+
+DocumentsCopyShareLink(testcases.Documents)  Time elapsed: 65.619 s  <<< FAILURE!
+org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.xpath: //android.widget.ImageView[@content-desc = 'OVERFLOW'] (tried for 30 second(s) with 500 MILLISECONDS interval)
+	at testcases.Documents.DocumentsCopyShareLink(Documents.java:112)
+Caused by: org.openqa.selenium.NoSuchElementException: 
+Cannot locate an element using By.xpath: //android.widget.ImageView[@content-desc = 'OVERFLOW']
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.8.1', revision: '6e95a6684b', time: '2017-12-01T18:33:54.468Z'
+System info: host: 'IEC02N926BG3QT', ip: 'fe80:0:0:0:1480:349:de4a:f301%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.13.1', java.version: '1.8.0_25'
+Driver info: driver.version: unknown
+	at testcases.Documents.DocumentsCopyShareLink(Documents.java:112)
+
+DocumentsSort(testcases.Documents)  Time elapsed: 71.29 s  <<< FAILURE!
+org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.xpath: //android.widget.RelativeLayout[@index ='1'] (tried for 30 second(s) with 500 MILLISECONDS interval)
+	at testcases.Documents.DocumentsSort(Documents.java:42)
+Caused by: org.openqa.selenium.NoSuchElementException: 
+Cannot locate an element using By.xpath: //android.widget.RelativeLayout[@index ='1']
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.8.1', revision: '6e95a6684b', time: '2017-12-01T18:33:54.468Z'
+System info: host: 'IEC02N926BG3QT', ip: 'fe80:0:0:0:1480:349:de4a:f301%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.13.1', java.version: '1.8.0_25'
+Driver info: driver.version: unknown
+	at testcases.Documents.DocumentsSort(Documents.java:42)
+
+FindExt(testcases.AllFiles)  Time elapsed: 61.823 s  <<< FAILURE!
+org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.xpath: //android.widget.TextView[@index = '8' and contains(@text,'All Files')] (tried for 30 second(s) with 500 MILLISECONDS interval)
+	at testcases.AllFiles.FindExt(AllFiles.java:45)
+Caused by: org.openqa.selenium.NoSuchElementException: 
+Cannot locate an element using By.xpath: //android.widget.TextView[@index = '8' and contains(@text,'All Files')]
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.8.1', revision: '6e95a6684b', time: '2017-12-01T18:33:54.468Z'
+System info: host: 'IEC02N926BG3QT', ip: 'fe80:0:0:0:1480:349:de4a:f301%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.13.1', java.version: '1.8.0_25'
+Driver info: driver.version: unknown
+	at testcases.AllFiles.FindExt(AllFiles.java:45)
+

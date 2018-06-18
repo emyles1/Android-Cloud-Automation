@@ -24,13 +24,13 @@ import objectrepository.Strings;
 public class PhotosAndVideo extends CloudBase {
 	int waitinsec = 30;
 
-	// @Test(priority=0)
+	@Test(priority=0)
 	public void Fullview() throws IOException, MalformedURLException, InterruptedException {
 
 		AndroidDriver driver = Capabilities();
 
 		CommonMethods get = new CommonMethods(driver);
-		Strings string = new Strings();
+		//Strings string = new Strings();
 
 		get.Xpath(Strings.homeHamburger, waitinsec).click();
 		get.Xpath(Strings.PicAndVids, waitinsec).click();
@@ -38,12 +38,12 @@ public class PhotosAndVideo extends CloudBase {
 		get.Xpath(Strings.firstAllitem, waitinsec).click();
 		get.Xpath(Strings.tapFullview, waitinsec).click();
 
-		Assert.assertEquals(get.AssertXpathExists(string.Elipses), 1);
+		Assert.assertEquals(get.AssertXpathExists(Strings.Elipses), 1);
 
 	}
 
 	// ANDRVC-5799
-	// @Test
+	@Test
 	public void Info() throws IOException, MalformedURLException, InterruptedException {
 		AndroidDriver driver = Capabilities();
 
@@ -62,7 +62,7 @@ public class PhotosAndVideo extends CloudBase {
 	}
 
 	// ANDRVC-87
-	// @Test
+	//@Test
 	public void CreateAlbums() throws IOException, MalformedURLException, InterruptedException {
 		AndroidDriver driver = Capabilities();
 
@@ -75,19 +75,20 @@ public class PhotosAndVideo extends CloudBase {
 		get.Xpath(Strings.PicAndVids, waitinsec).click();
 		get.Xpath(Strings.albumHeader, waitinsec).click();
 		get.Xpath(Strings.createAlbum, waitinsec).click();
-		// adding the following block to ensure at least 2 albums exist for
+		// adding the following block to ensure at least 2 albums exist for 
 		// following test cases.
 		get.Xpath(Strings.enterAlbumName, waitinsec).sendKeys("TestAlbum" + rannum);
 		get.Xpath(Strings.addAlbumContent, waitinsec).click();
-		get.multiSelect(3);
+		int multiNumber = 3;
+		get.multiSelect(multiNumber);
 		get.Xpath(Strings.makeSelection, waitinsec).click();
 		get.WaitForIt(Strings.createAlbum, 30);
 		get.Xpath(Strings.createAlbum, waitinsec).click();
 
 		get.Xpath(Strings.enterAlbumName, waitinsec).sendKeys("Auto Album" + rannum);
-		String result = ("Album Auto Album" + rannum + " : Count 3");
+		String result = ("Album Auto Album" + rannum + " : Count "+multiNumber);
 		get.Xpath(Strings.addAlbumContent, waitinsec).click();
-		get.multiSelect(3);
+		get.multiSelect(multiNumber);
 		get.Xpath(Strings.makeSelection, waitinsec).click();
 		Thread.sleep(5000);
 		get.ScrollDowntoFind(Strings.ImageView, Strings.ContentDesc, result, 0.05);
@@ -98,7 +99,7 @@ public class PhotosAndVideo extends CloudBase {
 	}
 
 	// ANDRVC-734 not complete
-	// @Test(dependsOnMethods = { "CreateAlbums" })
+	//@Test(dependsOnMethods = { "CreateAlbums" })
 	public void DeleteAlbum() throws IOException, MalformedURLException, InterruptedException {
 
 		AndroidDriver driver = Capabilities();
@@ -151,8 +152,9 @@ public class PhotosAndVideo extends CloudBase {
 
 	}
 
+	//@Test
 	public void PhotoVidDownload() throws IOException, MalformedURLException, InterruptedException {
-	// @Test
+	
 
 		AndroidDriver driver = Capabilities();
 
@@ -173,7 +175,7 @@ public class PhotosAndVideo extends CloudBase {
 	}
 
 	// ANDRVC-6423
-	// @Test
+	//@Test
 	public void PhotoVidDelete() throws IOException, MalformedURLException, InterruptedException {
 
 		AndroidDriver driver = Capabilities();
@@ -199,7 +201,7 @@ public class PhotosAndVideo extends CloudBase {
 	}
 
 	// ANDRVC-656 Precon: Videos should be available
-	// @Test
+	//@Test
 	public void LaunchVideo() throws IOException, MalformedURLException, InterruptedException {
 
 		AndroidDriver driver = Capabilities();
@@ -217,7 +219,7 @@ public class PhotosAndVideo extends CloudBase {
 
 	}
 
-	// @Test
+	//@Test
 	public void PhotoVidFav() throws IOException, MalformedURLException, InterruptedException {
 
 		AndroidDriver driver = Capabilities();
@@ -245,6 +247,8 @@ public class PhotosAndVideo extends CloudBase {
 		}
 
 		else {
+			
+			
 
 			driver.pressKeyCode(AndroidKeyCode.BACK);
 			get.ResourceID(Strings.selectioncheckmark).click();
@@ -265,7 +269,7 @@ public class PhotosAndVideo extends CloudBase {
 
 	}
 
-	// @Test
+	//@Test
 	public void FavExist() throws MalformedURLException, InterruptedException {
 
 		AndroidDriver driver = Capabilities();
@@ -301,7 +305,7 @@ public class PhotosAndVideo extends CloudBase {
 	}
 
 	// ANDRVC-8100
-	// @Test
+	//@Test
 	public void ShareCollage() throws MalformedURLException, InterruptedException {
 
 		AndroidDriver driver = Capabilities();

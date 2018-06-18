@@ -12,7 +12,6 @@ import io.appium.java_client.android.AndroidKeyCode;
 public class Strings {
 	
 	
-	
 	public final static String TextView = "//android.widget.TextView";
 	public final static String ImageView = "//android.widget.ImageView";
 	public final static String LinerLayout = "//android.widget.LinearLayout";
@@ -43,7 +42,7 @@ public class Strings {
 	public final static String timelineHeader = "//android.widget.TextView[@text = 'Timeline']";
 	public final static String albumHeader = "//android.widget.TextView[@text = 'Albums']";
 	public final static String favAlbum = "//android.widget.ImageView[@index = '0' and contains(@content-desc,'Favorites : Count')]";
-	public final static String firstAllitem = "//android.widget.ImageView[@resource-id = 'com.vcast.mediamanager:id/icon' and @index ='0']";
+	public final static String firstAllitem = "//android.widget.ImageView[@resource-id = 'com.vcast.mediamanager:id/icon' and @index ='1']";
 	public final static String firstTimelineitem = "//android.widget.ImageView[@resource-id = 'com.vcast.mediamanager:id/icon' and @index ='1']";
 	public final static String AlbumSelect = "//android.widget.ImageView[@resource-id = 'com.vcast.mediamanager:id/icon' and @index ='1']";
 	public final static String enterAlbumName = "//android.widget.EditText[@resource-id = 'com.vcast.mediamanager:id/new_album_edit']";
@@ -123,8 +122,13 @@ public class Strings {
 	public final static String ManageStorage = "//android.widget.TextView[@text ='Manage Storage']";
 	public final static String Tools = "//android.widget.TextView[@text ='Tools']";
 	public final static String HowToDisable = "//android.widget.TextView[@text ='How to Disable']";
+	public final static String HowToEnable = "//android.widget.TextView[@text ='How to Enable']";
 	public final static String About = "//android.widget.TextView[@text ='About']";
 	public final static String BackupChecks="//android.widget.CheckBox";
+	public final static String ContentRestore = "//android.widget.TextView[@text ='Content Restore']";
+	public final static String VOBS = "//android.widget.TextView[@text ='Business or Residential Sign In']";
+	public final static String Merge = "//android.widget.TextView[@text ='Merge Cloud Content']";
+	
 
 }
 

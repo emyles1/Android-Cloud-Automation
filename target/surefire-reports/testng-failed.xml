@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" verbose="0" name="Failed suite [Regression Test]">
+  <test thread-count="5" verbose="0" name="Regression Testcases(failed)">
+    <classes>
+      <class name="testcases.Documents">
+        <methods>
+          <include name="DocumentsCopyShareLink"/>
+          <include name="DocFavSwitch"/>
+          <include name="DocumentDownload"/>
+          <include name="DocumentsSort"/>
+          <include name="DocDeleteCancel"/>
+        </methods>
+      </class> <!-- testcases.Documents -->
+      <class name="testcases.AllFiles">
+        <methods>
+          <include name="FindExt"/>
+        </methods>
+      </class> <!-- testcases.AllFiles -->
+    </classes>
+  </test> <!-- Regression Testcases(failed) -->
+</suite> <!-- Failed suite [Regression Test] -->

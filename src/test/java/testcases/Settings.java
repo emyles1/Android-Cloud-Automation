@@ -1,21 +1,11 @@
 package testcases;
 
-import java.io.IOException;
-import java.net.MalformedURLException;
-import java.util.List;
-import java.util.concurrent.TimeUnit;
 
-import org.aspectj.apache.bcel.Repository;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import java.net.MalformedURLException;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
 import objectrepository.CommonMethods;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import objectrepository.Strings;
 
 public class Settings extends CloudBase {
@@ -31,9 +21,10 @@ public class Settings extends CloudBase {
 		get.Xpath(Strings.WhattoBackup, waitinsec).click();
 		get.Checkboxes(Strings.BackupChecks, waitinsec, "true");
 		get.Xpath(Strings.ButtonOK, waitinsec).click();
+
 	}
 
-	// ANDRVC-8798
+	 //ANDRVC-8798
 	@Test
 	public void SettingsPageLayout() throws MalformedURLException, InterruptedException {
 
@@ -50,6 +41,34 @@ public class Settings extends CloudBase {
 		Assert.assertEquals(get.AssertXpathExists(Strings.Tools), 1);
 		Assert.assertEquals(get.AssertXpathExists(Strings.HowToDisable), 1);
 		Assert.assertEquals(get.AssertXpathExists(Strings.About), 1);
-
 	}
+	
+	//ANDRVC-45
+	@Test
+	public void Tools() throws MalformedURLException, InterruptedException {
+		
+		AndroidDriver driver = Capabilities();
+		CommonMethods get = new CommonMethods(driver);
+		get.Xpath(Strings.homeHamburger, waitinsec).click();
+		get.Xpath(Strings.Settings, waitinsec).click();
+		get.Xpath(Strings.Tools, waitinsec).click();
+		Assert.assertEquals(get.AssertXpathExists(Strings.ContentRestore), 1);
+		Assert.assertEquals(get.AssertXpathExists(Strings.VOBS), 1);
+		Assert.assertEquals(get.AssertXpathExists(Strings.Merge), 1);
+	}
+	
+	  
+	//ANDRVC-1066
+	@Test
+	public void ToDisable() throws MalformedURLException, InterruptedException {
+		
+		AndroidDriver driver = Capabilities();
+		CommonMethods get = new CommonMethods(driver);
+		get.Xpath(Strings.homeHamburger, waitinsec).click(); 
+		get.Xpath(Strings.Settings, waitinsec).click();
+		get.Xpath(Strings.HowToDisable, waitinsec).click();
+		get.Xpath(Strings.HowToDisable, waitinsec).click();
+		Assert.assertEquals(get.AssertXpathExists(Strings.HowToEnable), 1);
+		Assert.assertEquals(get.AssertXpathExists(Strings.HowToDisable), 1);
+	}	
 }

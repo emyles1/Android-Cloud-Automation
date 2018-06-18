@@ -2,16 +2,16 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="69678" started-at="2018-06-01T11:10:55Z" finished-at="2018-06-01T11:12:05Z">
+  <suite name="Default suite" duration-ms="35931" started-at="2018-06-13T15:34:39Z" finished-at="2018-06-13T15:35:15Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="69678" started-at="2018-06-01T11:10:55Z" finished-at="2018-06-01T11:12:05Z">
-      <class name="testcases.PhotosAndVideo">
-        <test-method status="PASS" signature="SwipeRight()[pri:0, instance:testcases.PhotosAndVideo@31dc339b]" name="SwipeRight" duration-ms="69656" started-at="2018-06-01T12:10:55Z" finished-at="2018-06-01T12:12:05Z">
+    <test name="Default test" duration-ms="35931" started-at="2018-06-13T15:34:39Z" finished-at="2018-06-13T15:35:15Z">
+      <class name="testcases.Settings">
+        <test-method status="PASS" signature="ToDisable()[pri:0, instance:testcases.Settings@4fe3c938]" name="ToDisable" duration-ms="35904" started-at="2018-06-13T15:34:39Z" finished-at="2018-06-13T15:35:15Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- SwipeRight -->
-      </class> <!-- testcases.PhotosAndVideo -->
+        </test-method> <!-- ToDisable -->
+      </class> <!-- testcases.Settings -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

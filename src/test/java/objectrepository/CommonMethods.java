@@ -144,12 +144,19 @@ public class CommonMethods {
 	public WebElement Xpath(String string, int seconds) {
 		CommonMethods Create = new CommonMethods(driver);
 		Create.WaitForIt(string,seconds);
-//		WebDriverWait wait = new WebDriverWait(driver, 120);
-//		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(string)));
 		WebElement webElement = driver.findElementByXPath(string);
 		return webElement;
 
 	}
+	
+//	public RateMyApp Xpath(String string, int seconds) {
+//		CommonMethods Create = new CommonMethods(driver);
+//		Create.WaitForIt(string,seconds);
+//		WebElement webElement = driver.findElementByXPath("//android.widget.TextView[@text = 'Thanks For Your Support!']").click();;
+//		class = android.widget.Button
+//				Text = No Thanks
+//				index 2
+//	}
 	
 	
 	public void Checkboxes(String string, int seconds, String choice) {
@@ -232,12 +239,12 @@ public class CommonMethods {
 		// .release().perform();
 		// }
 
-		Create.WaitForIt("//android.widget.ImageView[@index= '0' and @resource-id='com.vcast.mediamanager:id/icon']", 20);
+		Create.WaitForIt("//android.widget.ImageView[@index= '1' and @resource-id='com.vcast.mediamanager:id/icon']", 20);
 		t.press(driver.findElementByXPath(
-				"//android.widget.ImageView[@index= '0' and @resource-id='com.vcast.mediamanager:id/icon']"))
+				"//android.widget.ImageView[@index= '1' and @resource-id='com.vcast.mediamanager:id/icon']"))
 				.waitAction(Duration.ofMillis(1000)).release().perform();
 
-		for (int i = 1; i < x; i++) {
+		for (int i = 2; i <= x; i++) {
 			// Create.WaitForIt("//android.widget.ImageView[@index = '2' ]",30);
 
 			driver.findElementByXPath(
@@ -272,7 +279,7 @@ public class CommonMethods {
 		Create.WaitForIt(string,30); //added back in the timelimit for Download photo test 
 		List<WebElement> webElements = driver.findElementsByXPath(string);
 
-		if (webElements.size() == 1) {
+		if (webElements.size() >= 1) {
 			return 1;
 		}
 
