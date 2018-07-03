@@ -22,7 +22,7 @@ public class SwipeAction {
 	Dimension size;
 
 	// WebDriverWait wait;
-	//@BeforeTest
+	// @BeforeTest
 	public static AndroidDriver setUp() throws Exception {
 		DesiredCapabilities capabilities = new DesiredCapabilities();
 		capabilities.setCapability("deviceName", "ZX1B32FFXF");
@@ -43,7 +43,7 @@ public class SwipeAction {
 
 	}
 
-	//@Test
+	// @Test
 	public void swipingHorizontal() throws Exception {
 		AndroidDriver driver = setUp();
 		// Get the size of screen.

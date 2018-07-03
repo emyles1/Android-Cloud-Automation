@@ -5,24 +5,24 @@
 	<artifactId>sncr.android</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
-	
-	    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.6.1</version>
-                <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
-	
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.6.1</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
 	<profiles>
-	
-			<profile>
+
+		<profile>
 			<id>Smoke</id>
 			<build>
 				<plugins>
@@ -39,7 +39,7 @@
 				</plugins>
 			</build>
 		</profile>
-	
+
 		<profile>
 			<id>Regression</id>
 			<build>
@@ -96,15 +96,8 @@
 			</build>
 		</profile>
 	</profiles>
-	
-	
-	
-	
 
 	<dependencies>
-	
-	
-
 
 		<!-- https://mvnrepository.com/artifact/io.appium/java-client -->
 		<dependency>
@@ -118,8 +111,9 @@
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-java</artifactId>
-			<version>3.8.1</version>
+			<version>3.13.0</version>
 		</dependency>
+
 
 		<!-- https://mvnrepository.com/artifact/org.testng/testng -->
 
@@ -138,13 +132,13 @@
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-api</artifactId>
-			<version>3.8.1</version>
+			<version>3.13.0</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-remote-driver</artifactId>
-			<version>3.8.1</version>
+			<version>3.13.0</version>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/junit/junit -->
@@ -155,11 +149,5 @@
 			<scope>test</scope>
 		</dependency>
 
-		<!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
-		<dependency>
-			<groupId>org.apache.poi</groupId>
-			<artifactId>poi</artifactId>
-			<version>3.17</version>
-		</dependency>
 	</dependencies>
 </project>

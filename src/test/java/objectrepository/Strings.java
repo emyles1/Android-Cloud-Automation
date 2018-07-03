@@ -18,7 +18,7 @@ public class Strings {
 	public final static String Text = "@text =";
 	public final static String ContentDesc = "@content-desc = ";
 	public final static String Index = "@index =";
-
+	public final static String ADB = "/Users/eamon.myles/Library/Android/sdk/platform-tools/adb";
 
 
 	// NavBarRepository strings  
@@ -27,6 +27,7 @@ public class Strings {
 	public final static String PicAndVids = "//android.widget.TextView[@index = '1' and contains(@text,'Photos & Videos (')]";
 	public final static String Music = "//android.widget.TextView[@index = '2' and contains(@text,'Music')]";
 	public final static String Documents = "//android.widget.TextView[@index = '3' and contains(@text,'Documents')]";
+	public final static String MessageCenter = "//android.widget.TextView[@index = '5' and contains(@text,'Message Center')]";
 	public final static String Appsusingcloud = "//android.widget.TextView[@text = 'Apps Using Cloud')]";
 	public final static String AllFiles = "//android.widget.TextView[@index = '8' and contains(@text,'All Files')]";
 	public final static String Settings = "//android.widget.TextView[@index = '9' and contains(@text,'Settings')]";
@@ -108,6 +109,9 @@ public class Strings {
 	public final static String ButtonOK = "//android.widget.Button[@text ='OK']";
 	public final static String ButtonCancel = "//android.widget.Button[@text ='CANCEL']";
 	public final static String Save = "//android.widget.Button[@text ='SAVE']"; //capitalized for the collage save
+	public final static String RateMyApp = "//android.widget.TextView[@text ='Thanks For Your Support!']";
+	public final static String RateNoThanks = "//android.widget.Button[@text ='NO THANKS']";
+	
 	
 	
 	//Notifications strings
@@ -141,4 +145,6 @@ public class Strings {
 // 	CONTENT DESC driver.findElementByXPath("//android.widget.ImageView[@content-desc='Photo : IMAG0159.jpg]").click();
 //driver.openNotifications();
 //driver.pressKeyCode(AndroidKeyCode.BACK);
+//adb shell getprop
+//adb shell getprop ro.product.model
 //driver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(text(\"Documents\"));");

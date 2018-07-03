@@ -11,9 +11,12 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.touch.TouchActions;
+import org.openqa.selenium.remote.RemoteWebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
@@ -23,15 +26,23 @@ import objectrepository.Strings;
 
 public class PhotosAndVideo extends CloudBase {
 	int waitinsec = 30;
+	private AndroidDriver driver;
+	private CommonMethods get;
 
-	@Test(priority=0)
+	@BeforeSuite
+	public void Setup() throws MalformedURLException {
+		driver = Capabilities();
+		get = new CommonMethods(driver);
+
+	}
+
+	//@Test(priority = 0)
 	public void Fullview() throws IOException, MalformedURLException, InterruptedException {
 
-		AndroidDriver driver = Capabilities();
+		// Strings string = new Strings();
 
-		CommonMethods get = new CommonMethods(driver);
-		//Strings string = new Strings();
-
+		get.Xpath(Strings.RateMyApp, waitinsec);
+		
 		get.Xpath(Strings.homeHamburger, waitinsec).click();
 		get.Xpath(Strings.PicAndVids, waitinsec).click();
 		get.Xpath(Strings.allHeader, waitinsec).click();
@@ -45,9 +56,6 @@ public class PhotosAndVideo extends CloudBase {
 	// ANDRVC-5799
 	@Test
 	public void Info() throws IOException, MalformedURLException, InterruptedException {
-		AndroidDriver driver = Capabilities();
-
-		CommonMethods get = new CommonMethods(driver);
 
 		get.Xpath(Strings.homeHamburger, waitinsec).click();
 		get.Xpath(Strings.PicAndVids, waitinsec).click();
@@ -60,13 +68,11 @@ public class PhotosAndVideo extends CloudBase {
 		Assert.assertEquals(get.AssertXpathExists(Strings.infodatetaken), 1);
 
 	}
+	
 
 	// ANDRVC-87
-	//@Test
+	// @Test
 	public void CreateAlbums() throws IOException, MalformedURLException, InterruptedException {
-		AndroidDriver driver = Capabilities();
-
-		CommonMethods get = new CommonMethods(driver);
 
 		int rannum = (int) (Math.random() * 256);
 		System.out.println(rannum);
@@ -75,7 +81,7 @@ public class PhotosAndVideo extends CloudBase {
 		get.Xpath(Strings.PicAndVids, waitinsec).click();
 		get.Xpath(Strings.albumHeader, waitinsec).click();
 		get.Xpath(Strings.createAlbum, waitinsec).click();
-		// adding the following block to ensure at least 2 albums exist for 
+		// adding the following block to ensure at least 2 albums exist for
 		// following test cases.
 		get.Xpath(Strings.enterAlbumName, waitinsec).sendKeys("TestAlbum" + rannum);
 		get.Xpath(Strings.addAlbumContent, waitinsec).click();
@@ -86,7 +92,7 @@ public class PhotosAndVideo extends CloudBase {
 		get.Xpath(Strings.createAlbum, waitinsec).click();
 
 		get.Xpath(Strings.enterAlbumName, waitinsec).sendKeys("Auto Album" + rannum);
-		String result = ("Album Auto Album" + rannum + " : Count "+multiNumber);
+		String result = ("Album Auto Album" + rannum + " : Count " + multiNumber);
 		get.Xpath(Strings.addAlbumContent, waitinsec).click();
 		get.multiSelect(multiNumber);
 		get.Xpath(Strings.makeSelection, waitinsec).click();
@@ -99,11 +105,8 @@ public class PhotosAndVideo extends CloudBase {
 	}
 
 	// ANDRVC-734 not complete
-	//@Test(dependsOnMethods = { "CreateAlbums" })
+	// @Test(dependsOnMethods = { "CreateAlbums" })
 	public void DeleteAlbum() throws IOException, MalformedURLException, InterruptedException {
-
-		AndroidDriver driver = Capabilities();
-		CommonMethods get = new CommonMethods(driver);
 
 		get.Xpath(Strings.homeHamburger, waitinsec).click();
 		get.Xpath(Strings.PicAndVids, waitinsec).click();
@@ -123,11 +126,8 @@ public class PhotosAndVideo extends CloudBase {
 	}
 
 	// ANDRVC-669
-	//@Test
+	// @Test
 	public void SwipeRight() throws IOException, MalformedURLException, InterruptedException {
-
-		AndroidDriver driver = Capabilities();
-		CommonMethods get = new CommonMethods(driver);
 
 		get.Xpath(Strings.homeHamburger, waitinsec).click();
 		int swipecount = get.GetAttributeCount(Strings.PicAndVids, "text");
@@ -152,13 +152,8 @@ public class PhotosAndVideo extends CloudBase {
 
 	}
 
-	//@Test
+	// @Test
 	public void PhotoVidDownload() throws IOException, MalformedURLException, InterruptedException {
-	
-
-		AndroidDriver driver = Capabilities();
-
-		CommonMethods get = new CommonMethods(driver);
 
 		get.Xpath(Strings.homeHamburger, waitinsec).click();
 		get.Xpath(Strings.PicAndVids, waitinsec).click();
@@ -175,11 +170,9 @@ public class PhotosAndVideo extends CloudBase {
 	}
 
 	// ANDRVC-6423
-	//@Test
+	// @Test
 	public void PhotoVidDelete() throws IOException, MalformedURLException, InterruptedException {
 
-		AndroidDriver driver = Capabilities();
-		CommonMethods get = new CommonMethods(driver);
 		int x = 3;
 
 		get.Xpath(Strings.homeHamburger, waitinsec).click();
@@ -201,11 +194,8 @@ public class PhotosAndVideo extends CloudBase {
 	}
 
 	// ANDRVC-656 Precon: Videos should be available
-	//@Test
+	// @Test
 	public void LaunchVideo() throws IOException, MalformedURLException, InterruptedException {
-
-		AndroidDriver driver = Capabilities();
-		CommonMethods get = new CommonMethods(driver);
 
 		get.Xpath(Strings.homeHamburger, waitinsec).click();
 		get.Xpath(Strings.PicAndVids, waitinsec).click();
@@ -219,13 +209,11 @@ public class PhotosAndVideo extends CloudBase {
 
 	}
 
-	//@Test
+	// WHY DO I HAVE THE TOUCH SCTION HERE
+	// @Test
 	public void PhotoVidFav() throws IOException, MalformedURLException, InterruptedException {
 
-		AndroidDriver driver = Capabilities();
-
-		CommonMethods get = new CommonMethods(driver);
-		TouchAction t = new TouchAction(driver);
+		// TouchAction t = new TouchAction(driver);
 
 		get.Xpath(Strings.homeHamburger, waitinsec).click();
 		get.Xpath(Strings.PicAndVids, waitinsec).click();
@@ -247,8 +235,6 @@ public class PhotosAndVideo extends CloudBase {
 		}
 
 		else {
-			
-			
 
 			driver.pressKeyCode(AndroidKeyCode.BACK);
 			get.ResourceID(Strings.selectioncheckmark).click();
@@ -269,12 +255,9 @@ public class PhotosAndVideo extends CloudBase {
 
 	}
 
-	//@Test
+	// @Test
 	public void FavExist() throws MalformedURLException, InterruptedException {
 
-		AndroidDriver driver = Capabilities();
-
-		CommonMethods get = new CommonMethods(driver);
 		Strings string = new Strings();
 
 		get.Xpath(Strings.homeHamburger, waitinsec).click();
@@ -308,9 +291,6 @@ public class PhotosAndVideo extends CloudBase {
 	//@Test
 	public void ShareCollage() throws MalformedURLException, InterruptedException {
 
-		AndroidDriver driver = Capabilities();
-
-		CommonMethods get = new CommonMethods(driver);
 		Strings string = new Strings();
 
 		get.Xpath(Strings.homeHamburger, waitinsec).click();

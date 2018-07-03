@@ -1,108 +1,181 @@
-//package testcases;
+package testcases;
+
+import android.content.Context;
+import android.content.Intent;
+import android.media.MediaScannerConnection;
+import android.media.MediaScannerConnection.MediaScannerConnectionClient;
+import android.net.Uri;
+import android.provider.MediaStore;
+import android.util.Log;
+import java.util.Scanner;
+import android.net.Uri;
+import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+import java.net.MalformedURLException;
+import java.net.URI;
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
+import org.openqa.selenium.JavascriptExecutor;
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.remote.AndroidMobileCapabilityType;
+import io.appium.java_client.remote.MobileCapabilityType;
+import java.awt.event.KeyEvent;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.time.Duration;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Random;
+import java.util.Scanner;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import org.apache.commons.codec.binary.Base64;
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebDriverException;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.interactions.touch.TouchActions;
+import org.openqa.selenium.remote.Augmenter;
+import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+import io.appium.java_client.PerformsTouchActions;
+import io.appium.java_client.TouchAction;
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.AndroidKeyCode;
+import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+import io.appium.java_client.remote.AndroidMobileCapabilityType;
+import objectrepository.CommonMethods;
+import objectrepository.Strings;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 //
-//import android.content.Context;
-//import android.content.Intent;
-////import android.media.MediaScannerConnection;
-////import android.media.MediaScannerConnection.MediaScannerConnectionClient;
-//import android.net.Uri;
-////import android.provider.MediaStore;
-//import android.util.Log;
-//import java.util.Scanner;
-//
-//
-//import android.net.Uri;
-//
-//import org.testng.annotations.BeforeSuite;
-//import org.testng.annotations.BeforeTest;
-//import org.testng.annotations.Test;
-//import java.net.MalformedURLException;
-//import java.net.URI;
-//
-//import org.apache.commons.io.FileUtils;
-//import org.openqa.selenium.By;
-//import org.openqa.selenium.Dimension;
-//import org.openqa.selenium.JavascriptExecutor;
-//
-//import io.appium.java_client.android.AndroidDriver;
-//import io.appium.java_client.remote.AndroidMobileCapabilityType;
-//import io.appium.java_client.remote.MobileCapabilityType;
-//import java.awt.event.KeyEvent;
-//import java.io.File;
-//import java.io.FileNotFoundException;
-//import java.io.IOException;
-//import java.net.MalformedURLException;
-//import java.nio.file.Files;
-//import java.nio.file.Path;
-//import java.nio.file.Paths;
-//import java.time.Duration;
-//import java.util.HashMap;
-//import java.util.List;
-//import java.util.Random;
-//import java.util.Scanner;
-//
-//import javax.swing.ImageIcon;
-//import javax.swing.JLabel;
-//import org.apache.commons.codec.binary.Base64;
-//import org.apache.commons.io.FileUtils;
-//import org.openqa.selenium.OutputType;
-//import org.openqa.selenium.TakesScreenshot;
-//import org.openqa.selenium.WebDriver;
-//import org.openqa.selenium.WebDriverException;
-//import org.openqa.selenium.WebElement;
-//import org.openqa.selenium.interactions.Actions;
-//import org.openqa.selenium.interactions.touch.TouchActions;
-//import org.openqa.selenium.remote.Augmenter;
-//import org.openqa.selenium.remote.RemoteWebDriver;
-//import org.openqa.selenium.support.PageFactory;
-//import org.openqa.selenium.support.ui.ExpectedConditions;
-//import org.openqa.selenium.support.ui.WebDriverWait;
-//import org.testng.Assert;
-//import org.testng.annotations.Test;
-//
-//import io.appium.java_client.PerformsTouchActions;
-//import io.appium.java_client.TouchAction;
-//import io.appium.java_client.android.AndroidDriver;
-//import io.appium.java_client.android.AndroidKeyCode;
-//import io.appium.java_client.pagefactory.AppiumFieldDecorator;
-//import io.appium.java_client.remote.AndroidMobileCapabilityType;
-//import objectrepository.CommonMethods;
-//import objectrepository.Strings;
-//
-//@SuppressWarnings("unused")
-////public class Playground extends CloudBase {
-//	
-//
-//public class Playground extends CloudBase {
-//	
-//	int waitinsec = 30;
+@SuppressWarnings("unused")
+public class Playground extends CloudBase {
 	
-//	//@Test
-//	public void FindExt() throws MalformedURLException, InterruptedException {
+
+//public class Playground extends CloudBase {
+
+//	@Test(priority = 1)
+//	public void ViewItem2() throws IOException, MalformedURLException, InterruptedException {
 //
 //		AndroidDriver driver = Capabilities();
-//		CommonMethods get = new CommonMethods(driver);
+//		CommonMethods Create = new CommonMethods(driver);
 //
-//		get.Xpath(Strings.homeHamburger,waitinsec).click();
-//		get.Xpath(Strings.Home,waitinsec).click();
-//		get.Xpath(Strings.homeHamburger,waitinsec).click();
-//		get.Xpath(Strings.AllFiles,waitinsec).click();
-//		get.Xpath(Strings.mobileRepro,waitinsec).click();
-//		String foldername = get.GetText(Strings.folderTitle);
-//		String devicefolder = get.XpathBuilder(Strings.TextView, Strings.Text, foldername);
-//		get.Xpath(devicefolder,waitinsec).click();
-//		String RepoTitle = get.XpathBuilder(Strings.TextView, Strings.Text, "My "+foldername);
+//		System.out.println("Test" + driver.getCapabilities().getCapability("deviceName").toString());
+//		//driver.unlockDevice();
 //		
-//		String s = get.GetText(Strings.allfileItem);
-//		
-//		
-//		s.substring(s.lastIndexOf('.') + 1);
-//		
-//		System.out.println("printed output: "+ s.substring(s.lastIndexOf('.') + 1));
-//		
-//		
-//		//get.Xpath(Strings.allfileItem).click();
-//	
+//		String[] args = new String[] {"/bin/sh", "/Users/eamon.myles/Desktop/hello_world.sh"};
+//		Process proc = new ProcessBuilder(args).start();
+
 //	}
+	
+	
+	
+//	    public static void main(String[] args) throws InterruptedException, IOException {
+//	
+//	        ProcessBuilder pb = new ProcessBuilder("java", "-version");
+//	        System.out.println("Run echo command");	
+//	        Process process = pb.start();	
+//	        int errCode = process.waitFor();
+//	        System.out.println(errCode);
+//	        System.out.println("Echo command executed, any errors? " + (errCode == 0 ? "No" : "Yes"));	
+//	        System.out.println("Echo Output:\n" + output(process.getInputStream()));   
+//	
+//	    }
+//	
+//	    private static String output(InputStream inputStream) throws IOException {
+//	
+//	        StringBuilder sb = new StringBuilder();	
+//	        BufferedReader br = null;	
+//	        try {	
+//	            br = new BufferedReader(new InputStreamReader(inputStream));	
+//	            String line = null;	
+//	            while ((line = br.readLine()) != null) {	
+//	                sb.append(line + System.getProperty("line.separator"));
+//	            }	
+//	        } finally {	
+//	            br.close();	
+//	        }
+//	
+//	        return sb.toString();
+//	
+//	    }
+//}
+	    
+	    
+//public class Playground {
+//
+//public static void main(String[] args) throws IOException, InterruptedException {
+//
+//String line = "null";
+//
+//
+//String[] command = {Strings.ADB, "shell", "getprop", "ro.product.model"};
+//
+//Runtime run = Runtime.getRuntime();
+//Process pr = run.exec(command);
+//
+//pr.waitFor();
+//
+//BufferedReader buf = new BufferedReader(new InputStreamReader(pr.getInputStream()));
+//while ((line=buf.readLine())!=null) {
+//System.out.println(line);
+//}
+//}
+//}
+
+
+
+	
+	int waitinsec = 30;
+	
+	//@Test
+	public void FindExt() throws MalformedURLException, InterruptedException {
+
+		AndroidDriver driver = Capabilities();
+		CommonMethods get = new CommonMethods(driver);
+
+		get.Xpath(Strings.homeHamburger,waitinsec).click();
+		get.Xpath(Strings.Home,waitinsec).click();
+		get.Xpath(Strings.homeHamburger,waitinsec).click();
+		get.Xpath(Strings.AllFiles,waitinsec).click();
+		get.Xpath(Strings.mobileRepro,waitinsec).click();
+		String foldername = get.GetText(Strings.folderTitle);
+		String devicefolder = get.XpathBuilder(Strings.TextView, Strings.Text, foldername);
+		get.Xpath(devicefolder,waitinsec).click();
+		String RepoTitle = get.XpathBuilder(Strings.TextView, Strings.Text, "My "+foldername);
+		
+		String s = get.GetText(Strings.allfileItem);
+		
+		
+		s.substring(s.lastIndexOf('.') + 1);
+		
+		System.out.println("printed output: "+ s.substring(s.lastIndexOf('.') + 1));
+		
+		
+		//get.Xpath(Strings.allfileItem).click();
+	
+	}
+}
 	
 
 	
@@ -204,6 +277,7 @@
 //		Assert.assertEquals(Create.AssertXpathExists(string.Elipses), 1);
 //
 //	}
+
 //	
 //	
 //
