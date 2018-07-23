@@ -5,9 +5,11 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.AndroidKeyCode;
 import objectrepository.CommonMethods;
 
 import objectrepository.Strings;
@@ -17,15 +19,26 @@ public class AllFiles extends CloudBase {
 	private AndroidDriver driver;
 	private CommonMethods get;
 
-	@BeforeSuite
+//	@BeforeSuite
+//	public void Setup() throws MalformedURLException {
+//		driver = Capabilities();
+//		get = new CommonMethods(driver);
+//
+//	}
+	
+	
+	@BeforeMethod
 	public void Setup() throws MalformedURLException {
-		driver = Capabilities();
-		get = new CommonMethods(driver);
+	driver = Capabilities();
+	get = new CommonMethods(driver);
 
 	}
 
 	@Test
 	public void OpenMobileRepro() throws MalformedURLException, InterruptedException {
+		
+//		driver = Capabilities();
+//		get = new CommonMethods(driver);
 
 		get.Xpath(Strings.homeHamburger, waitinsec).click();
 		get.Xpath(Strings.Home, waitinsec).click();
@@ -36,13 +49,20 @@ public class AllFiles extends CloudBase {
 		String foldername = get.GetText(Strings.folderTitle);
 		String devicefolder = get.XpathBuilder(Strings.TextView, Strings.Text, foldername);
 		get.Xpath(devicefolder, waitinsec).click();
-		String RepoTitle = get.XpathBuilder(Strings.TextView, Strings.Text, "My " + foldername);
+		String RepoTitle = get.XpathBuilder(Strings.TextView, Strings.Text, foldername);
 
 		Assert.assertEquals(get.AssertXpathExists(RepoTitle), 1);
 	}
 
+	
+	//music plays all the way before stopping
+	
 	@Test
 	public void FindExt() throws MalformedURLException, InterruptedException {
+		
+		System.out.println("FindExt");
+//		driver = Capabilities();
+//		get = new CommonMethods(driver);
 
 		get.Xpath(Strings.homeHamburger, waitinsec).click();
 		get.Xpath(Strings.Home, waitinsec).click();
@@ -153,10 +173,16 @@ public class AllFiles extends CloudBase {
 		default:
 			throw new IllegalArgumentException("Invalid extention: " + ext);
 		}
+		
+		get.Xpath(Strings.infoClose, waitinsec).click();
+		driver.pressKeyCode(AndroidKeyCode.BACK);
 	}
 
 	@Test
 	public void MobileName() throws InterruptedException, IOException {
+		
+//		driver = Capabilities();
+//		get = new CommonMethods(driver);
 
 		get.Xpath(Strings.homeHamburger, waitinsec).click();
 		get.Xpath(Strings.Home, waitinsec).click();

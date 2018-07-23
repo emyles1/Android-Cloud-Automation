@@ -1,0 +1,278 @@
+-------------------------------------------------------------------------------
+Test set: TestSuite
+-------------------------------------------------------------------------------
+Tests run: 45, Failures: 23, Errors: 0, Skipped: 20, Time elapsed: 228.704 s <<< FAILURE! - in TestSuite
+ArtistAddtoPlaylist(testcases.Music)  Time elapsed: 0.063 s  <<< FAILURE!
+org.openqa.selenium.NoSuchSessionException: 
+A session is either terminated or not started (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+Build info: version: '3.13.0', revision: '2f0d292', time: '2018-06-25T15:24:21.231Z'
+System info: host: 'IEC02N926BG3QT', ip: 'fe80:0:0:0:1480:349:de4a:f301%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.13.1', java.version: '1.8.0_25'
+Driver info: io.appium.java_client.android.AndroidDriver
+Capabilities {appActivity: com.newbay.syncdrive.androi..., appPackage: com.vcast.mediamanager, autoDismissAlerts: true, autoGrantPermissions: true, automationName: uiautomator2, deviceName: Android Device, javascriptEnabled: true, newCommandTimeout: 100, noReset: true, platform: ANDROID, platformName: ANDROID}
+Session ID: d98e9962-b5b4-451d-9eaf-10ab59a22b16
+*** Element info: {Using=xpath, value=//android.widget.ImageButton[@content-desc ='Navigate up']}
+	at testcases.Music.ArtistAddtoPlaylist(Music.java:72)
+
+ArtistDownload(testcases.Music)  Time elapsed: 0.011 s  <<< FAILURE!
+org.openqa.selenium.NoSuchSessionException: 
+A session is either terminated or not started (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+Build info: version: '3.13.0', revision: '2f0d292', time: '2018-06-25T15:24:21.231Z'
+System info: host: 'IEC02N926BG3QT', ip: 'fe80:0:0:0:1480:349:de4a:f301%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.13.1', java.version: '1.8.0_25'
+Driver info: io.appium.java_client.android.AndroidDriver
+Capabilities {appActivity: com.newbay.syncdrive.androi..., appPackage: com.vcast.mediamanager, autoDismissAlerts: true, autoGrantPermissions: true, automationName: uiautomator2, deviceName: Android Device, javascriptEnabled: true, newCommandTimeout: 100, noReset: true, platform: ANDROID, platformName: ANDROID}
+Session ID: d98e9962-b5b4-451d-9eaf-10ab59a22b16
+*** Element info: {Using=xpath, value=//android.widget.ImageButton[@content-desc ='Navigate up']}
+	at testcases.Music.ArtistDownload(Music.java:53)
+
+ArtistView(testcases.Music)  Time elapsed: 0.008 s  <<< FAILURE!
+org.openqa.selenium.NoSuchSessionException: 
+A session is either terminated or not started (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+Build info: version: '3.13.0', revision: '2f0d292', time: '2018-06-25T15:24:21.231Z'
+System info: host: 'IEC02N926BG3QT', ip: 'fe80:0:0:0:1480:349:de4a:f301%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.13.1', java.version: '1.8.0_25'
+Driver info: io.appium.java_client.android.AndroidDriver
+Capabilities {appActivity: com.newbay.syncdrive.androi..., appPackage: com.vcast.mediamanager, autoDismissAlerts: true, autoGrantPermissions: true, automationName: uiautomator2, deviceName: Android Device, javascriptEnabled: true, newCommandTimeout: 100, noReset: true, platform: ANDROID, platformName: ANDROID}
+Session ID: d98e9962-b5b4-451d-9eaf-10ab59a22b16
+*** Element info: {Using=xpath, value=//android.widget.ImageButton[@content-desc ='Navigate up']}
+	at testcases.Music.ArtistView(Music.java:40)
+
+CreatePlaylist(testcases.Music)  Time elapsed: 0.009 s  <<< FAILURE!
+org.openqa.selenium.NoSuchSessionException: 
+A session is either terminated or not started (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+Build info: version: '3.13.0', revision: '2f0d292', time: '2018-06-25T15:24:21.231Z'
+System info: host: 'IEC02N926BG3QT', ip: 'fe80:0:0:0:1480:349:de4a:f301%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.13.1', java.version: '1.8.0_25'
+Driver info: io.appium.java_client.android.AndroidDriver
+Capabilities {appActivity: com.newbay.syncdrive.androi..., appPackage: com.vcast.mediamanager, autoDismissAlerts: true, autoGrantPermissions: true, automationName: uiautomator2, deviceName: Android Device, javascriptEnabled: true, newCommandTimeout: 100, noReset: true, platform: ANDROID, platformName: ANDROID}
+Session ID: d98e9962-b5b4-451d-9eaf-10ab59a22b16
+*** Element info: {Using=xpath, value=//android.widget.ImageButton[@content-desc ='Navigate up']}
+	at testcases.Music.CreatePlaylist(Music.java:108)
+
+DeleteSong(testcases.Music)  Time elapsed: 0.007 s  <<< FAILURE!
+org.openqa.selenium.NoSuchSessionException: 
+A session is either terminated or not started (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+Build info: version: '3.13.0', revision: '2f0d292', time: '2018-06-25T15:24:21.231Z'
+System info: host: 'IEC02N926BG3QT', ip: 'fe80:0:0:0:1480:349:de4a:f301%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.13.1', java.version: '1.8.0_25'
+Driver info: io.appium.java_client.android.AndroidDriver
+Capabilities {appActivity: com.newbay.syncdrive.androi..., appPackage: com.vcast.mediamanager, autoDismissAlerts: true, autoGrantPermissions: true, automationName: uiautomator2, deviceName: Android Device, javascriptEnabled: true, newCommandTimeout: 100, noReset: true, platform: ANDROID, platformName: ANDROID}
+Session ID: d98e9962-b5b4-451d-9eaf-10ab59a22b16
+*** Element info: {Using=xpath, value=//android.widget.ImageButton[@content-desc ='Navigate up']}
+	at testcases.Music.DeleteSong(Music.java:92)
+
+PlaySong(testcases.Music)  Time elapsed: 0.018 s  <<< FAILURE!
+org.openqa.selenium.NoSuchSessionException: 
+A session is either terminated or not started (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+Build info: version: '3.13.0', revision: '2f0d292', time: '2018-06-25T15:24:21.231Z'
+System info: host: 'IEC02N926BG3QT', ip: 'fe80:0:0:0:1480:349:de4a:f301%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.13.1', java.version: '1.8.0_25'
+Driver info: io.appium.java_client.android.AndroidDriver
+Capabilities {appActivity: com.newbay.syncdrive.androi..., appPackage: com.vcast.mediamanager, autoDismissAlerts: true, autoGrantPermissions: true, automationName: uiautomator2, deviceName: Android Device, javascriptEnabled: true, newCommandTimeout: 100, noReset: true, platform: ANDROID, platformName: ANDROID}
+Session ID: d98e9962-b5b4-451d-9eaf-10ab59a22b16
+*** Element info: {Using=xpath, value=//android.widget.ImageButton[@content-desc ='Navigate up']}
+	at testcases.Music.PlaySong(Music.java:126)
+
+SettingsPageLayout(testcases.Settings)  Time elapsed: 37.917 s  <<< FAILURE!
+org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.xpath: //android.widget.TextView[@text ='Manage Storage'] (tried for 30 second(s) with 500 MILLISECONDS interval)
+	at testcases.Settings.SettingsPageLayout(Settings.java:45)
+Caused by: org.openqa.selenium.NoSuchElementException: 
+Cannot locate an element using By.xpath: //android.widget.TextView[@text ='Manage Storage']
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.13.0', revision: '2f0d292', time: '2018-06-25T15:24:21.231Z'
+System info: host: 'IEC02N926BG3QT', ip: 'fe80:0:0:0:1480:349:de4a:f301%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.13.1', java.version: '1.8.0_25'
+Driver info: driver.version: unknown
+	at testcases.Settings.SettingsPageLayout(Settings.java:45)
+
+Tools(testcases.Settings)  Time elapsed: 31.144 s  <<< FAILURE!
+org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.xpath: //android.widget.TextView[@index = '9' and contains(@text,'Settings')] (tried for 30 second(s) with 500 MILLISECONDS interval)
+	at testcases.Settings.Tools(Settings.java:56)
+Caused by: org.openqa.selenium.NoSuchElementException: 
+Cannot locate an element using By.xpath: //android.widget.TextView[@index = '9' and contains(@text,'Settings')]
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.13.0', revision: '2f0d292', time: '2018-06-25T15:24:21.231Z'
+System info: host: 'IEC02N926BG3QT', ip: 'fe80:0:0:0:1480:349:de4a:f301%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.13.1', java.version: '1.8.0_25'
+Driver info: driver.version: unknown
+	at testcases.Settings.Tools(Settings.java:56)
+
+DocDeleteCancel(testcases.Documents)  Time elapsed: 0.009 s  <<< FAILURE!
+org.openqa.selenium.NoSuchSessionException: 
+A session is either terminated or not started (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+Build info: version: '3.13.0', revision: '2f0d292', time: '2018-06-25T15:24:21.231Z'
+System info: host: 'IEC02N926BG3QT', ip: 'fe80:0:0:0:1480:349:de4a:f301%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.13.1', java.version: '1.8.0_25'
+Driver info: io.appium.java_client.android.AndroidDriver
+Capabilities {appActivity: com.newbay.syncdrive.androi..., appPackage: com.vcast.mediamanager, autoDismissAlerts: true, autoGrantPermissions: true, automationName: uiautomator2, deviceName: Android Device, javascriptEnabled: true, newCommandTimeout: 100, noReset: true, platform: ANDROID, platformName: ANDROID}
+Session ID: 71308c88-88af-4682-b91e-5de8747ec9cf
+*** Element info: {Using=xpath, value=//android.widget.ImageButton[@content-desc ='Navigate up']}
+	at testcases.Documents.DocDeleteCancel(Documents.java:172)
+
+DocFavSwitch(testcases.Documents)  Time elapsed: 0.011 s  <<< FAILURE!
+org.openqa.selenium.NoSuchSessionException: 
+A session is either terminated or not started (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+Build info: version: '3.13.0', revision: '2f0d292', time: '2018-06-25T15:24:21.231Z'
+System info: host: 'IEC02N926BG3QT', ip: 'fe80:0:0:0:1480:349:de4a:f301%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.13.1', java.version: '1.8.0_25'
+Driver info: io.appium.java_client.android.AndroidDriver
+Capabilities {appActivity: com.newbay.syncdrive.androi..., appPackage: com.vcast.mediamanager, autoDismissAlerts: true, autoGrantPermissions: true, automationName: uiautomator2, deviceName: Android Device, javascriptEnabled: true, newCommandTimeout: 100, noReset: true, platform: ANDROID, platformName: ANDROID}
+Session ID: 71308c88-88af-4682-b91e-5de8747ec9cf
+*** Element info: {Using=xpath, value=//android.widget.ImageButton[@content-desc ='Navigate up']}
+	at testcases.Documents.DocFavSwitch(Documents.java:116)
+
+DocInfo(testcases.Documents)  Time elapsed: 0.004 s  <<< FAILURE!
+org.openqa.selenium.NoSuchSessionException: 
+A session is either terminated or not started (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+Build info: version: '3.13.0', revision: '2f0d292', time: '2018-06-25T15:24:21.231Z'
+System info: host: 'IEC02N926BG3QT', ip: 'fe80:0:0:0:1480:349:de4a:f301%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.13.1', java.version: '1.8.0_25'
+Driver info: io.appium.java_client.android.AndroidDriver
+Capabilities {appActivity: com.newbay.syncdrive.androi..., appPackage: com.vcast.mediamanager, autoDismissAlerts: true, autoGrantPermissions: true, automationName: uiautomator2, deviceName: Android Device, javascriptEnabled: true, newCommandTimeout: 100, noReset: true, platform: ANDROID, platformName: ANDROID}
+Session ID: 71308c88-88af-4682-b91e-5de8747ec9cf
+*** Element info: {Using=xpath, value=//android.widget.ImageButton[@content-desc ='Navigate up']}
+	at testcases.Documents.DocInfo(Documents.java:149)
+
+DocumentDelete(testcases.Documents)  Time elapsed: 0.02 s  <<< FAILURE!
+org.openqa.selenium.NoSuchSessionException: 
+A session is either terminated or not started (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+Build info: version: '3.13.0', revision: '2f0d292', time: '2018-06-25T15:24:21.231Z'
+System info: host: 'IEC02N926BG3QT', ip: 'fe80:0:0:0:1480:349:de4a:f301%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.13.1', java.version: '1.8.0_25'
+Driver info: io.appium.java_client.android.AndroidDriver
+Capabilities {appActivity: com.newbay.syncdrive.androi..., appPackage: com.vcast.mediamanager, autoDismissAlerts: true, autoGrantPermissions: true, automationName: uiautomator2, deviceName: Android Device, javascriptEnabled: true, newCommandTimeout: 100, noReset: true, platform: ANDROID, platformName: ANDROID}
+Session ID: 71308c88-88af-4682-b91e-5de8747ec9cf
+*** Element info: {Using=xpath, value=//android.widget.ImageButton[@content-desc ='Navigate up']}
+	at testcases.Documents.DocumentDelete(Documents.java:160)
+
+DocumentDownload(testcases.Documents)  Time elapsed: 0.004 s  <<< FAILURE!
+org.openqa.selenium.NoSuchSessionException: 
+A session is either terminated or not started (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+Build info: version: '3.13.0', revision: '2f0d292', time: '2018-06-25T15:24:21.231Z'
+System info: host: 'IEC02N926BG3QT', ip: 'fe80:0:0:0:1480:349:de4a:f301%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.13.1', java.version: '1.8.0_25'
+Driver info: io.appium.java_client.android.AndroidDriver
+Capabilities {appActivity: com.newbay.syncdrive.androi..., appPackage: com.vcast.mediamanager, autoDismissAlerts: true, autoGrantPermissions: true, automationName: uiautomator2, deviceName: Android Device, javascriptEnabled: true, newCommandTimeout: 100, noReset: true, platform: ANDROID, platformName: ANDROID}
+Session ID: 71308c88-88af-4682-b91e-5de8747ec9cf
+*** Element info: {Using=xpath, value=//android.widget.ImageButton[@content-desc ='Navigate up']}
+	at testcases.Documents.DocumentDownload(Documents.java:138)
+
+DocumentsCopyShareLink(testcases.Documents)  Time elapsed: 0.018 s  <<< FAILURE!
+org.openqa.selenium.NoSuchSessionException: 
+A session is either terminated or not started (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+Build info: version: '3.13.0', revision: '2f0d292', time: '2018-06-25T15:24:21.231Z'
+System info: host: 'IEC02N926BG3QT', ip: 'fe80:0:0:0:1480:349:de4a:f301%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.13.1', java.version: '1.8.0_25'
+Driver info: io.appium.java_client.android.AndroidDriver
+Capabilities {appActivity: com.newbay.syncdrive.androi..., appPackage: com.vcast.mediamanager, autoDismissAlerts: true, autoGrantPermissions: true, automationName: uiautomator2, deviceName: Android Device, javascriptEnabled: true, newCommandTimeout: 100, noReset: true, platform: ANDROID, platformName: ANDROID}
+Session ID: 71308c88-88af-4682-b91e-5de8747ec9cf
+*** Element info: {Using=xpath, value=//android.widget.ImageButton[@content-desc ='Navigate up']}
+	at testcases.Documents.DocumentsCopyShareLink(Documents.java:102)
+
+DocumentsOpen(testcases.Documents)  Time elapsed: 0.009 s  <<< FAILURE!
+org.openqa.selenium.NoSuchSessionException: 
+A session is either terminated or not started (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+Build info: version: '3.13.0', revision: '2f0d292', time: '2018-06-25T15:24:21.231Z'
+System info: host: 'IEC02N926BG3QT', ip: 'fe80:0:0:0:1480:349:de4a:f301%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.13.1', java.version: '1.8.0_25'
+Driver info: io.appium.java_client.android.AndroidDriver
+Capabilities {appActivity: com.newbay.syncdrive.androi..., appPackage: com.vcast.mediamanager, autoDismissAlerts: true, autoGrantPermissions: true, automationName: uiautomator2, deviceName: Android Device, javascriptEnabled: true, newCommandTimeout: 100, noReset: true, platform: ANDROID, platformName: ANDROID}
+Session ID: 71308c88-88af-4682-b91e-5de8747ec9cf
+*** Element info: {Using=xpath, value=//android.widget.ImageButton[@content-desc ='Navigate up']}
+	at testcases.Documents.DocumentsOpen(Documents.java:184)
+
+DocumentsShare(testcases.Documents)  Time elapsed: 0.004 s  <<< FAILURE!
+org.openqa.selenium.NoSuchSessionException: 
+A session is either terminated or not started (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+Build info: version: '3.13.0', revision: '2f0d292', time: '2018-06-25T15:24:21.231Z'
+System info: host: 'IEC02N926BG3QT', ip: 'fe80:0:0:0:1480:349:de4a:f301%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.13.1', java.version: '1.8.0_25'
+Driver info: io.appium.java_client.android.AndroidDriver
+Capabilities {appActivity: com.newbay.syncdrive.androi..., appPackage: com.vcast.mediamanager, autoDismissAlerts: true, autoGrantPermissions: true, automationName: uiautomator2, deviceName: Android Device, javascriptEnabled: true, newCommandTimeout: 100, noReset: true, platform: ANDROID, platformName: ANDROID}
+Session ID: 71308c88-88af-4682-b91e-5de8747ec9cf
+*** Element info: {Using=xpath, value=//android.widget.ImageButton[@content-desc ='Navigate up']}
+	at testcases.Documents.DocumentsShare(Documents.java:71)
+
+DocumentsSort(testcases.Documents)  Time elapsed: 0.001 s  <<< FAILURE!
+org.openqa.selenium.NoSuchSessionException: 
+A session is either terminated or not started (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+Build info: version: '3.13.0', revision: '2f0d292', time: '2018-06-25T15:24:21.231Z'
+System info: host: 'IEC02N926BG3QT', ip: 'fe80:0:0:0:1480:349:de4a:f301%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.13.1', java.version: '1.8.0_25'
+Driver info: io.appium.java_client.android.AndroidDriver
+Capabilities {appActivity: com.newbay.syncdrive.androi..., appPackage: com.vcast.mediamanager, autoDismissAlerts: true, autoGrantPermissions: true, automationName: uiautomator2, deviceName: Android Device, javascriptEnabled: true, newCommandTimeout: 100, noReset: true, platform: ANDROID, platformName: ANDROID}
+Session ID: 71308c88-88af-4682-b91e-5de8747ec9cf
+*** Element info: {Using=xpath, value=//android.widget.ImageButton[@content-desc ='Navigate up']}
+	at testcases.Documents.DocumentsSort(Documents.java:38)
+
+MessageCenter2(testcases.MessageCenter)  Time elapsed: 0.006 s  <<< FAILURE!
+org.openqa.selenium.NoSuchSessionException: 
+A session is either terminated or not started (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+Build info: version: '3.13.0', revision: '2f0d292', time: '2018-06-25T15:24:21.231Z'
+System info: host: 'IEC02N926BG3QT', ip: 'fe80:0:0:0:1480:349:de4a:f301%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.13.1', java.version: '1.8.0_25'
+Driver info: io.appium.java_client.android.AndroidDriver
+Capabilities {appActivity: com.newbay.syncdrive.androi..., appPackage: com.vcast.mediamanager, autoDismissAlerts: true, autoGrantPermissions: true, automationName: uiautomator2, deviceName: Android Device, javascriptEnabled: true, newCommandTimeout: 100, noReset: true, platform: ANDROID, platformName: ANDROID}
+Session ID: 568b1fe8-221c-41c4-aa3b-a6e2e036ec99
+*** Element info: {Using=xpath, value=//android.widget.ImageButton[@content-desc ='Navigate up']}
+	at testcases.MessageCenter.MessageCenter2(MessageCenter.java:40)
+
+test(testcases.MessageCenter)  Time elapsed: 0.015 s  <<< FAILURE!
+org.openqa.selenium.NoSuchSessionException: 
+A session is either terminated or not started (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+Build info: version: '3.13.0', revision: '2f0d292', time: '2018-06-25T15:24:21.231Z'
+System info: host: 'IEC02N926BG3QT', ip: 'fe80:0:0:0:1480:349:de4a:f301%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.13.1', java.version: '1.8.0_25'
+Driver info: io.appium.java_client.android.AndroidDriver
+Capabilities {appActivity: com.newbay.syncdrive.androi..., appPackage: com.vcast.mediamanager, autoDismissAlerts: true, autoGrantPermissions: true, automationName: uiautomator2, deviceName: Android Device, javascriptEnabled: true, newCommandTimeout: 100, noReset: true, platform: ANDROID, platformName: ANDROID}
+Session ID: 568b1fe8-221c-41c4-aa3b-a6e2e036ec99
+*** Element info: {Using=xpath, value=//android.widget.ImageButton[@content-desc ='Navigate up']}
+	at testcases.MessageCenter.test(MessageCenter.java:31)
+
+AppState(testcases.PhotosAndVideo)  Time elapsed: 0.031 s  <<< FAILURE!
+org.openqa.selenium.NoSuchSessionException: 
+A session is either terminated or not started (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+Build info: version: '3.13.0', revision: '2f0d292', time: '2018-06-25T15:24:21.231Z'
+System info: host: 'IEC02N926BG3QT', ip: 'fe80:0:0:0:1480:349:de4a:f301%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.13.1', java.version: '1.8.0_25'
+Driver info: io.appium.java_client.android.AndroidDriver
+Capabilities {appActivity: com.newbay.syncdrive.androi..., appPackage: com.vcast.mediamanager, autoDismissAlerts: true, autoGrantPermissions: true, automationName: uiautomator2, deviceName: Android Device, javascriptEnabled: true, newCommandTimeout: 100, noReset: true, platform: ANDROID, platformName: ANDROID}
+Session ID: e1fb0052-f1ab-4319-9580-517ba884eac9
+*** Element info: {Using=xpath, value=//android.widget.ImageButton[@content-desc ='Navigate up']}
+	at testcases.PhotosAndVideo.AppState(PhotosAndVideo.java:48)
+
+FindExt(testcases.AllFiles)  Time elapsed: 0.019 s  <<< FAILURE!
+org.openqa.selenium.NoSuchSessionException: 
+A session is either terminated or not started (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+Build info: version: '3.13.0', revision: '2f0d292', time: '2018-06-25T15:24:21.231Z'
+System info: host: 'IEC02N926BG3QT', ip: 'fe80:0:0:0:1480:349:de4a:f301%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.13.1', java.version: '1.8.0_25'
+Driver info: io.appium.java_client.android.AndroidDriver
+Capabilities {appActivity: com.newbay.syncdrive.androi..., appPackage: com.vcast.mediamanager, autoDismissAlerts: true, autoGrantPermissions: true, automationName: uiautomator2, deviceName: Android Device, javascriptEnabled: true, newCommandTimeout: 100, noReset: true, platform: ANDROID, platformName: ANDROID}
+Session ID: ce5b2156-e0f5-4e95-9450-25bf478827b1
+*** Element info: {Using=xpath, value=//android.widget.ImageButton[@content-desc ='Navigate up']}
+	at testcases.AllFiles.FindExt(AllFiles.java:47)
+
+MobileName(testcases.AllFiles)  Time elapsed: 0.018 s  <<< FAILURE!
+org.openqa.selenium.NoSuchSessionException: 
+A session is either terminated or not started (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+Build info: version: '3.13.0', revision: '2f0d292', time: '2018-06-25T15:24:21.231Z'
+System info: host: 'IEC02N926BG3QT', ip: 'fe80:0:0:0:1480:349:de4a:f301%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.13.1', java.version: '1.8.0_25'
+Driver info: io.appium.java_client.android.AndroidDriver
+Capabilities {appActivity: com.newbay.syncdrive.androi..., appPackage: com.vcast.mediamanager, autoDismissAlerts: true, autoGrantPermissions: true, automationName: uiautomator2, deviceName: Android Device, javascriptEnabled: true, newCommandTimeout: 100, noReset: true, platform: ANDROID, platformName: ANDROID}
+Session ID: ce5b2156-e0f5-4e95-9450-25bf478827b1
+*** Element info: {Using=xpath, value=//android.widget.ImageButton[@content-desc ='Navigate up']}
+	at testcases.AllFiles.MobileName(AllFiles.java:161)
+
+OpenMobileRepro(testcases.AllFiles)  Time elapsed: 0.008 s  <<< FAILURE!
+org.openqa.selenium.NoSuchSessionException: 
+A session is either terminated or not started (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+Build info: version: '3.13.0', revision: '2f0d292', time: '2018-06-25T15:24:21.231Z'
+System info: host: 'IEC02N926BG3QT', ip: 'fe80:0:0:0:1480:349:de4a:f301%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.13.1', java.version: '1.8.0_25'
+Driver info: io.appium.java_client.android.AndroidDriver
+Capabilities {appActivity: com.newbay.syncdrive.androi..., appPackage: com.vcast.mediamanager, autoDismissAlerts: true, autoGrantPermissions: true, automationName: uiautomator2, deviceName: Android Device, javascriptEnabled: true, newCommandTimeout: 100, noReset: true, platform: ANDROID, platformName: ANDROID}
+Session ID: ce5b2156-e0f5-4e95-9450-25bf478827b1
+*** Element info: {Using=xpath, value=//android.widget.ImageButton[@content-desc ='Navigate up']}
+	at testcases.AllFiles.OpenMobileRepro(AllFiles.java:30)
+

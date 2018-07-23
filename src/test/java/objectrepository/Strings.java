@@ -22,7 +22,7 @@ public class Strings {
 
 
 	// NavBarRepository strings  
-	public final static String homeHamburger = "//android.widget.ImageButton[@index ='0']";
+	public final static String homeHamburger = "//android.widget.ImageButton[@content-desc ='Navigate up']";
 	public final static String Home = "//android.widget.TextView[@index = '0' and contains(@text,'Home')]";
 	public final static String PicAndVids = "//android.widget.TextView[@index = '1' and contains(@text,'Photos & Videos (')]";
 	public final static String Music = "//android.widget.TextView[@index = '2' and contains(@text,'Music')]";
@@ -30,7 +30,8 @@ public class Strings {
 	public final static String MessageCenter = "//android.widget.TextView[@index = '5' and contains(@text,'Message Center')]";
 	public final static String Appsusingcloud = "//android.widget.TextView[@text = 'Apps Using Cloud')]";
 	public final static String AllFiles = "//android.widget.TextView[@index = '8' and contains(@text,'All Files')]";
-	public final static String Settings = "//android.widget.TextView[@index = '9' and contains(@text,'Settings')]";
+	//public final static String Settings = "//android.widget.TextView[@index = '9' and contains(@text,'Settings')]";
+	public final static String Settings = "//android.widget.TextView[@text = 'Settings']";
 	
 	//HomeRepository strings
 	public final static String Cloudicon = "com.vcast.mediamanager:id/status_icon";
@@ -43,6 +44,8 @@ public class Strings {
 	public final static String timelineHeader = "//android.widget.TextView[@text = 'Timeline']";
 	public final static String albumHeader = "//android.widget.TextView[@text = 'Albums']";
 	public final static String favAlbum = "//android.widget.ImageView[@index = '0' and contains(@content-desc,'Favorites : Count')]";
+	public final static String noAlbum = "//android.widget.TextView[@text = 'No Albums']";
+	public final static String newAlbum = "//android.widget.TextView[@text = 'New Album']";
 	public final static String firstAllitem = "//android.widget.ImageView[@resource-id = 'com.vcast.mediamanager:id/icon' and @index ='1']";
 	public final static String firstTimelineitem = "//android.widget.ImageView[@resource-id = 'com.vcast.mediamanager:id/icon' and @index ='1']";
 	public final static String AlbumSelect = "//android.widget.ImageView[@resource-id = 'com.vcast.mediamanager:id/icon' and @index ='1']";
@@ -53,6 +56,7 @@ public class Strings {
 	public final static String infodatetaken = "//android.widget.TextView[@text = 'Date Taken']";
 	public final static String filterByVideo = "//android.widget.CheckedTextView[@text = 'Videos']";
 	public final static String filterByPhotos = "//android.widget.CheckedTextView[@text = 'Photos']";
+	public final static String filterByEverything = "//android.widget.CheckedTextView[@text = 'Everything']";
 	public final static String tapFullview = "//android.widget.ImageView[@index = '0' and contains(@resource-id, 'com.vcast.mediamanager:id/flipper_image_view_')]";
 	
 	//MusicRespository strings
@@ -64,6 +68,8 @@ public class Strings {
 	public final static String longPressMusic = "//android.widget.LinearLayout[@index= 0]";
 	public final static String addPlaylistContent = "//android.widget.Button[@text = 'Add Songs']";
 	public final static String nowPlaying = "//android.widget.TextView[@text = 'Now Playing']";
+	public final static String playButton = "//android.widget.ImageButton[@resource-id = 'com.vcast.mediamanager:id/play_button']";
+	public final static String pauseButton = "com.vcast.mediamanager:id/pause_button";
 
 
 	//DocRespository strings
@@ -111,6 +117,8 @@ public class Strings {
 	public final static String Save = "//android.widget.Button[@text ='SAVE']"; //capitalized for the collage save
 	public final static String RateMyApp = "//android.widget.TextView[@text ='Thanks For Your Support!']";
 	public final static String RateNoThanks = "//android.widget.Button[@text ='NO THANKS']";
+	public final static String TV = "//android.widget.Button[@text ='Got it']";
+	
 	
 	
 	

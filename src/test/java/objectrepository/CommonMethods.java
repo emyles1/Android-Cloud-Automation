@@ -4,37 +4,24 @@ import java.net.MalformedURLException;
 import java.time.Duration;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.touch.TouchActions;
-import org.openqa.selenium.remote.RemoteWebElement;
-import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.Test;
-
-
+import objectrepository.CommonMethods;
 import io.appium.java_client.TouchAction;
-
 import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.pagefactory.AppiumFieldDecorator;
-import testcases.CloudBase;
 
-public class CommonMethods extends CloudBase  {
+
+public class CommonMethods   {
 	int waitinsec = 30;
 	private AndroidDriver driver;
 	private CommonMethods get;
 
-
-	public CommonMethods(AndroidDriver driver) throws MalformedURLException {
+	public CommonMethods(AndroidDriver driver) {
+		this.driver = driver;
 		
-		driver = Capabilities();
-		get = new CommonMethods(driver);
-//		get = new CommonMethods(driver);
-		
-
 		// add for the Factory object model
 		// PageFactory.initElements(driver, this);
 		// PageFactory.initElements(new AppiumFieldDecorator(driver), this);
@@ -53,13 +40,12 @@ public class CommonMethods extends CloudBase  {
 
 		WebDriverWait wait = new WebDriverWait(driver, seconds);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(string)));
-
+		//System.out.println("String" +string);
 		WebElement webElement = driver.findElementByXPath(string);
 		return webElement;
 
 	}
 	
-
 
 	public void WaitForIt(String string, int seconds) {
 
@@ -177,21 +163,55 @@ public class CommonMethods extends CloudBase  {
 
 	}
 	
-	
-	public void RateMyAppDisplay(String string) {
+	public void RateMyAppDisplay(String string) throws InterruptedException {
 
-		
+		Xpath(Strings.homeHamburger, waitinsec).click();
+		Xpath(Strings.Home, waitinsec).click();
+		Thread.sleep(2000L);
 		List<WebElement> webElements = driver.findElementsByXPath(string);
 		if (webElements.size() == 1) {
 			Xpath(Strings.RateNoThanks,30).click();
 		}
 
 		else {
-			System.out.println("Rate My App doesnt exist");
+			System.out.println("Rate My App not displayed");
 		}
+	}
+	
+	public void AlbumExist(String string) {
+	
+		Xpath(Strings.homeHamburger, 30).click();
+		Xpath(Strings.PicAndVids, 30).click();
+		Xpath(Strings.albumHeader, 30).click();
+		List<WebElement> webElements = driver.findElementsByXPath(string);
+		System.out.println("exists or not"+webElements);
+		System.out.println("exists or not and size"+webElements.size());
+		
+		if (webElements.size() == 1) {
+			Xpath(Strings.newAlbum,30).click();
+			Xpath(Strings.enterAlbumName, waitinsec).sendKeys("FirstAlbum");
+			Xpath(Strings.addAlbumContent, waitinsec).click();
+			multiSelect(2);
+			Xpath(Strings.makeSelection, waitinsec).click();
+			WaitForIt(Strings.createAlbum, 30);
+		}
+		else {
+			System.out.println("Albums Exist");
+		}
+	}
+	
+	public void TVDisplay(String string) {
+		
 
-
-
+		Xpath(Strings.homeHamburger, 30).click();
+		Xpath(Strings.PicAndVids, 30).click();
+		List<WebElement> webElements = driver.findElementsByXPath(string);
+		if (webElements.size() == 1) {
+			Xpath(Strings.TV,30).click();
+		}
+//		else {
+//			System.out.println("TV Pop up not displayed");
+//		}
 	}
 	
 
@@ -245,16 +265,19 @@ public class CommonMethods extends CloudBase  {
 		for (int i = 2; i <= x; i++) {
 
 			driver.findElementByXPath(
-					"//android.widget.ImageView[@index = '" + i + "'and @resource-id='com.vcast.mediamanager:id/icon']")
+					"//android.widget.ImageView[@index = '" + i + "' and @resource-id='com.vcast.mediamanager:id/icon']")
 					.click();
 		}
 	}
 
 
 	public void DuplicateFile() throws InterruptedException {
+		
+		System.out.println("did i get here?");
 
 		TimeUnit.SECONDS.sleep(5);
 		List<WebElement> webElements = driver.findElementsByXPath(Strings.duplicateFile);
+		System.out.println(webElements.size());
 		if (webElements.size() == 1) {
 			Xpath(Strings.deleteYes, 30).click();
 		}

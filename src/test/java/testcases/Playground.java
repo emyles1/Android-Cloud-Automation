@@ -9,6 +9,8 @@ import android.provider.MediaStore;
 import android.util.Log;
 import java.util.Scanner;
 import android.net.Uri;
+
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -70,10 +72,39 @@ import java.io.InputStreamReader;
 //
 @SuppressWarnings("unused")
 public class Playground extends CloudBase {
+	int waitinsec = 10;
+	private AndroidDriver driver;
+	private CommonMethods get;
+
+	@BeforeMethod
+	public void Setup() throws MalformedURLException {
+		driver = Capabilities();
+		get = new CommonMethods(driver);
+
+	}
 	
+	
+	
+	
+//	@Test
+//	public void FindExt() throws MalformedURLException, InterruptedException {
+//
+//		AndroidDriver driver = Capabilities();
+//		CommonMethods get = new CommonMethods(driver);
+//
+//		get.Xpath(Strings.homeHamburger,waitinsec).click();
+//		get.Xpath(Strings.Music,waitinsec).click();
+//		get.Xpath(Strings.songsHeader, waitinsec).click();
+//		get.Xpath(Strings.longPressMusic, waitinsec).click();
+//
+//		get.ResourceID(Strings.pauseButton).click();
+//		//get.Xpath(Strings.homeHamburger,waitinsec).click();
+//		
+//		
+//	}
 
-//public class Playground extends CloudBase {
-
+	
+	
 //	@Test(priority = 1)
 //	public void ViewItem2() throws IOException, MalformedURLException, InterruptedException {
 //
@@ -145,38 +176,38 @@ public class Playground extends CloudBase {
 
 
 
-	
-	int waitinsec = 30;
-	
-	//@Test
-	public void FindExt() throws MalformedURLException, InterruptedException {
-
-		AndroidDriver driver = Capabilities();
-		CommonMethods get = new CommonMethods(driver);
-
-		get.Xpath(Strings.homeHamburger,waitinsec).click();
-		get.Xpath(Strings.Home,waitinsec).click();
-		get.Xpath(Strings.homeHamburger,waitinsec).click();
-		get.Xpath(Strings.AllFiles,waitinsec).click();
-		get.Xpath(Strings.mobileRepro,waitinsec).click();
-		String foldername = get.GetText(Strings.folderTitle);
-		String devicefolder = get.XpathBuilder(Strings.TextView, Strings.Text, foldername);
-		get.Xpath(devicefolder,waitinsec).click();
-		String RepoTitle = get.XpathBuilder(Strings.TextView, Strings.Text, "My "+foldername);
-		
-		String s = get.GetText(Strings.allfileItem);
-		
-		
-		s.substring(s.lastIndexOf('.') + 1);
-		
-		System.out.println("printed output: "+ s.substring(s.lastIndexOf('.') + 1));
-		
-		
-		//get.Xpath(Strings.allfileItem).click();
-	
-	}
-}
-	
+//	
+//	int waitinsec = 30;
+//	
+//	//@Test
+//	public void FindExt() throws MalformedURLException, InterruptedException {
+//
+//		AndroidDriver driver = Capabilities();
+//		CommonMethods get = new CommonMethods(driver);
+//
+//		get.Xpath(Strings.homeHamburger,waitinsec).click();
+//		get.Xpath(Strings.Home,waitinsec).click();
+//		get.Xpath(Strings.homeHamburger,waitinsec).click();
+//		get.Xpath(Strings.AllFiles,waitinsec).click();
+//		get.Xpath(Strings.mobileRepro,waitinsec).click();
+//		String foldername = get.GetText(Strings.folderTitle);
+//		String devicefolder = get.XpathBuilder(Strings.TextView, Strings.Text, foldername);
+//		get.Xpath(devicefolder,waitinsec).click();
+//		String RepoTitle = get.XpathBuilder(Strings.TextView, Strings.Text, "My "+foldername);
+//		
+//		String s = get.GetText(Strings.allfileItem);
+//		
+//		
+//		s.substring(s.lastIndexOf('.') + 1);
+//		
+//		System.out.println("printed output: "+ s.substring(s.lastIndexOf('.') + 1));
+//		
+//		
+//		//get.Xpath(Strings.allfileItem).click();
+//	
+//	}
+//}
+//	
 
 	
 	//User input
@@ -406,42 +437,66 @@ public class Playground extends CloudBase {
 //		System.out.println("Afterclick");
 //
 //	}
-//
-//	/*
-//	 * public static void main(String args[]){ String s1="  hello string   ";
-//	 * System.out.println(s1+"javatpoint");//without trim()
-//	 * System.out.println(s1.trim()+"javatpoint");//with trim() }
-//	 */
-//
+//	}
+////
+////	/*
+////	 * public static void main(String args[]){ String s1="  hello string   ";
+////	 * System.out.println(s1+"javatpoint");//without trim()
+////	 * System.out.println(s1.trim()+"javatpoint");//with trim() }
+////	 */
+////
 //	 public static void main(String[] args) throws InterruptedException,
 //	 IOException {
 //	 AndroidDriver driver = Capabilities();
 //	 var screenshotFile = takeScreenshot(driver);
+//	 }
+//	 }
 
 	
-//	//@Test
-//	public void captureScreenshot() throws IOException {
-//
-//		AndroidDriver driver = Capabilities();
-//
-//		// Screenshot
+	@Test
+	public void captureScreenshot() throws IOException, InterruptedException {
+
+		//AndroidDriver driver = Capabilities();
+
+		// Screenshot
 //		File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-//		FileUtils.copyFile(scrFile, new File("/Users/eamon.myles/Desktop/jars/test3.png"));
-//
-//		File file = new File("/Users/eamon.myles/Desktop/jars/test3.png");
+//		FileUtils.copyFile(scrFile, new File("/Users/eamon.myles/Desktop/jars/test8.png"));
+
+//		File file = new File("/Users/eamon.myles/Desktop/jars/test6.png");
 //		byte[] content = FileUtils.readFileToByteArray(file); // file -> stream
 //																// -> byte array
-//		driver.pushFile("/sdcard/Pictures/Screenshots/test3.png", content); // works
-//		
-////		Needs a media scan in order to get this working correctly.
-////		adb will work for this adb shell am broadcast -a android.intent.action.MEDIA_MOUNTED -d file:////sdcard/Pictures/Screenshots/
-//		
-////		Intent intent = 
-////			      new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
-////			intent.setData(Uri.fromFile(file));
-////			sendBroadcast(intent);
-//		
-//    }
+//		driver.pushFile("/sdcard/Pictures/Screenshots/test6.png", content); // works
+		
+//		driver.pushFile("/Users/eamon.myles/Desktop/jars/flashback.mp4", new File("/Phone memory/Pictures/flashback.mp4"));
+//		driver.pushFile("/Phone memory/Pictures/test8.png", new File("/Users/eamon.myles/Desktop/jars/test8.png"));
+//		driver.pushFile("/Internal storage/Pictures/Screenshots/test8.png", new File("/Users/eamon.myles/Desktop/jars/test8.png"));
+//		driver.pushFile("/Users/eamon.myles/Desktop/jars/test8.png", new File("/sdcard/Pictures/Screenshots/test8.png"));
+		
+		String line = "null";
+		String[] command = { Strings.ADB, "push", "/Users/eamon.myles/Desktop/jars/test8.png", "/sdcard/Pictures/Screenshots/test8.png" };
+		Runtime run = Runtime.getRuntime();
+		Process pr = run.exec(command);
+		pr.waitFor();
+		BufferedReader buf = new BufferedReader(new InputStreamReader(pr.getInputStream()));
+
+
+		}
+
+
+		
+
+
+		
+//		Needs a media scan in order to get this working correctly.
+//		adb will work for this adb shell am broadcast -a android.intent.action.MEDIA_MOUNTED -d file:////sdcard/Pictures/Screenshots/
+		
+//		Intent intent = 
+//			      new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
+//			intent.setData(Uri.fromFile(file));
+//			sendBroadcast(intent);
+		
+    }
+
 	
 //	
 //	//@BeforeSuite

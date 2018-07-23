@@ -12,6 +12,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 
@@ -27,10 +28,10 @@ public class Music extends CloudBase {
 	private AndroidDriver driver;
 	private CommonMethods get;
 
-	@BeforeSuite
+	@BeforeMethod
 	public void Setup() throws MalformedURLException {
-		driver = Capabilities();
-		get = new CommonMethods(driver);
+	driver = Capabilities();
+	get = new CommonMethods(driver);
 
 	}
 
@@ -63,7 +64,7 @@ public class Music extends CloudBase {
 
 	}
 
-	// @Test
+	@Test
 	public void ArtistAddtoPlaylist() throws MalformedURLException, InterruptedException {
 
 		int rannum = (int) (Math.random() * 256);

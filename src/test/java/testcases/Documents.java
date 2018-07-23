@@ -11,6 +11,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 
@@ -25,12 +26,19 @@ public class Documents extends CloudBase {
 	private AndroidDriver driver;
 	private CommonMethods get;
 
-	@BeforeSuite
-	public void Setup() throws MalformedURLException {
+//	@BeforeSuite
+//	public void Setup() throws MalformedURLException {
+//		driver = Capabilities();
+//		get = new CommonMethods(driver);
+		
+		@BeforeMethod
+		public void Setup() throws MalformedURLException {
 		driver = Capabilities();
 		get = new CommonMethods(driver);
 
-	}
+		}
+
+	
 
 	@Test
 	public void DocumentsSort() throws IOException, MalformedURLException, InterruptedException {
