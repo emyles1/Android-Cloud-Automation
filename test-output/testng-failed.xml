@@ -3,12 +3,14 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="testcases.Playground">
+      <class name="testcases.PhotosAndVideo">
         <methods>
-          <include name="Setup"/>
-          <include name="captureScreenshot"/>
+          <include name="SwipeRight"/>
+          <include name="PhotoVidDelete"/>
+          <include name="PhotoVidDownload"/>
+          <include name="AppState"/>
         </methods>
-      </class> <!-- testcases.Playground -->
+      </class> <!-- testcases.PhotosAndVideo -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

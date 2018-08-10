@@ -1,17 +1,36 @@
 package objectrepository;
 
+import static org.testng.Assert.assertEquals;
 import java.net.MalformedURLException;
 import java.time.Duration;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
+import org.openqa.selenium.Point;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import objectrepository.CommonMethods;
 import io.appium.java_client.TouchAction;
+import io.appium.java_client.android.Activity;
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.AndroidElement;
+
+import static io.appium.java_client.touch.offset.ElementOption.element;
+import static io.appium.java_client.touch.WaitOptions.waitOptions;
+import static java.time.Duration.ofSeconds;
+import static java.time.Duration.ofMillis;
+import static io.appium.java_client.touch.LongPressOptions.longPressOptions;
+import static io.appium.java_client.touch.TapOptions.tapOptions;
+import static io.appium.java_client.touch.offset.PointOption.point;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
+import io.appium.java_client.MobileElement;
+import io.appium.java_client.MultiTouchAction;
+import org.junit.Before;
+import org.junit.Test;
+
 
 
 public class CommonMethods   {
@@ -60,13 +79,16 @@ public class CommonMethods   {
 		return webElement;
 
 	}
-
+	
+	
 	public void ScrollDowntoFind(String string1, String string2, String result, double scrollhgt)
 			throws InterruptedException {
+
 
 		Boolean isFoundElement;
 		String string = XpathBuilder(string1, string2, result);
 		List<WebElement> webElements = driver.findElementsByXPath(XpathBuilder(string1, string2, result));
+		WebElement gallery = driver.findElementByXPath(Strings.Frames);
 		System.out.println(string);
 
 		isFoundElement = webElements.size() > 0;
@@ -74,63 +96,121 @@ public class CommonMethods   {
 		while (isFoundElement == false) {
 
 			Dimension size = driver.manage().window().getSize();
-			int startX = size.getWidth() / 2;
-			int startY = size.getHeight() / 2;
-			int endX = 0;
-			int endY = (int) (startY * -1 * scrollhgt);
+    		int startX = size.getWidth() / 2;
+    		int startY = size.getHeight() / 2;
+    		int endY = 0;
+    		int endX = (int) (startY * -1 * scrollhgt);
 
-			TouchAction action = new TouchAction(driver);
-			action.press(startX, startY).moveTo(endX, endY).release().perform();
 
+    		TouchAction swipe = new TouchAction(driver)
+	        		   .press(element(gallery,startY, startY))
+	                   .waitAction(waitOptions(ofSeconds(1)))
+	                   .moveTo(element(gallery,startY, startX ))
+	                   .release();
+		           swipe.perform();
+			
 			isFoundElement = webElements.size() > 0;
 			System.out.println("Item found " + isFoundElement);
 			webElements = driver.findElementsByXPath(XpathBuilder(string1, string2, result));
 			Thread.sleep(3000);
 		}
+
+//	public void ScrollDowntoFind(String string1, String string2, String result, double scrollhgt)
+//			throws InterruptedException {
+//
+//		Boolean isFoundElement;
+//		String string = XpathBuilder(string1, string2, result);
+//		List<WebElement> webElements = driver.findElementsByXPath(XpathBuilder(string1, string2, result));
+//		System.out.println(string);
+//
+//		isFoundElement = webElements.size() > 0;
+//
+//		while (isFoundElement == false) {
+//
+//			Dimension size = driver.manage().window().getSize();
+//			int startX = size.getWidth() / 2;
+//			int startY = size.getHeight() / 2;
+//			int endX = 0;
+//			int endY = (int) (startY * -1 * scrollhgt);
+//
+//			TouchAction action = new TouchAction(driver);
+//			
+//			action.press(startX, startY).moveTo(endX, endY).release().perform();
+//			
+//			isFoundElement = webElements.size() > 0;
+//			System.out.println("Item found " + isFoundElement);
+//			webElements = driver.findElementsByXPath(XpathBuilder(string1, string2, result));
+//			Thread.sleep(3000);
+//		}
 	}
 
-	public void ScrolltoEnd() throws MalformedURLException, InterruptedException {
+//	public void ScrolltoEnd() throws MalformedURLException, InterruptedException {
+//
+//		Xpath(Strings.homeHamburger, waitinsec).click();
+//		int NavCount = GetAttributeCount(Strings.PicAndVids, "text");
+//		Xpath(Strings.PicAndVids, waitinsec).click();
+//		double swipes = NavCount * 0.04;
+//
+//		int x = 0;
+//		while (x <= swipes) {
+//
+//			Dimension size = driver.manage().window().getSize();
+//			int startX = size.getWidth() / 2;
+//			int startY = size.getHeight() / 2;
+//			int endX = 0;
+//			int endY = (int) (startY * -1 * .30);
+//
+//			TouchAction action = new TouchAction(driver);
+//			action.press(startX, startY).moveTo(endX, endY).release().perform();
+//
+//			System.out.println("Item found " + NavCount);
+//			x++;
+//			Thread.sleep(2000);
+//		}
+//	}
 
-		Xpath(Strings.homeHamburger, waitinsec).click();
-		int NavCount = GetAttributeCount(Strings.PicAndVids, "text");
-		Xpath(Strings.PicAndVids, waitinsec).click();
-		double swipes = NavCount * 0.04;
-
-		int x = 0;
-		while (x <= swipes) {
-
-			Dimension size = driver.manage().window().getSize();
-			int startX = size.getWidth() / 2;
-			int startY = size.getHeight() / 2;
-			int endX = 0;
-			int endY = (int) (startY * -1 * .30);
-
-			TouchAction action = new TouchAction(driver);
-			action.press(startX, startY).moveTo(endX, endY).release().perform();
-
-			System.out.println("Item found " + NavCount);
-			x++;
-			Thread.sleep(2000);
-		}
-	}
-
-	public void SwipeRight(int swipes) throws MalformedURLException, InterruptedException {
-
+//	public void SwipeRight5.0.4(int swipes) throws MalformedURLException, InterruptedException {
+//
+//		Dimension size = driver.manage().window().getSize();
+//
+//		int startX = size.getWidth() / 2;
+//		int startY = size.getHeight() / 2;
+//		int endX = (int) (startY * -1 * 0.75);
+//		int endY = 0;
+//
+//		int i = 0;
+//		while (i < swipes) {
+//			TouchAction action = new TouchAction(driver);
+//			action.press(startX, startY).moveTo(endX, endY).release().perform();
+//			++i;
+//		}
+//
+//	}
+    public void SwipeRight(int swipes) {
+    	
+        //WebElement gallery = driver.findElementByXPath("//android.widget.ImageView[@index = '0' and contains(@resource-id, 'com.vcast.mediamanager:id/flipper_image_view_')]");
+    	//WaitForIt(Strings.tapFullview, 30);
+    	WebElement gallery = driver.findElementByXPath(Strings.tapFullview);
+        
 		Dimension size = driver.manage().window().getSize();
-
-		int startX = size.getWidth() / 2;
-		int startY = size.getHeight() / 2;
-		int endX = (int) (startY * -1 * 0.75);
-		int endY = 0;
-
-		int i = 0;
+  		int startX = size.getWidth() / 2;
+  		int startY = size.getHeight() / 2;
+  		
+	  	int i = 0;
 		while (i < swipes) {
-			TouchAction action = new TouchAction(driver);
-			action.press(startX, startY).moveTo(endX, endY).release().perform();
-			++i;
-		}
+		
+		TouchAction swipe = new TouchAction(driver)
+    		   .press(element(gallery,startY, startX))
+    		   //.waitAction(waitOptions(ofMillis(100)))
+               .moveTo(element(gallery,startX, startX ))
+               .release();
 
-	}
+           swipe.perform();
+          /* As per the new implementation of google's UI Automator v2 whenever there is a change in the current UI view, always recommended to re finding the element(using findElement) instead of referring already created element.*/
+           gallery = driver.findElementByXPath(Strings.tapFullview);
+           ++i;
+  		}
+    }
 
 	public void Checkboxes(String string, int seconds, String choice) {
 		List<WebElement> webElements = driver.findElementsByXPath(string);
@@ -145,11 +225,18 @@ public class CommonMethods   {
 		}
 	}
 
+
+	
 	public WebElement TouchActionPress(String string) {
-		TouchAction t = new TouchAction(driver);
+		
 		WebDriverWait wait = new WebDriverWait(driver, 30);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(string)));
-		t.press(driver.findElementByXPath(string)).waitAction(Duration.ofMillis(1000)).release().perform();
+		new TouchAction(driver)
+			.press(element(driver.findElementByXPath(string)))
+					.waitAction(waitOptions(ofSeconds(1)))
+					.release()
+					.perform();
+
 		return null;
 
 	}
@@ -244,24 +331,36 @@ public class CommonMethods   {
 		return text;
 	}
 	
-
-	public void multiSelect(int x) {
-
-//		TouchActions tnew = new TouchActions(driver);
-		TouchAction told = new TouchAction(driver);
-//		
-	    WaitForIt("//android.widget.ImageView[@index= '1' and @resource-id='com.vcast.mediamanager:id/icon']",20);
-//		
+	
+//    public void multiSelect(int x) {
 //
-//		tnew.longPress(driver.findElementByXPath(
-//				"//android.widget.ImageView[@index= '1' and @resource-id='com.vcast.mediamanager:id/icon']"));
-//		tnew.perform();
+//        new TouchAction(driver)
+//                .press(element(driver.findElementByXPath(
+//        				"//android.widget.ImageView[@index= '1' and @resource-id='com.vcast.mediamanager:id/icon']")))
+//                .waitAction(waitOptions(ofSeconds(1)))
+//                .release()
+//                .perform();
+//        
+//		for (int i = 2; i <= x; i++) {
+//
+//			driver.findElementByXPath(
+//					"//android.widget.ImageView[@index = '" + i + "' and @resource-id='com.vcast.mediamanager:id/icon']")
+//					.click();
+//		}
+//	}
+	
+    public void multiSelect(int x) {
 
-		
-		told.press(driver.findElementByXPath(
-				"//android.widget.ImageView[@index= '1' and @resource-id='com.vcast.mediamanager:id/icon']"))
-				.waitAction(Duration.ofMillis(1000)).release().perform();
-
+		WebDriverWait wait = new WebDriverWait(driver, 30);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//android.widget.ImageView[@index= '1' and @resource-id='com.vcast.mediamanager:id/icon']")));
+    	
+        new TouchAction(driver)
+                .press(element(driver.findElementByXPath(
+        				"//android.widget.ImageView[@index= '1' and @resource-id='com.vcast.mediamanager:id/icon']")))
+                .waitAction(waitOptions(ofSeconds(1)))
+                .release()
+                .perform();
+        
 		for (int i = 2; i <= x; i++) {
 
 			driver.findElementByXPath(
@@ -271,19 +370,47 @@ public class CommonMethods   {
 	}
 
 
+	
+
+//	public void multiSelect5.0.4(int x) {
+//
+////		TouchActions tnew = new TouchActions(driver);
+//		TouchAction told = new TouchAction(driver);
+////		
+//	    WaitForIt("//android.widget.ImageView[@index= '1' and @resource-id='com.vcast.mediamanager:id/icon']",20);
+////		
+////
+////		tnew.longPress(driver.findElementByXPath(
+////				"//android.widget.ImageView[@index= '1' and @resource-id='com.vcast.mediamanager:id/icon']"));
+////		tnew.perform();
+//
+//		
+//		told.press(driver.findElementByXPath(
+//				"//android.widget.ImageView[@index= '1' and @resource-id='com.vcast.mediamanager:id/icon']"))
+//				.waitAction(Duration.ofMillis(1000)).release().perform();
+//
+//		for (int i = 2; i <= x; i++) {
+//
+//			driver.findElementByXPath(
+//					"//android.widget.ImageView[@index = '" + i + "' and @resource-id='com.vcast.mediamanager:id/icon']")
+//					.click();
+//		}
+//	}
+
+
 	public void DuplicateFile() throws InterruptedException {
 		
-		System.out.println("did i get here?");
 
-		TimeUnit.SECONDS.sleep(5);
+		//TimeUnit.SECONDS.sleep(5);
+		Thread.sleep(5);
 		List<WebElement> webElements = driver.findElementsByXPath(Strings.duplicateFile);
-		System.out.println(webElements.size());
+
 		if (webElements.size() == 1) {
 			Xpath(Strings.deleteYes, 30).click();
 		}
 
 		else {
-			System.out.println("failed to find");
+			System.out.println("Not a duplicate");
 		}
 	}
 

@@ -93,6 +93,16 @@ public class AllFiles extends CloudBase {
 			String Title = get.XpathBuilder(Strings.TextView, Strings.Text, s);
 			Assert.assertEquals(get.AssertXpathExists(Title), 1);
 			break;
+		case "gif":
+			extention = "gif";
+			get.XpathBuilder(Strings.TextView, Strings.Text, s);
+			get.Xpath(get.XpathBuilder(Strings.TextView, Strings.Text, s), waitinsec).click();
+			get.Xpath(Strings.tapFullview, waitinsec).click();
+			get.Xpath(Strings.Elipses, waitinsec).click();
+			get.Xpath(Strings.overflowinfo, waitinsec).click();
+			Title = get.XpathBuilder(Strings.TextView, Strings.Text, s);
+			Assert.assertEquals(get.AssertXpathExists(Title), 1);
+			break;
 		case "png":
 			extention = "png";
 			get.XpathBuilder(Strings.TextView, Strings.Text, s);
@@ -143,6 +153,15 @@ public class AllFiles extends CloudBase {
 			Title = get.XpathBuilder(Strings.TextView, Strings.Text, s);
 			Assert.assertEquals(get.AssertXpathExists(Title), 1);
 			break;
+		case "doc":
+			extention = "doc";
+			get.XpathBuilder(Strings.TextView, Strings.Text, s);
+			get.TouchActionPress(get.XpathBuilder(Strings.TextView, Strings.Text, s));
+			get.Xpath(Strings.Elipses, waitinsec).click();
+			get.Xpath(Strings.overflowinfo, waitinsec).click();
+			Title = get.XpathBuilder(Strings.TextView, Strings.Text, s);
+			Assert.assertEquals(get.AssertXpathExists(Title), 1);
+			break;
 		case "pdf":
 			extention = "pdf";
 			get.XpathBuilder(Strings.TextView, Strings.Text, s);
@@ -173,9 +192,9 @@ public class AllFiles extends CloudBase {
 		default:
 			throw new IllegalArgumentException("Invalid extention: " + ext);
 		}
-		
-		get.Xpath(Strings.infoClose, waitinsec).click();
-		driver.pressKeyCode(AndroidKeyCode.BACK);
+//		
+//		get.Xpath(Strings.infoClose, waitinsec).click();
+//		driver.pressKeyCode(AndroidKeyCode.BACK);
 	}
 
 	@Test

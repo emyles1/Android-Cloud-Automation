@@ -18,6 +18,9 @@ import org.testng.annotations.Test;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidKeyCode;
+import io.appium.java_client.android.AndroidKeyMetastate;
+import io.appium.java_client.android.nativekey.AndroidKey;
+import io.appium.java_client.android.nativekey.KeyEvent;
 import objectrepository.CommonMethods;
 import testcases.PhotosAndVideo;
 import objectrepository.Strings;
@@ -56,7 +59,6 @@ public class PhotosAndVideo extends CloudBase {
 		//have to add this as the next case fails if stopped in fullview
 		driver.pressKeyCode(AndroidKeyCode.BACK);
 
-
 	}
 
 	// ANDRVC-5799
@@ -91,19 +93,19 @@ public class PhotosAndVideo extends CloudBase {
 		// following test cases.
 		get.Xpath(Strings.enterAlbumName, waitinsec).sendKeys("TestAlbum" + rannum);
 		get.Xpath(Strings.addAlbumContent, waitinsec).click();
-		int multiNumber = 3;
+		int multiNumber = 2;
 		get.multiSelect(multiNumber);
 		get.Xpath(Strings.makeSelection, waitinsec).click();
 		get.WaitForIt(Strings.createAlbum, 30);
 		get.Xpath(Strings.createAlbum, waitinsec).click();
-
 		get.Xpath(Strings.enterAlbumName, waitinsec).sendKeys("Auto Album" + rannum);
 		String result = ("Album Auto Album" + rannum + " : Count " + multiNumber);
 		get.Xpath(Strings.addAlbumContent, waitinsec).click();
 		get.multiSelect(multiNumber);
 		get.Xpath(Strings.makeSelection, waitinsec).click();
 		Thread.sleep(5000);
-		get.ScrollDowntoFind(Strings.ImageView, Strings.ContentDesc, result, 0.05);
+		System.out.println(Strings.ImageView + Strings.ContentDesc + result);
+		get.ScrollDowntoFind(Strings.ImageView, Strings.ContentDesc, result, 0.75);
 		Assert.assertEquals(get.AssertXpathExists(get.XpathBuilder(Strings.ImageView, Strings.ContentDesc, result)), 1);
 		// return result; (allow-return-values="true" <==Google this. not good
 		// practice to return values for testNG)
@@ -212,7 +214,11 @@ public class PhotosAndVideo extends CloudBase {
 		get.Xpath(Strings.ButtonOK, waitinsec).click();
 		get.Xpath(Strings.firstAllitem, waitinsec).click();
 		get.Xpath(Strings.tapFullview, waitinsec).click();
+		
 		driver.pressKeyCode(AndroidKeyCode.BACK);
+
+
+
 		get.Xpath(Strings.Elipses, waitinsec).click();
 		get.Xpath(Strings.FilterBy, waitinsec).click();
 		get.Xpath(Strings.filterByEverything, waitinsec).click();
@@ -262,7 +268,6 @@ public class PhotosAndVideo extends CloudBase {
 			Assert.assertEquals(get.AssertXpathExists(Strings.addFavMenu), 1);
 
 		}
-
 	}
 
 	@Test

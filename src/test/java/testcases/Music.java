@@ -18,13 +18,14 @@ import org.testng.annotations.Test;
 
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.AndroidKeyCode;
 import objectrepository.CommonMethods;
 
 import objectrepository.Strings;
 
 public class Music extends CloudBase {
 
-	int waitinsec = 30;
+	int waitinsec = 15;
 	private AndroidDriver driver;
 	private CommonMethods get;
 
@@ -61,6 +62,7 @@ public class Music extends CloudBase {
 		driver.openNotifications();
 		get.WaitForIt(Strings.downloadComplete, 120);
 		Assert.assertEquals(get.AssertXpathExists(Strings.downloadComplete), 1);
+		driver.pressKeyCode(AndroidKeyCode.BACK);
 
 	}
 
@@ -78,8 +80,12 @@ public class Music extends CloudBase {
 		get.TouchActionPress(Strings.AddtoPlaylist);
 		get.Xpath(Strings.createAlbum, 120).click();
 		get.Xpath(Strings.enterAlbumName, waitinsec).sendKeys("Auto Album" + rannum);
-		String result = ("Album Auto Album" + rannum + " : Count 3");
+		String result = ("Auto Album" + rannum);
 		get.Xpath(Strings.ButtonOK, waitinsec).click();
+		get.Xpath(Strings.playlistsHeader, waitinsec).click();
+		String album = get.XpathBuilder(Strings.TextView, Strings.Text, result);
+		
+		Assert.assertEquals(get.AssertXpathExists(album), 1);
 
 	}
 

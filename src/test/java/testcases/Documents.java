@@ -38,9 +38,7 @@ public class Documents extends CloudBase {
 
 		}
 
-	
-
-	@Test
+	//@Test
 	public void DocumentsSort() throws IOException, MalformedURLException, InterruptedException {
 
 		get.Xpath(Strings.homeHamburger, waitinsec).click();
@@ -73,23 +71,23 @@ public class Documents extends CloudBase {
 	}
 
 	// ANDRVC-16
-	@Test
+	//@Test
 	public void DocumentsShare() throws IOException, MalformedURLException, InterruptedException {
 
 		get.Xpath(Strings.homeHamburger, waitinsec).click();
 		get.Xpath(Strings.Documents, waitinsec).click();
 		get.TouchActionPress(Strings.longPressDoc);
 		get.Xpath(Strings.share, waitinsec).click();
+		Thread.sleep(2000);
 		// context.Copyright();
 
 		// List<WebElement> webElements =
 		// driver.findElementsByXPath(Strings.copyrightNotice);
 		List<WebElement> webElements = driver.findElementsByXPath(Strings.copyrightNotice);
+		System.out.println(webElements.size());
 
 		if (webElements.size() == 1) {
 
-			WebDriverWait wait = new WebDriverWait(driver, 30);
-			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(Strings.completeactionusing)));
 			get.Xpath(Strings.ButtonOK, waitinsec).click();
 
 		}
@@ -104,7 +102,7 @@ public class Documents extends CloudBase {
 		Assert.assertEquals(get.AssertXpathExists(Strings.completeactionusing), 1);
 	}
 
-	@Test
+	//@Test
 	public void DocumentsCopyShareLink() throws MalformedURLException {
 
 		get.Xpath(Strings.homeHamburger, waitinsec).click();
@@ -118,7 +116,7 @@ public class Documents extends CloudBase {
 
 	}
 
-	@Test
+	//@Test
 	public void DocFavSwitch() throws IOException, MalformedURLException, InterruptedException {
 
 		get.Xpath(Strings.homeHamburger, waitinsec).click();
@@ -140,7 +138,7 @@ public class Documents extends CloudBase {
 		Assert.assertEquals(get.AssertXpathExists(Strings.SortView), 1);
 	}
 
-	@Test
+	//@Test
 	public void DocumentDownload() throws IOException, MalformedURLException, InterruptedException {
 
 		get.Xpath(Strings.homeHamburger, waitinsec).click();
@@ -162,7 +160,7 @@ public class Documents extends CloudBase {
 
 	}
 
-	@Test
+	//@Test
 	public void DocumentDelete() throws IOException, MalformedURLException, InterruptedException {
 
 		get.Xpath(Strings.homeHamburger, waitinsec).click();
@@ -174,7 +172,7 @@ public class Documents extends CloudBase {
 
 	}
 
-	@Test
+	//@Test
 	public void DocDeleteCancel() throws IOException, MalformedURLException, InterruptedException {
 
 		get.Xpath(Strings.homeHamburger, waitinsec).click();
@@ -186,7 +184,7 @@ public class Documents extends CloudBase {
 
 	}
 
-	@Test
+	//@Test
 	public void DocumentsOpen() throws IOException, MalformedURLException, InterruptedException {
 
 		get.Xpath(Strings.homeHamburger, waitinsec).click();

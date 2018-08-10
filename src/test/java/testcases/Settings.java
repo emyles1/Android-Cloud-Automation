@@ -29,6 +29,7 @@ public class Settings extends CloudBase {
 		get.Xpath(Strings.WhattoBackup, waitinsec).click();
 		get.Checkboxes(Strings.BackupChecks, waitinsec, "true");
 		get.Xpath(Strings.ButtonOK, waitinsec).click();
+		Assert.assertEquals(get.AssertXpathExists(Strings.ButtonOK), 1);
 
 	}
 

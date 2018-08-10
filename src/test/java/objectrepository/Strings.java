@@ -20,7 +20,6 @@ public class Strings {
 	public final static String Index = "@index =";
 	public final static String ADB = "/Users/eamon.myles/Library/Android/sdk/platform-tools/adb";
 
-
 	// NavBarRepository strings  
 	public final static String homeHamburger = "//android.widget.ImageButton[@content-desc ='Navigate up']";
 	public final static String Home = "//android.widget.TextView[@index = '0' and contains(@text,'Home')]";
@@ -30,7 +29,6 @@ public class Strings {
 	public final static String MessageCenter = "//android.widget.TextView[@index = '5' and contains(@text,'Message Center')]";
 	public final static String Appsusingcloud = "//android.widget.TextView[@text = 'Apps Using Cloud')]";
 	public final static String AllFiles = "//android.widget.TextView[@index = '8' and contains(@text,'All Files')]";
-	//public final static String Settings = "//android.widget.TextView[@index = '9' and contains(@text,'Settings')]";
 	public final static String Settings = "//android.widget.TextView[@text = 'Settings']";
 	
 	//HomeRepository strings
@@ -38,8 +36,8 @@ public class Strings {
 	public final static String Backupnow = "com.vcast.mediamanager:id/back_up_status";
 	public final static String CancelBackup = "//android.widget.TextView[@text = 'Cancel Backup']";
 
-
 	// PhotoAndVideoRespository strings
+	public final static String Frames = "//android.support.v7.widget.RecyclerView[@resource-id = 'com.vcast.mediamanager:id/recycler_view' and @index ='0']";
 	public final static String allHeader = "//android.widget.TextView[@text = 'All']";
 	public final static String timelineHeader = "//android.widget.TextView[@text = 'Timeline']";
 	public final static String albumHeader = "//android.widget.TextView[@text = 'Albums']";
@@ -65,15 +63,14 @@ public class Strings {
 	public final static String genresHeader = "//android.widget.TextView[@text = 'Genres']";
 	public final static String playlistsHeader = "//android.widget.TextView[@text = 'Playlists']";
 	public final static String listItem = "com.vcast.mediamanager:id/item_wraper";
-	public final static String longPressMusic = "//android.widget.LinearLayout[@index= 0]";
+	public final static String longPressMusic = "//android.widget.LinearLayout[@index= 0 and contains(@resource-id, 'com.vcast.mediamanager:id/item_wraper')]";
 	public final static String addPlaylistContent = "//android.widget.Button[@text = 'Add Songs']";
 	public final static String nowPlaying = "//android.widget.TextView[@text = 'Now Playing']";
 	public final static String playButton = "//android.widget.ImageButton[@resource-id = 'com.vcast.mediamanager:id/play_button']";
 	public final static String pauseButton = "com.vcast.mediamanager:id/pause_button";
 
-
 	//DocRespository strings
-	public final static String longPressDoc = "//android.widget.RelativeLayout[@index= '0']";
+	public final static String longPressDoc = "//android.widget.RelativeLayout[@index= '0' and @resource-id='com.vcast.mediamanager:id/list_item']";
 	public final static String sortByDateUploaded = "//android.widget.RelativeLayout[@index ='0']";
 	public final static String sortByExt = "//android.widget.RelativeLayout[@index ='2']";
 	public final static String sortBySize = "//android.widget.RelativeLayout[@index ='3']";
@@ -119,9 +116,6 @@ public class Strings {
 	public final static String RateNoThanks = "//android.widget.Button[@text ='NO THANKS']";
 	public final static String TV = "//android.widget.Button[@text ='Got it']";
 	
-	
-	
-	
 	//Notifications strings
 	public final static String downloadComplete = "//android.widget.TextView[@text ='Download complete']";
 	
@@ -156,3 +150,4 @@ public class Strings {
 //adb shell getprop
 //adb shell getprop ro.product.model
 //driver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(text(\"Documents\"));");
+//Touch action examples for java client 6.0 :https://github.com/appium/java-client/blob/master/src/test/java/io/appium/java_client/android/AndroidTouchTest.java

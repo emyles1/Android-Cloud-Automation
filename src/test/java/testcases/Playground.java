@@ -2,14 +2,16 @@ package testcases;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.*;
 import android.media.MediaScannerConnection;
 import android.media.MediaScannerConnection.MediaScannerConnectionClient;
 import android.net.Uri;
+import android.os.Build;
+import android.os.Environment;
 import android.provider.MediaStore;
 import android.util.Log;
 import java.util.Scanner;
 import android.net.Uri;
-
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
@@ -20,9 +22,19 @@ import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
+import static io.appium.java_client.touch.offset.PointOption.point;
+import io.appium.java_client.android.Activity;
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.remote.AndroidMobileCapabilityType;
 import io.appium.java_client.remote.MobileCapabilityType;
+
+import static io.appium.java_client.touch.WaitOptions.waitOptions;
+import static io.appium.java_client.touch.offset.ElementOption.element;
+import static java.time.Duration.ofSeconds;
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertNotEquals;
+
 import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -43,6 +55,7 @@ import javax.swing.JLabel;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
+import org.openqa.selenium.Point;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
@@ -56,6 +69,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import io.appium.java_client.MobileElement;
 import io.appium.java_client.PerformsTouchActions;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
@@ -64,17 +79,18 @@ import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.remote.AndroidMobileCapabilityType;
 import objectrepository.CommonMethods;
 import objectrepository.Strings;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 //
+
 @SuppressWarnings("unused")
 public class Playground extends CloudBase {
 	int waitinsec = 10;
 	private AndroidDriver driver;
 	private CommonMethods get;
+
 
 	@BeforeMethod
 	public void Setup() throws MalformedURLException {
@@ -84,8 +100,64 @@ public class Playground extends CloudBase {
 	}
 	
 	
+
 	
 	
+	
+	//@Test
+	public void ScrollDowntoFind()
+			throws InterruptedException {
+
+		Thread.sleep(5000);
+
+    	//WebElement gallery = driver.findElementByXPath("//android.widget.ImageView[@resource-id = 'com.vcast.mediamanager:id/icon' and @index ='1']");
+    	WebElement gallery = driver.findElementByXPath("//android.widget.ImageView[@resource-id = 'com.vcast.mediamanager:id/icon' and @index ='4']");
+
+			Dimension size = driver.manage().window().getSize();
+			int startX = size.getWidth() / 2;
+			int startY = size.getHeight() / 2;
+
+
+			TouchAction swipe = new TouchAction(driver)
+		    		   .press(element(gallery,startY, startX))
+		    		   .waitAction(waitOptions(ofSeconds(1)))
+		               //.moveTo(element(driver.findElementByXPath("//android.widget.ImageView[@resource-id = 'com.vcast.mediamanager:id/section_text' and @text ='June 2018']"),startX, startX ))
+		               .moveTo(element(driver.findElementByXPath("//android.widget.ImageView[@resource-id = 'com.vcast.mediamanager:id/section_text' and @text ='June 2018']"),startX, startX ))
+		               .release();
+			swipe.perform();
+
+		}
+	
+	
+	
+	@Test
+    public void horizontalSwipingTest() {
+		Dimension size = driver.manage().window().getSize();
+
+	    		int startX = size.getWidth() / 2;
+	    		int startY = size.getHeight() / 2;
+	    		int endX = (int) (startY * -1 * 0.75);
+	    		int endY = 0;
+
+	    		WebElement gallery = driver.findElementByXPath(Strings.Frames);
+	
+       	  		int i = 0;
+	  		while (i < 3) {
+	  				      
+	    		TouchAction swipe = new TouchAction(driver)
+	        		   .press(element(gallery,startY, startY))
+	                   .waitAction(waitOptions(ofSeconds(1)))
+	                   .moveTo(element(gallery,startY, startX ))
+	                   .release();
+		           swipe.perform();
+		           ++i;
+		           
+		           gallery = driver.findElementByXPath(Strings.Frames);
+
+		  		}
+	}
+
+
 //	@Test
 //	public void FindExt() throws MalformedURLException, InterruptedException {
 //
@@ -453,7 +525,7 @@ public class Playground extends CloudBase {
 //	 }
 
 	
-	@Test
+	//@Test
 	public void captureScreenshot() throws IOException, InterruptedException {
 
 		//AndroidDriver driver = Capabilities();
@@ -480,7 +552,30 @@ public class Playground extends CloudBase {
 		BufferedReader buf = new BufferedReader(new InputStreamReader(pr.getInputStream()));
 
 
-		}
+//	if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ECLAIR) {
+//	    final Intent scanIntent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
+//	    File outputFile = null;
+//		final Uri contentUri = Uri.fromFile(outputFile); 
+//	    scanIntent.setData(contentUri);
+//	    sendBroadcast(scanIntent);
+//	} else {
+		
+		File baseDir = Environment.getRootDirectory();
+		System.out.println(baseDir);
+		
+//		System.out.println(Environment.getExternalStorageDirectory().getAbsolutePath());
+//	    final Intent scanIntent = new Intent(Intent.ACTION_MEDIA_MOUNTED, Uri.parse("file://" + Environment.getExternalStorageDirectory()));
+//	    sendBroadcast(scanIntent);
+	}
+
+
+
+
+
+private void sendBroadcast(Intent scanIntent) {
+	// TODO Auto-generated method stub
+	
+}
 
 
 		
@@ -489,6 +584,8 @@ public class Playground extends CloudBase {
 		
 //		Needs a media scan in order to get this working correctly.
 //		adb will work for this adb shell am broadcast -a android.intent.action.MEDIA_MOUNTED -d file:////sdcard/Pictures/Screenshots/
+	
+
 		
 //		Intent intent = 
 //			      new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
