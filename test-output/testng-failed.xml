@@ -3,14 +3,13 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="testcases.PhotosAndVideo">
+      <class name="restAPIs.authenicationVzn">
         <methods>
-          <include name="SwipeRight"/>
-          <include name="PhotoVidDelete"/>
-          <include name="PhotoVidDownload"/>
-          <include name="AppState"/>
+          <include name="mmCount"/>
+          <include name="upload"/>
+          <include name="refreshToken"/>
         </methods>
-      </class> <!-- testcases.PhotosAndVideo -->
+      </class> <!-- restAPIs.authenicationVzn -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
