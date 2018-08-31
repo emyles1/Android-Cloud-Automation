@@ -62,7 +62,7 @@ public class Music extends CloudBase {
 		driver.openNotifications();
 		get.WaitForIt(Strings.downloadComplete, 120);
 		Assert.assertEquals(get.AssertXpathExists(Strings.downloadComplete), 1);
-		driver.pressKeyCode(AndroidKeyCode.BACK);
+		get.BackKey(1);
 
 	}
 

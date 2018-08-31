@@ -1,0 +1,217 @@
+-------------------------------------------------------------------------------
+Test set: TestSuite
+-------------------------------------------------------------------------------
+Tests run: 28, Failures: 19, Errors: 0, Skipped: 1, Time elapsed: 1,544.622 s <<< FAILURE! - in TestSuite
+ArtistAddtoPlaylist(testcases.Music)  Time elapsed: 36.341 s  <<< FAILURE!
+org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.xpath: //android.widget.LinearLayout[@index= 0 and contains(@resource-id, 'com.vcast.mediamanager:id/item_wraper')] (tried for 30 second(s) with 500 milliseconds interval)
+	at testcases.Music.ArtistAddtoPlaylist(Music.java:78)
+Caused by: org.openqa.selenium.NoSuchElementException: 
+Cannot locate an element using By.xpath: //android.widget.LinearLayout[@index= 0 and contains(@resource-id, 'com.vcast.mediamanager:id/item_wraper')]
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.13.0', revision: '2f0d292', time: '2018-06-25T15:24:21.231Z'
+System info: host: 'IEC02N926BG3QT', ip: 'fe80:0:0:0:1cb8:b03e:f288:39ec%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.13.1', java.version: '1.8.0_25'
+Driver info: driver.version: unknown
+	at testcases.Music.ArtistAddtoPlaylist(Music.java:78)
+
+ArtistDownload(testcases.Music)  Time elapsed: 35.753 s  <<< FAILURE!
+org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.xpath: //android.widget.LinearLayout[@index= 0 and contains(@resource-id, 'com.vcast.mediamanager:id/item_wraper')] (tried for 30 second(s) with 500 milliseconds interval)
+	at testcases.Music.ArtistDownload(Music.java:58)
+Caused by: org.openqa.selenium.NoSuchElementException: 
+Cannot locate an element using By.xpath: //android.widget.LinearLayout[@index= 0 and contains(@resource-id, 'com.vcast.mediamanager:id/item_wraper')]
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.13.0', revision: '2f0d292', time: '2018-06-25T15:24:21.231Z'
+System info: host: 'IEC02N926BG3QT', ip: 'fe80:0:0:0:1cb8:b03e:f288:39ec%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.13.1', java.version: '1.8.0_25'
+Driver info: driver.version: unknown
+	at testcases.Music.ArtistDownload(Music.java:58)
+
+ArtistView(testcases.Music)  Time elapsed: 36.125 s  <<< FAILURE!
+org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.id: com.vcast.mediamanager:id/item_wraper (tried for 30 second(s) with 500 milliseconds interval)
+	at testcases.Music.ArtistView(Music.java:45)
+Caused by: org.openqa.selenium.NoSuchElementException: 
+Cannot locate an element using By.id: com.vcast.mediamanager:id/item_wraper
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.13.0', revision: '2f0d292', time: '2018-06-25T15:24:21.231Z'
+System info: host: 'IEC02N926BG3QT', ip: 'fe80:0:0:0:1cb8:b03e:f288:39ec%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.13.1', java.version: '1.8.0_25'
+Driver info: driver.version: unknown
+	at testcases.Music.ArtistView(Music.java:45)
+
+CreatePlaylist(testcases.Music)  Time elapsed: 20.646 s  <<< FAILURE!
+org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.xpath: //android.widget.TextView[@resource-id ='com.vcast.mediamanager:id/new_album'] (tried for 15 second(s) with 500 milliseconds interval)
+	at testcases.Music.CreatePlaylist(Music.java:118)
+Caused by: org.openqa.selenium.NoSuchElementException: 
+Cannot locate an element using By.xpath: //android.widget.TextView[@resource-id ='com.vcast.mediamanager:id/new_album']
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.13.0', revision: '2f0d292', time: '2018-06-25T15:24:21.231Z'
+System info: host: 'IEC02N926BG3QT', ip: 'fe80:0:0:0:1cb8:b03e:f288:39ec%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.13.1', java.version: '1.8.0_25'
+Driver info: driver.version: unknown
+	at testcases.Music.CreatePlaylist(Music.java:118)
+
+DeleteSong(testcases.Music)  Time elapsed: 35.944 s  <<< FAILURE!
+org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.xpath: //android.widget.LinearLayout[@index= 0 and contains(@resource-id, 'com.vcast.mediamanager:id/item_wraper')] (tried for 30 second(s) with 500 milliseconds interval)
+	at testcases.Music.DeleteSong(Music.java:102)
+Caused by: org.openqa.selenium.NoSuchElementException: 
+Cannot locate an element using By.xpath: //android.widget.LinearLayout[@index= 0 and contains(@resource-id, 'com.vcast.mediamanager:id/item_wraper')]
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.13.0', revision: '2f0d292', time: '2018-06-25T15:24:21.231Z'
+System info: host: 'IEC02N926BG3QT', ip: 'fe80:0:0:0:1cb8:b03e:f288:39ec%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.13.1', java.version: '1.8.0_25'
+Driver info: driver.version: unknown
+	at testcases.Music.DeleteSong(Music.java:102)
+
+PlaySong(testcases.Music)  Time elapsed: 20.607 s  <<< FAILURE!
+org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.xpath: //android.widget.LinearLayout[@index= 0 and contains(@resource-id, 'com.vcast.mediamanager:id/item_wraper')] (tried for 15 second(s) with 500 milliseconds interval)
+	at testcases.Music.PlaySong(Music.java:136)
+Caused by: org.openqa.selenium.NoSuchElementException: 
+Cannot locate an element using By.xpath: //android.widget.LinearLayout[@index= 0 and contains(@resource-id, 'com.vcast.mediamanager:id/item_wraper')]
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.13.0', revision: '2f0d292', time: '2018-06-25T15:24:21.231Z'
+System info: host: 'IEC02N926BG3QT', ip: 'fe80:0:0:0:1cb8:b03e:f288:39ec%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.13.1', java.version: '1.8.0_25'
+Driver info: driver.version: unknown
+	at testcases.Music.PlaySong(Music.java:136)
+
+horizontalSwipingTest(testcases.Playground)  Time elapsed: 2.086 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+An element could not be located on the page using the given search parameters. (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.13.0', revision: '2f0d292', time: '2018-06-25T15:24:21.231Z'
+System info: host: 'IEC02N926BG3QT', ip: 'fe80:0:0:0:1cb8:b03e:f288:39ec%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.13.1', java.version: '1.8.0_25'
+Driver info: io.appium.java_client.android.AndroidDriver
+Capabilities {appActivity: com.newbay.syncdrive.androi..., appPackage: com.vcast.mediamanager, autoDismissAlerts: true, autoGrantPermissions: true, automationName: uiautomator2, deviceName: Android Device, javascriptEnabled: true, newCommandTimeout: 100, noReset: true, platform: ANDROID, platformName: Android}
+Session ID: b2f8e8e0-7993-47d6-8a83-614536ca28f4
+*** Element info: {Using=xpath, value=//android.support.v7.widget.RecyclerView[@resource-id = 'com.vcast.mediamanager:id/recycler_view' and @index ='0']}
+	at testcases.Playground.horizontalSwipingTest(Playground.java:142)
+
+DocInfo(testcases.Documents)  Time elapsed: 34.056 s  <<< FAILURE!
+org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.xpath: //android.widget.RelativeLayout[@index= '0' and @resource-id='com.vcast.mediamanager:id/list_item'] (tried for 30 second(s) with 500 milliseconds interval)
+	at testcases.Documents.DocInfo(Documents.java:157)
+Caused by: org.openqa.selenium.NoSuchElementException: 
+Cannot locate an element using By.xpath: //android.widget.RelativeLayout[@index= '0' and @resource-id='com.vcast.mediamanager:id/list_item']
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.13.0', revision: '2f0d292', time: '2018-06-25T15:24:21.231Z'
+System info: host: 'IEC02N926BG3QT', ip: 'fe80:0:0:0:1cb8:b03e:f288:39ec%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.13.1', java.version: '1.8.0_25'
+Driver info: driver.version: unknown
+	at testcases.Documents.DocInfo(Documents.java:157)
+
+SetBackUp(testcases.Settings)  Time elapsed: 41.689 s  <<< FAILURE!
+org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.xpath: //android.widget.Button[@text ='OK'] (tried for 30 second(s) with 500 milliseconds interval)
+	at testcases.Settings.SetBackUp(Settings.java:32)
+Caused by: org.openqa.selenium.NoSuchElementException: 
+Cannot locate an element using By.xpath: //android.widget.Button[@text ='OK']
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.13.0', revision: '2f0d292', time: '2018-06-25T15:24:21.231Z'
+System info: host: 'IEC02N926BG3QT', ip: 'fe80:0:0:0:1cb8:b03e:f288:39ec%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.13.1', java.version: '1.8.0_25'
+Driver info: driver.version: unknown
+	at testcases.Settings.SetBackUp(Settings.java:32)
+
+SettingsPageLayout(testcases.Settings)  Time elapsed: 34.65 s  <<< FAILURE!
+org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.xpath: //android.widget.TextView[@text ='What to Back Up'] (tried for 30 second(s) with 500 milliseconds interval)
+	at testcases.Settings.SettingsPageLayout(Settings.java:43)
+Caused by: org.openqa.selenium.NoSuchElementException: 
+Cannot locate an element using By.xpath: //android.widget.TextView[@text ='What to Back Up']
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.13.0', revision: '2f0d292', time: '2018-06-25T15:24:21.231Z'
+System info: host: 'IEC02N926BG3QT', ip: 'fe80:0:0:0:1cb8:b03e:f288:39ec%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.13.1', java.version: '1.8.0_25'
+Driver info: driver.version: unknown
+	at testcases.Settings.SettingsPageLayout(Settings.java:43)
+
+Tools(testcases.Settings)  Time elapsed: 34.041 s  <<< FAILURE!
+org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.xpath: //android.widget.TextView[@text ='Tools'] (tried for 30 second(s) with 500 milliseconds interval)
+	at testcases.Settings.Tools(Settings.java:59)
+Caused by: org.openqa.selenium.NoSuchElementException: 
+Cannot locate an element using By.xpath: //android.widget.TextView[@text ='Tools']
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.13.0', revision: '2f0d292', time: '2018-06-25T15:24:21.231Z'
+System info: host: 'IEC02N926BG3QT', ip: 'fe80:0:0:0:1cb8:b03e:f288:39ec%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.13.1', java.version: '1.8.0_25'
+Driver info: driver.version: unknown
+	at testcases.Settings.Tools(Settings.java:59)
+
+FindExt(testcases.AllFiles)  Time elapsed: 37.46 s  <<< FAILURE!
+org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.xpath: //android.widget.TextView[@index = '8' and contains(@text,'All Files')] (tried for 30 second(s) with 500 milliseconds interval)
+	at testcases.AllFiles.FindExt(AllFiles.java:70)
+Caused by: org.openqa.selenium.NoSuchElementException: 
+Cannot locate an element using By.xpath: //android.widget.TextView[@index = '8' and contains(@text,'All Files')]
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.13.0', revision: '2f0d292', time: '2018-06-25T15:24:21.231Z'
+System info: host: 'IEC02N926BG3QT', ip: 'fe80:0:0:0:1cb8:b03e:f288:39ec%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.13.1', java.version: '1.8.0_25'
+Driver info: driver.version: unknown
+	at testcases.AllFiles.FindExt(AllFiles.java:70)
+
+MobileName(testcases.AllFiles)  Time elapsed: 37.419 s  <<< FAILURE!
+org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.xpath: //android.widget.TextView[@index = '8' and contains(@text,'All Files')] (tried for 30 second(s) with 500 milliseconds interval)
+	at testcases.AllFiles.MobileName(AllFiles.java:209)
+Caused by: org.openqa.selenium.NoSuchElementException: 
+Cannot locate an element using By.xpath: //android.widget.TextView[@index = '8' and contains(@text,'All Files')]
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.13.0', revision: '2f0d292', time: '2018-06-25T15:24:21.231Z'
+System info: host: 'IEC02N926BG3QT', ip: 'fe80:0:0:0:1cb8:b03e:f288:39ec%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.13.1', java.version: '1.8.0_25'
+Driver info: driver.version: unknown
+	at testcases.AllFiles.MobileName(AllFiles.java:209)
+
+OpenMobileRepro(testcases.AllFiles)  Time elapsed: 37.489 s  <<< FAILURE!
+org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.xpath: //android.widget.TextView[@index = '8' and contains(@text,'All Files')] (tried for 30 second(s) with 500 milliseconds interval)
+	at testcases.AllFiles.OpenMobileRepro(AllFiles.java:46)
+Caused by: org.openqa.selenium.NoSuchElementException: 
+Cannot locate an element using By.xpath: //android.widget.TextView[@index = '8' and contains(@text,'All Files')]
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.13.0', revision: '2f0d292', time: '2018-06-25T15:24:21.231Z'
+System info: host: 'IEC02N926BG3QT', ip: 'fe80:0:0:0:1cb8:b03e:f288:39ec%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.13.1', java.version: '1.8.0_25'
+Driver info: driver.version: unknown
+	at testcases.AllFiles.OpenMobileRepro(AllFiles.java:46)
+
+CreateAlbums(testcases.PhotosAndVideo)  Time elapsed: 34.381 s  <<< FAILURE!
+org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.xpath: //android.widget.TextView[@resource-id ='com.vcast.mediamanager:id/new_album'] (tried for 30 second(s) with 500 milliseconds interval)
+	at testcases.PhotosAndVideo.CreateAlbums(PhotosAndVideo.java:91)
+Caused by: org.openqa.selenium.NoSuchElementException: 
+Cannot locate an element using By.xpath: //android.widget.TextView[@resource-id ='com.vcast.mediamanager:id/new_album']
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.13.0', revision: '2f0d292', time: '2018-06-25T15:24:21.231Z'
+System info: host: 'IEC02N926BG3QT', ip: 'fe80:0:0:0:1cb8:b03e:f288:39ec%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.13.1', java.version: '1.8.0_25'
+Driver info: driver.version: unknown
+	at testcases.PhotosAndVideo.CreateAlbums(PhotosAndVideo.java:91)
+
+LaunchVideo(testcases.PhotosAndVideo)  Time elapsed: 38.472 s  <<< FAILURE!
+org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.xpath: //android.widget.ImageView[@resource-id = 'com.vcast.mediamanager:id/icon' and @index ='1'] (tried for 30 second(s) with 500 milliseconds interval)
+	at testcases.PhotosAndVideo.LaunchVideo(PhotosAndVideo.java:215)
+Caused by: org.openqa.selenium.NoSuchElementException: 
+Cannot locate an element using By.xpath: //android.widget.ImageView[@resource-id = 'com.vcast.mediamanager:id/icon' and @index ='1']
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.13.0', revision: '2f0d292', time: '2018-06-25T15:24:21.231Z'
+System info: host: 'IEC02N926BG3QT', ip: 'fe80:0:0:0:1cb8:b03e:f288:39ec%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.13.1', java.version: '1.8.0_25'
+Driver info: driver.version: unknown
+	at testcases.PhotosAndVideo.LaunchVideo(PhotosAndVideo.java:215)
+
+FavExist(testcases.PhotosAndVideo)  Time elapsed: 33.883 s  <<< FAILURE!
+org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.xpath: //android.widget.ImageView[@index='2'] (tried for 30 second(s) with 500 milliseconds interval)
+	at testcases.PhotosAndVideo.FavExist(PhotosAndVideo.java:281)
+Caused by: org.openqa.selenium.NoSuchElementException: 
+Cannot locate an element using By.xpath: //android.widget.ImageView[@index='2']
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.13.0', revision: '2f0d292', time: '2018-06-25T15:24:21.231Z'
+System info: host: 'IEC02N926BG3QT', ip: 'fe80:0:0:0:1cb8:b03e:f288:39ec%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.13.1', java.version: '1.8.0_25'
+Driver info: driver.version: unknown
+	at testcases.PhotosAndVideo.FavExist(PhotosAndVideo.java:281)
+
+ShareCollage(testcases.PhotosAndVideo)  Time elapsed: 23.898 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+An element could not be located on the page using the given search parameters. (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.13.0', revision: '2f0d292', time: '2018-06-25T15:24:21.231Z'
+System info: host: 'IEC02N926BG3QT', ip: 'fe80:0:0:0:1cb8:b03e:f288:39ec%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.13.1', java.version: '1.8.0_25'
+Driver info: io.appium.java_client.android.AndroidDriver
+Capabilities {appActivity: com.newbay.syncdrive.androi..., appPackage: com.vcast.mediamanager, autoDismissAlerts: true, autoGrantPermissions: true, automationName: uiautomator2, deviceName: Android Device, javascriptEnabled: true, newCommandTimeout: 100, noReset: true, platform: ANDROID, platformName: Android}
+Session ID: f44278b4-778d-41e8-a596-d5ee3dd3177b
+*** Element info: {Using=xpath, value=//android.widget.ImageView[@index = '2' and @resource-id='com.vcast.mediamanager:id/icon']}
+	at testcases.PhotosAndVideo.ShareCollage(PhotosAndVideo.java:318)
+
+SwipeRight(testcases.PhotosAndVideo)  Time elapsed: 168.457 s  <<< FAILURE!
+org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.xpath: //android.widget.Button[@text ='CLOSE'] (tried for 30 second(s) with 500 milliseconds interval)
+	at testcases.PhotosAndVideo.SwipeRight(PhotosAndVideo.java:151)
+Caused by: org.openqa.selenium.NoSuchElementException: 
+Cannot locate an element using By.xpath: //android.widget.Button[@text ='CLOSE']
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.13.0', revision: '2f0d292', time: '2018-06-25T15:24:21.231Z'
+System info: host: 'IEC02N926BG3QT', ip: 'fe80:0:0:0:1cb8:b03e:f288:39ec%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.13.1', java.version: '1.8.0_25'
+Driver info: driver.version: unknown
+	at testcases.PhotosAndVideo.SwipeRight(PhotosAndVideo.java:151)
+

@@ -27,9 +27,10 @@ public class Strings {
 	public final static String Music = "//android.widget.TextView[@index = '2' and contains(@text,'Music')]";
 	public final static String Documents = "//android.widget.TextView[@index = '3' and contains(@text,'Documents')]";
 	public final static String MessageCenter = "//android.widget.TextView[@index = '5' and contains(@text,'Message Center')]";
-	public final static String Appsusingcloud = "//android.widget.TextView[@text = 'Apps Using Cloud')]";
+	public final static String APPSUSINGCLOUD = "//android.widget.TextView[@index = '7' and contains(@text,'Apps Using Cloud')]";
 	public final static String AllFiles = "//android.widget.TextView[@index = '8' and contains(@text,'All Files')]";
 	public final static String Settings = "//android.widget.TextView[@text = 'Settings']";
+	public final static String Help = "//android.widget.TextView[@text = 'Help']";
 	
 	//HomeRepository strings
 	public final static String Cloudicon = "com.vcast.mediamanager:id/status_icon";
@@ -81,6 +82,11 @@ public class Strings {
 	public final static String mobileRepro = "//android.widget.TextView[@text= 'Mobile']";
 	public final static String folderTitle = "//android.widget.TextView[@index = '1' and @resource-id = 'com.vcast.mediamanager:id/title']";
 	public final static String allfileItem = "//android.widget.TextView[@index = '1' and @resource-id = 'com.vcast.mediamanager:id/title']";
+	
+	//About strings
+	public final static String TERMSCOND = "//android.widget.TextView[@text= 'Terms & Conditions']";
+	public final static String POLICY = "//android.widget.TextView[@text= 'Privacy Policy']";
+	public final static String APPVERSION = "//android.widget.TextView[@text= 'App Version']";
 
 	//ContextMenuRespostitory strings 
 	public final static String addFavMenu = "//android.widget.TextView[@text ='Add to Favorites']";
@@ -134,6 +140,16 @@ public class Strings {
 	public final static String ContentRestore = "//android.widget.TextView[@text ='Content Restore']";
 	public final static String VOBS = "//android.widget.TextView[@text ='Business or Residential Sign In']";
 	public final static String Merge = "//android.widget.TextView[@text ='Merge Cloud Content']";
+	public final static String NOTIFICATIONMANAGER = "//android.widget.TextView[@text ='Notification Manager']";
+	public final static String APPNOTIFICATIONS = "//android.widget.TextView[@text ='APP NOTIFICATIONS']";
+	
+	//AppsUsingCloud
+	public final static String APPSUSINGTITLE= "//android.widget.TextView[@text = 'Apps Using Cloud']";
+	
+	//MessageCenter
+	public final static String MESSAGECENTRE = "//android.widget.TextView[@text = 'Message Center']";
+	public final static String RECOMMENDED = "//android.view.View[@text = 'Recommended']";
+	public final static String CONNECTED = "//android.view.View[@text = 'Connected']";
 	
 
 }

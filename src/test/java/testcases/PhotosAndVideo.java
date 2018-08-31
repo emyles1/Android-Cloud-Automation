@@ -35,8 +35,6 @@ public class PhotosAndVideo extends CloudBase {
 		driver = Capabilities();
 		get = new CommonMethods(driver);
 
-//		get.Xpath(Strings.homeHamburger, waitinsec).click();
-//		get.Xpath(Strings.Music, waitinsec).click();
 		System.out.println("Before test");
 
 		get.RateMyAppDisplay(Strings.RateMyApp);
@@ -57,7 +55,7 @@ public class PhotosAndVideo extends CloudBase {
 		Assert.assertEquals(get.AssertXpathExists(Strings.Elipses), 1);
 		
 		//have to add this as the next case fails if stopped in fullview
-		driver.pressKeyCode(AndroidKeyCode.BACK);
+		get.BackKey(1);
 
 	}
 
@@ -134,7 +132,7 @@ public class PhotosAndVideo extends CloudBase {
 	}
 
 	// ANDRVC-669
-	@Test
+	//@Test
 	public void SwipeRight() throws IOException, MalformedURLException, InterruptedException {
 
 		get.Xpath(Strings.homeHamburger, waitinsec).click();
@@ -160,7 +158,7 @@ public class PhotosAndVideo extends CloudBase {
 
 	}
 
-	@Test
+	//@Test
 	public void PhotoVidDownload() throws IOException, MalformedURLException, InterruptedException {
 
 		get.Xpath(Strings.homeHamburger, waitinsec).click();
@@ -178,7 +176,7 @@ public class PhotosAndVideo extends CloudBase {
 	}
 
 	// ANDRVC-6423
-	@Test
+	//@Test
 	public void PhotoVidDelete() throws IOException, MalformedURLException, InterruptedException {
 
 		int x = 3;
@@ -202,7 +200,7 @@ public class PhotosAndVideo extends CloudBase {
 	}
 
 	// ANDRVC-656 Precon: Videos should be available. need a precon if they dont exist
-	@Test
+	//@Test
 	public void LaunchVideo() throws IOException, MalformedURLException, InterruptedException {
 
 		get.Xpath(Strings.homeHamburger, waitinsec).click();
@@ -215,7 +213,7 @@ public class PhotosAndVideo extends CloudBase {
 		get.Xpath(Strings.firstAllitem, waitinsec).click();
 		get.Xpath(Strings.tapFullview, waitinsec).click();
 		
-		driver.pressKeyCode(AndroidKeyCode.BACK);
+		get.BackKey(1);
 
 
 
@@ -226,7 +224,7 @@ public class PhotosAndVideo extends CloudBase {
 	}
 
 	// WHY DO I HAVE THE TOUCH SCTION HERE
-	@Test
+	//@Test
 	public void PhotoVidFav() throws IOException, MalformedURLException, InterruptedException {
 
 		// TouchAction t = new TouchAction(driver);
@@ -252,7 +250,7 @@ public class PhotosAndVideo extends CloudBase {
 
 		else {
 
-			driver.pressKeyCode(AndroidKeyCode.BACK);
+			get.BackKey(1);
 			get.ResourceID(Strings.selectioncheckmark).click();
 			get.Xpath(Strings.albumHeader, waitinsec).click();
 			get.WaitForIt("//android.widget.ImageView[@index = '0']", waitinsec);
@@ -260,7 +258,7 @@ public class PhotosAndVideo extends CloudBase {
 			get.multiSelect(1);
 			get.Xpath(Strings.Elipses, waitinsec).click();
 			get.Xpath(Strings.removeFavMenu, waitinsec).click();
-			driver.pressKeyCode(AndroidKeyCode.BACK);
+			get.BackKey(1);
 
 			get.Xpath(Strings.allHeader, waitinsec).click();
 			get.multiSelect(1);
@@ -270,7 +268,7 @@ public class PhotosAndVideo extends CloudBase {
 		}
 	}
 
-	@Test
+	//@Test
 	public void FavExist() throws MalformedURLException, InterruptedException {
 
 		Strings string = new Strings();
@@ -288,7 +286,7 @@ public class PhotosAndVideo extends CloudBase {
 			int count = 0;
 			while (count < 2) {
 				TimeUnit.SECONDS.sleep(3);
-				driver.pressKeyCode(AndroidKeyCode.BACK);
+				get.BackKey(1);
 				System.out.println(count);
 				count++;
 			}
@@ -303,7 +301,7 @@ public class PhotosAndVideo extends CloudBase {
 	}
 
 	// ANDRVC-8100  NO ASSERTION HERE
-	@Test
+	//@Test
 	public void ShareCollage() throws MalformedURLException, InterruptedException {
 
 		Strings string = new Strings();
@@ -319,7 +317,7 @@ public class PhotosAndVideo extends CloudBase {
 		get.Xpath(Strings.Elipses, waitinsec).click();
 		get.Xpath(Strings.CreateCollage, waitinsec).click();
 		get.Xpath(Strings.Save, waitinsec).click();
-		driver.pressKeyCode(AndroidKeyCode.BACK);
+		get.BackKey(1);
 		get.Xpath(Strings.homeHamburger, waitinsec).click();
 		get.Xpath(Strings.Settings, waitinsec).click();
 		get.Xpath(Strings.WhattoBackup, waitinsec).click();
@@ -330,7 +328,7 @@ public class PhotosAndVideo extends CloudBase {
 		}
 		get.Xpath(Strings.ButtonOK, waitinsec).click();
 		get.BackupNow();
-		driver.pressKeyCode(AndroidKeyCode.BACK);
+		get.BackKey(1);
 		get.Xpath(Strings.homeHamburger, waitinsec).click();
 		get.Xpath(Strings.PicAndVids, waitinsec).click();
 		get.Xpath(Strings.allHeader, waitinsec).click();

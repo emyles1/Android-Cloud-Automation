@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="TestSuite" time="1,544.622" tests="28" errors="0" skipped="1" failures="19">
+  <properties>
+    <property name="gopherProxySet" value="false"/>
+    <property name="awt.toolkit" value="sun.lwawt.macosx.LWCToolkit"/>
+    <property name="file.encoding.pkg" value="sun.io"/>
+    <property name="java.specification.version" value="1.8"/>
+    <property name="sun.cpu.isalist" value=""/>
+    <property name="sun.jnu.encoding" value="UTF-8"/>
+    <property name="java.class.path" value="/Users/eamon.myles/Documents/workspace/sncr.android/target/test-classes:/Users/eamon.myles/Documents/workspace/sncr.android/target/classes:/Users/eamon.myles/.m2/repository/io/appium/java-client/6.1.0/java-client-6.1.0.jar:/Users/eamon.myles/.m2/repository/org/seleniumhq/selenium/selenium-support/3.12.0/selenium-support-3.12.0.jar:/Users/eamon.myles/.m2/repository/com/google/code/gson/gson/2.8.4/gson-2.8.4.jar:/Users/eamon.myles/.m2/repository/org/apache/httpcomponents/httpclient/4.5.5/httpclient-4.5.5.jar:/Users/eamon.myles/.m2/repository/cglib/cglib/3.2.6/cglib-3.2.6.jar:/Users/eamon.myles/.m2/repository/org/ow2/asm/asm/6.0/asm-6.0.jar:/Users/eamon.myles/.m2/repository/org/apache/ant/ant/1.9.6/ant-1.9.6.jar:/Users/eamon.myles/.m2/repository/org/apache/ant/ant-launcher/1.9.6/ant-launcher-1.9.6.jar:/Users/eamon.myles/.m2/repository/commons-validator/commons-validator/1.6/commons-validator-1.6.jar:/Users/eamon.myles/.m2/repository/commons-beanutils/commons-beanutils/1.9.2/commons-beanutils-1.9.2.jar:/Users/eamon.myles/.m2/repository/commons-digester/commons-digester/1.8.1/commons-digester-1.8.1.jar:/Users/eamon.myles/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar:/Users/eamon.myles/.m2/repository/org/apache/commons/commons-lang3/3.7/commons-lang3-3.7.jar:/Users/eamon.myles/.m2/repository/commons-io/commons-io/2.6/commons-io-2.6.jar:/Users/eamon.myles/.m2/repository/org/springframework/spring-context/5.0.5.RELEASE/spring-context-5.0.5.RELEASE.jar:/Users/eamon.myles/.m2/repository/org/springframework/spring-aop/5.0.5.RELEASE/spring-aop-5.0.5.RELEASE.jar:/Users/eamon.myles/.m2/repository/org/springframework/spring-beans/5.0.5.RELEASE/spring-beans-5.0.5.RELEASE.jar:/Users/eamon.myles/.m2/repository/org/springframework/spring-core/5.0.5.RELEASE/spring-core-5.0.5.RELEASE.jar:/Users/eamon.myles/.m2/repository/org/springframework/spring-jcl/5.0.5.RELEASE/spring-jcl-5.0.5.RELEASE.jar:/Users/eamon.myles/.m2/repository/org/springframework/spring-expression/5.0.5.RELEASE/spring-expression-5.0.5.RELEASE.jar:/Users/eamon.myles/.m2/repository/org/aspectj/aspectjweaver/1.9.1/aspectjweaver-1.9.1.jar:/Users/eamon.myles/.m2/repository/org/openpnp/opencv/3.2.0-1/opencv-3.2.0-1.jar:/Users/eamon.myles/.m2/repository/org/seleniumhq/selenium/selenium-java/3.13.0/selenium-java-3.13.0.jar:/Users/eamon.myles/.m2/repository/org/seleniumhq/selenium/selenium-chrome-driver/3.13.0/selenium-chrome-driver-3.13.0.jar:/Users/eamon.myles/.m2/repository/org/seleniumhq/selenium/selenium-edge-driver/3.13.0/selenium-edge-driver-3.13.0.jar:/Users/eamon.myles/.m2/repository/org/seleniumhq/selenium/selenium-firefox-driver/3.13.0/selenium-firefox-driver-3.13.0.jar:/Users/eamon.myles/.m2/repository/org/seleniumhq/selenium/selenium-ie-driver/3.13.0/selenium-ie-driver-3.13.0.jar:/Users/eamon.myles/.m2/repository/org/seleniumhq/selenium/selenium-opera-driver/3.13.0/selenium-opera-driver-3.13.0.jar:/Users/eamon.myles/.m2/repository/org/seleniumhq/selenium/selenium-safari-driver/3.13.0/selenium-safari-driver-3.13.0.jar:/Users/eamon.myles/.m2/repository/net/bytebuddy/byte-buddy/1.8.3/byte-buddy-1.8.3.jar:/Users/eamon.myles/.m2/repository/org/apache/commons/commons-exec/1.3/commons-exec-1.3.jar:/Users/eamon.myles/.m2/repository/commons-codec/commons-codec/1.10/commons-codec-1.10.jar:/Users/eamon.myles/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/Users/eamon.myles/.m2/repository/com/google/guava/guava/25.0-jre/guava-25.0-jre.jar:/Users/eamon.myles/.m2/repository/com/google/code/findbugs/jsr305/1.3.9/jsr305-1.3.9.jar:/Users/eamon.myles/.m2/repository/org/checkerframework/checker-compat-qual/2.0.0/checker-compat-qual-2.0.0.jar:/Users/eamon.myles/.m2/repository/com/google/errorprone/error_prone_annotations/2.1.3/error_prone_annotations-2.1.3.jar:/Users/eamon.myles/.m2/repository/com/google/j2objc/j2objc-annotations/1.1/j2objc-annotations-1.1.jar:/Users/eamon.myles/.m2/repository/org/codehaus/mojo/animal-sniffer-annotations/1.14/animal-sniffer-annotations-1.14.jar:/Users/eamon.myles/.m2/repository/org/apache/httpcomponents/httpcore/4.4.9/httpcore-4.4.9.jar:/Users/eamon.myles/.m2/repository/com/squareup/okhttp3/okhttp/3.10.0/okhttp-3.10.0.jar:/Users/eamon.myles/.m2/repository/com/squareup/okio/okio/1.14.1/okio-1.14.1.jar:/Users/eamon.myles/.m2/repository/org/testng/testng/6.14.3/testng-6.14.3.jar:/Users/eamon.myles/.m2/repository/org/apache-extras/beanshell/bsh/2.0b6/bsh-2.0b6.jar:/Users/eamon.myles/.m2/repository/com/beust/jcommander/1.72/jcommander-1.72.jar:/Users/eamon.myles/.m2/repository/org/seleniumhq/selenium/selenium-api/3.13.0/selenium-api-3.13.0.jar:/Users/eamon.myles/.m2/repository/org/seleniumhq/selenium/selenium-remote-driver/3.13.0/selenium-remote-driver-3.13.0.jar:/Users/eamon.myles/.m2/repository/com/google/android/android/4.1.1.4/android-4.1.1.4.jar:/Users/eamon.myles/.m2/repository/org/khronos/opengl-api/gl1.1-android-2.1_r1/opengl-api-gl1.1-android-2.1_r1.jar:/Users/eamon.myles/.m2/repository/xerces/xmlParserAPIs/2.6.2/xmlParserAPIs-2.6.2.jar:/Users/eamon.myles/.m2/repository/xpp3/xpp3/1.1.4c/xpp3-1.1.4c.jar:/Users/eamon.myles/.m2/repository/org/json/json/20080701/json-20080701.jar:/Users/eamon.myles/.m2/repository/junit/junit/4.12/junit-4.12.jar:/Users/eamon.myles/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/Users/eamon.myles/.m2/repository/io/rest-assured/rest-assured/3.1.0/rest-assured-3.1.0.jar:/Users/eamon.myles/.m2/repository/org/codehaus/groovy/groovy/2.4.12/groovy-2.4.12.jar:/Users/eamon.myles/.m2/repository/org/codehaus/groovy/groovy-xml/2.4.12/groovy-xml-2.4.12.jar:/Users/eamon.myles/.m2/repository/org/apache/httpcomponents/httpmime/4.5.1/httpmime-4.5.1.jar:/Users/eamon.myles/.m2/repository/org/hamcrest/hamcrest-library/1.3/hamcrest-library-1.3.jar:/Users/eamon.myles/.m2/repository/org/ccil/cowan/tagsoup/tagsoup/1.2.1/tagsoup-1.2.1.jar:/Users/eamon.myles/.m2/repository/io/rest-assured/json-path/3.1.0/json-path-3.1.0.jar:/Users/eamon.myles/.m2/repository/org/codehaus/groovy/groovy-json/2.4.12/groovy-json-2.4.12.jar:/Users/eamon.myles/.m2/repository/io/rest-assured/rest-assured-common/3.1.0/rest-assured-common-3.1.0.jar:/Users/eamon.myles/.m2/repository/io/rest-assured/xml-path/3.1.0/xml-path-3.1.0.jar:/Users/eamon.myles/.m2/repository/javax/xml/bind/jaxb-api/2.2.12/jaxb-api-2.2.12.jar:/Users/eamon.myles/.m2/repository/org/apache/maven/surefire/surefire-testng-utils/2.21.0/surefire-testng-utils-2.21.0.jar:/Users/eamon.myles/.m2/repository/org/apache/maven/surefire/surefire-grouper/2.21.0/surefire-grouper-2.21.0.jar:"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.vendor.url" value="http://java.oracle.com/"/>
+    <property name="user.timezone" value="Europe/Dublin"/>
+    <property name="java.vm.specification.version" value="1.8"/>
+    <property name="os.name" value="Mac OS X"/>
+    <property name="user.country" value="IE"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home/jre/lib"/>
+    <property name="sun.java.command" value="/Users/eamon.myles/Documents/workspace/sncr.android/target/surefire/surefirebooter6700005529663013135.jar /Users/eamon.myles/Documents/workspace/sncr.android/target/surefire 2018-08-22T10-16-57_053-jvmRun1 surefire7016047134607604643tmp surefire_06301164311153642450tmp"/>
+    <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+    <property name="surefire.test.class.path" value="/Users/eamon.myles/Documents/workspace/sncr.android/target/test-classes:/Users/eamon.myles/Documents/workspace/sncr.android/target/classes:/Users/eamon.myles/.m2/repository/io/appium/java-client/6.1.0/java-client-6.1.0.jar:/Users/eamon.myles/.m2/repository/org/seleniumhq/selenium/selenium-support/3.12.0/selenium-support-3.12.0.jar:/Users/eamon.myles/.m2/repository/com/google/code/gson/gson/2.8.4/gson-2.8.4.jar:/Users/eamon.myles/.m2/repository/org/apache/httpcomponents/httpclient/4.5.5/httpclient-4.5.5.jar:/Users/eamon.myles/.m2/repository/cglib/cglib/3.2.6/cglib-3.2.6.jar:/Users/eamon.myles/.m2/repository/org/ow2/asm/asm/6.0/asm-6.0.jar:/Users/eamon.myles/.m2/repository/org/apache/ant/ant/1.9.6/ant-1.9.6.jar:/Users/eamon.myles/.m2/repository/org/apache/ant/ant-launcher/1.9.6/ant-launcher-1.9.6.jar:/Users/eamon.myles/.m2/repository/commons-validator/commons-validator/1.6/commons-validator-1.6.jar:/Users/eamon.myles/.m2/repository/commons-beanutils/commons-beanutils/1.9.2/commons-beanutils-1.9.2.jar:/Users/eamon.myles/.m2/repository/commons-digester/commons-digester/1.8.1/commons-digester-1.8.1.jar:/Users/eamon.myles/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar:/Users/eamon.myles/.m2/repository/org/apache/commons/commons-lang3/3.7/commons-lang3-3.7.jar:/Users/eamon.myles/.m2/repository/commons-io/commons-io/2.6/commons-io-2.6.jar:/Users/eamon.myles/.m2/repository/org/springframework/spring-context/5.0.5.RELEASE/spring-context-5.0.5.RELEASE.jar:/Users/eamon.myles/.m2/repository/org/springframework/spring-aop/5.0.5.RELEASE/spring-aop-5.0.5.RELEASE.jar:/Users/eamon.myles/.m2/repository/org/springframework/spring-beans/5.0.5.RELEASE/spring-beans-5.0.5.RELEASE.jar:/Users/eamon.myles/.m2/repository/org/springframework/spring-core/5.0.5.RELEASE/spring-core-5.0.5.RELEASE.jar:/Users/eamon.myles/.m2/repository/org/springframework/spring-jcl/5.0.5.RELEASE/spring-jcl-5.0.5.RELEASE.jar:/Users/eamon.myles/.m2/repository/org/springframework/spring-expression/5.0.5.RELEASE/spring-expression-5.0.5.RELEASE.jar:/Users/eamon.myles/.m2/repository/org/aspectj/aspectjweaver/1.9.1/aspectjweaver-1.9.1.jar:/Users/eamon.myles/.m2/repository/org/openpnp/opencv/3.2.0-1/opencv-3.2.0-1.jar:/Users/eamon.myles/.m2/repository/org/seleniumhq/selenium/selenium-java/3.13.0/selenium-java-3.13.0.jar:/Users/eamon.myles/.m2/repository/org/seleniumhq/selenium/selenium-chrome-driver/3.13.0/selenium-chrome-driver-3.13.0.jar:/Users/eamon.myles/.m2/repository/org/seleniumhq/selenium/selenium-edge-driver/3.13.0/selenium-edge-driver-3.13.0.jar:/Users/eamon.myles/.m2/repository/org/seleniumhq/selenium/selenium-firefox-driver/3.13.0/selenium-firefox-driver-3.13.0.jar:/Users/eamon.myles/.m2/repository/org/seleniumhq/selenium/selenium-ie-driver/3.13.0/selenium-ie-driver-3.13.0.jar:/Users/eamon.myles/.m2/repository/org/seleniumhq/selenium/selenium-opera-driver/3.13.0/selenium-opera-driver-3.13.0.jar:/Users/eamon.myles/.m2/repository/org/seleniumhq/selenium/selenium-safari-driver/3.13.0/selenium-safari-driver-3.13.0.jar:/Users/eamon.myles/.m2/repository/net/bytebuddy/byte-buddy/1.8.3/byte-buddy-1.8.3.jar:/Users/eamon.myles/.m2/repository/org/apache/commons/commons-exec/1.3/commons-exec-1.3.jar:/Users/eamon.myles/.m2/repository/commons-codec/commons-codec/1.10/commons-codec-1.10.jar:/Users/eamon.myles/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/Users/eamon.myles/.m2/repository/com/google/guava/guava/25.0-jre/guava-25.0-jre.jar:/Users/eamon.myles/.m2/repository/com/google/code/findbugs/jsr305/1.3.9/jsr305-1.3.9.jar:/Users/eamon.myles/.m2/repository/org/checkerframework/checker-compat-qual/2.0.0/checker-compat-qual-2.0.0.jar:/Users/eamon.myles/.m2/repository/com/google/errorprone/error_prone_annotations/2.1.3/error_prone_annotations-2.1.3.jar:/Users/eamon.myles/.m2/repository/com/google/j2objc/j2objc-annotations/1.1/j2objc-annotations-1.1.jar:/Users/eamon.myles/.m2/repository/org/codehaus/mojo/animal-sniffer-annotations/1.14/animal-sniffer-annotations-1.14.jar:/Users/eamon.myles/.m2/repository/org/apache/httpcomponents/httpcore/4.4.9/httpcore-4.4.9.jar:/Users/eamon.myles/.m2/repository/com/squareup/okhttp3/okhttp/3.10.0/okhttp-3.10.0.jar:/Users/eamon.myles/.m2/repository/com/squareup/okio/okio/1.14.1/okio-1.14.1.jar:/Users/eamon.myles/.m2/repository/org/testng/testng/6.14.3/testng-6.14.3.jar:/Users/eamon.myles/.m2/repository/org/apache-extras/beanshell/bsh/2.0b6/bsh-2.0b6.jar:/Users/eamon.myles/.m2/repository/com/beust/jcommander/1.72/jcommander-1.72.jar:/Users/eamon.myles/.m2/repository/org/seleniumhq/selenium/selenium-api/3.13.0/selenium-api-3.13.0.jar:/Users/eamon.myles/.m2/repository/org/seleniumhq/selenium/selenium-remote-driver/3.13.0/selenium-remote-driver-3.13.0.jar:/Users/eamon.myles/.m2/repository/com/google/android/android/4.1.1.4/android-4.1.1.4.jar:/Users/eamon.myles/.m2/repository/org/khronos/opengl-api/gl1.1-android-2.1_r1/opengl-api-gl1.1-android-2.1_r1.jar:/Users/eamon.myles/.m2/repository/xerces/xmlParserAPIs/2.6.2/xmlParserAPIs-2.6.2.jar:/Users/eamon.myles/.m2/repository/xpp3/xpp3/1.1.4c/xpp3-1.1.4c.jar:/Users/eamon.myles/.m2/repository/org/json/json/20080701/json-20080701.jar:/Users/eamon.myles/.m2/repository/junit/junit/4.12/junit-4.12.jar:/Users/eamon.myles/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/Users/eamon.myles/.m2/repository/io/rest-assured/rest-assured/3.1.0/rest-assured-3.1.0.jar:/Users/eamon.myles/.m2/repository/org/codehaus/groovy/groovy/2.4.12/groovy-2.4.12.jar:/Users/eamon.myles/.m2/repository/org/codehaus/groovy/groovy-xml/2.4.12/groovy-xml-2.4.12.jar:/Users/eamon.myles/.m2/repository/org/apache/httpcomponents/httpmime/4.5.1/httpmime-4.5.1.jar:/Users/eamon.myles/.m2/repository/org/hamcrest/hamcrest-library/1.3/hamcrest-library-1.3.jar:/Users/eamon.myles/.m2/repository/org/ccil/cowan/tagsoup/tagsoup/1.2.1/tagsoup-1.2.1.jar:/Users/eamon.myles/.m2/repository/io/rest-assured/json-path/3.1.0/json-path-3.1.0.jar:/Users/eamon.myles/.m2/repository/org/codehaus/groovy/groovy-json/2.4.12/groovy-json-2.4.12.jar:/Users/eamon.myles/.m2/repository/io/rest-assured/rest-assured-common/3.1.0/rest-assured-common-3.1.0.jar:/Users/eamon.myles/.m2/repository/io/rest-assured/xml-path/3.1.0/xml-path-3.1.0.jar:/Users/eamon.myles/.m2/repository/javax/xml/bind/jaxb-api/2.2.12/jaxb-api-2.2.12.jar:/Users/eamon.myles/.m2/repository/org/apache/maven/surefire/surefire-testng-utils/2.21.0/surefire-testng-utils-2.21.0.jar:/Users/eamon.myles/.m2/repository/org/apache/maven/surefire/surefire-grouper/2.21.0/surefire-grouper-2.21.0.jar:"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="/Users/eamon.myles"/>
+    <property name="user.language" value="en"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.home" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home/jre"/>
+    <property name="basedir" value="/Users/eamon.myles/Documents/workspace/sncr.android"/>
+    <property name="file.separator" value="/"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.CGraphicsEnvironment"/>
+    <property name="surefire.real.class.path" value="/Users/eamon.myles/Documents/workspace/sncr.android/target/surefire/surefirebooter6700005529663013135.jar"/>
+    <property name="sun.boot.class.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home/jre/lib/resources.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home/jre/lib/rt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home/jre/lib/sunrsasign.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home/jre/lib/jsse.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home/jre/lib/jce.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home/jre/lib/charsets.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home/jre/lib/jfr.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home/jre/classes"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+    <property name="java.runtime.version" value="1.8.0_25-b17"/>
+    <property name="user.name" value="eamon.myles"/>
+    <property name="path.separator" value=":"/>
+    <property name="os.version" value="10.13.1"/>
+    <property name="java.endorsed.dirs" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home/jre/lib/endorsed"/>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="localRepository" value="/Users/eamon.myles/.m2/repository"/>
+    <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
+    <property name="java.io.tmpdir" value="/var/folders/6q/j8hb7z_s4b19wlllc06chqhmty521c/T/"/>
+    <property name="java.version" value="1.8.0_25"/>
+    <property name="user.dir" value="/Users/eamon.myles/Documents/workspace/sncr.android"/>
+    <property name="os.arch" value="x86_64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="java.awt.printerjob" value="sun.lwawt.macosx.CPrinterJob"/>
+    <property name="sun.os.patch.level" value="unknown"/>
+    <property name="java.library.path" value="/Users/eamon.myles/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:."/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="java.vm.version" value="25.25-b02"/>
+    <property name="java.ext.dirs" value="/Users/eamon.myles/Library/Java/Extensions:/Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home/jre/lib/ext:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeBig"/>
+    <property name="java.class.version" value="52.0"/>
+    <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+  </properties>
+  <testcase name="ArtistAddtoPlaylist" classname="testcases.Music" time="36.341">
+    <failure message="Expected condition failed: waiting for visibility of element located by By.xpath: //android.widget.LinearLayout[@index= 0 and contains(@resource-id, &apos;com.vcast.mediamanager:id/item_wraper&apos;)] (tried for 30 second(s) with 500 milliseconds interval)" type="org.openqa.selenium.TimeoutException">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.xpath: //android.widget.LinearLayout[@index= 0 and contains(@resource-id, 'com.vcast.mediamanager:id/item_wraper')] (tried for 30 second(s) with 500 milliseconds interval)
+	at testcases.Music.ArtistAddtoPlaylist(Music.java:78)
+Caused by: org.openqa.selenium.NoSuchElementException: 
+Cannot locate an element using By.xpath: //android.widget.LinearLayout[@index= 0 and contains(@resource-id, 'com.vcast.mediamanager:id/item_wraper')]
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.13.0', revision: '2f0d292', time: '2018-06-25T15:24:21.231Z'
+System info: host: 'IEC02N926BG3QT', ip: 'fe80:0:0:0:1cb8:b03e:f288:39ec%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.13.1', java.version: '1.8.0_25'
+Driver info: driver.version: unknown
+	at testcases.Music.ArtistAddtoPlaylist(Music.java:78)
+</failure>
+    <system-out><![CDATA[217
+]]></system-out>
+    <system-err><![CDATA[Aug 22, 2018 10:17:24 AM io.appium.java_client.remote.AppiumCommandExecutor$1 lambda$0
+INFO: Detected dialect: OSS
+]]></system-err>
+  </testcase>
+  <testcase name="ArtistDownload" classname="testcases.Music" time="35.753">
+    <failure message="Expected condition failed: waiting for visibility of element located by By.xpath: //android.widget.LinearLayout[@index= 0 and contains(@resource-id, &apos;com.vcast.mediamanager:id/item_wraper&apos;)] (tried for 30 second(s) with 500 milliseconds interval)" type="org.openqa.selenium.TimeoutException">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.xpath: //android.widget.LinearLayout[@index= 0 and contains(@resource-id, 'com.vcast.mediamanager:id/item_wraper')] (tried for 30 second(s) with 500 milliseconds interval)
+	at testcases.Music.ArtistDownload(Music.java:58)
+Caused by: org.openqa.selenium.NoSuchElementException: 
+Cannot locate an element using By.xpath: //android.widget.LinearLayout[@index= 0 and contains(@resource-id, 'com.vcast.mediamanager:id/item_wraper')]
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.13.0', revision: '2f0d292', time: '2018-06-25T15:24:21.231Z'
+System info: host: 'IEC02N926BG3QT', ip: 'fe80:0:0:0:1cb8:b03e:f288:39ec%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.13.1', java.version: '1.8.0_25'
+Driver info: driver.version: unknown
+	at testcases.Music.ArtistDownload(Music.java:58)
+</failure>
+    <system-err><![CDATA[Aug 22, 2018 10:18:22 AM io.appium.java_client.remote.AppiumCommandExecutor$1 lambda$0
+INFO: Detected dialect: OSS
+]]></system-err>
+  </testcase>
+  <testcase name="ArtistView" classname="testcases.Music" time="36.125">
+    <failure message="Expected condition failed: waiting for visibility of element located by By.id: com.vcast.mediamanager:id/item_wraper (tried for 30 second(s) with 500 milliseconds interval)" type="org.openqa.selenium.TimeoutException">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.id: com.vcast.mediamanager:id/item_wraper (tried for 30 second(s) with 500 milliseconds interval)
+	at testcases.Music.ArtistView(Music.java:45)
+Caused by: org.openqa.selenium.NoSuchElementException: 
+Cannot locate an element using By.id: com.vcast.mediamanager:id/item_wraper
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.13.0', revision: '2f0d292', time: '2018-06-25T15:24:21.231Z'
+System info: host: 'IEC02N926BG3QT', ip: 'fe80:0:0:0:1cb8:b03e:f288:39ec%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.13.1', java.version: '1.8.0_25'
+Driver info: driver.version: unknown
+	at testcases.Music.ArtistView(Music.java:45)
+</failure>
+    <system-err><![CDATA[Aug 22, 2018 10:19:19 AM io.appium.java_client.remote.AppiumCommandExecutor$1 lambda$0
+INFO: Detected dialect: OSS
+]]></system-err>
+  </testcase>
+  <testcase name="CreatePlaylist" classname="testcases.Music" time="20.646">
+    <failure message="Expected condition failed: waiting for visibility of element located by By.xpath: //android.widget.TextView[@resource-id =&apos;com.vcast.mediamanager:id/new_album&apos;] (tried for 15 second(s) with 500 milliseconds interval)" type="org.openqa.selenium.TimeoutException">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.xpath: //android.widget.TextView[@resource-id ='com.vcast.mediamanager:id/new_album'] (tried for 15 second(s) with 500 milliseconds interval)
+	at testcases.Music.CreatePlaylist(Music.java:118)
+Caused by: org.openqa.selenium.NoSuchElementException: 
+Cannot locate an element using By.xpath: //android.widget.TextView[@resource-id ='com.vcast.mediamanager:id/new_album']
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.13.0', revision: '2f0d292', time: '2018-06-25T15:24:21.231Z'
+System info: host: 'IEC02N926BG3QT', ip: 'fe80:0:0:0:1cb8:b03e:f288:39ec%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.13.1', java.version: '1.8.0_25'
+Driver info: driver.version: unknown
+	at testcases.Music.CreatePlaylist(Music.java:118)
+</failure>
+    <system-out><![CDATA[66
+]]></system-out>
+    <system-err><![CDATA[Aug 22, 2018 10:20:17 AM io.appium.java_client.remote.AppiumCommandExecutor$1 lambda$0
+INFO: Detected dialect: OSS
+]]></system-err>
+  </testcase>
+  <testcase name="DeleteSong" classname="testcases.Music" time="35.944">
+    <failure message="Expected condition failed: waiting for visibility of element located by By.xpath: //android.widget.LinearLayout[@index= 0 and contains(@resource-id, &apos;com.vcast.mediamanager:id/item_wraper&apos;)] (tried for 30 second(s) with 500 milliseconds interval)" type="org.openqa.selenium.TimeoutException">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.xpath: //android.widget.LinearLayout[@index= 0 and contains(@resource-id, 'com.vcast.mediamanager:id/item_wraper')] (tried for 30 second(s) with 500 milliseconds interval)
+	at testcases.Music.DeleteSong(Music.java:102)
+Caused by: org.openqa.selenium.NoSuchElementException: 
+Cannot locate an element using By.xpath: //android.widget.LinearLayout[@index= 0 and contains(@resource-id, 'com.vcast.mediamanager:id/item_wraper')]
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.13.0', revision: '2f0d292', time: '2018-06-25T15:24:21.231Z'
+System info: host: 'IEC02N926BG3QT', ip: 'fe80:0:0:0:1cb8:b03e:f288:39ec%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.13.1', java.version: '1.8.0_25'
+Driver info: driver.version: unknown
+	at testcases.Music.DeleteSong(Music.java:102)
+</failure>
+    <system-out><![CDATA[53
+]]></system-out>
+    <system-err><![CDATA[Aug 22, 2018 10:20:59 AM io.appium.java_client.remote.AppiumCommandExecutor$1 lambda$0
+INFO: Detected dialect: OSS
+]]></system-err>
+  </testcase>
+  <testcase name="PlaySong" classname="testcases.Music" time="20.607">
+    <failure message="Expected condition failed: waiting for visibility of element located by By.xpath: //android.widget.LinearLayout[@index= 0 and contains(@resource-id, &apos;com.vcast.mediamanager:id/item_wraper&apos;)] (tried for 15 second(s) with 500 milliseconds interval)" type="org.openqa.selenium.TimeoutException">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.xpath: //android.widget.LinearLayout[@index= 0 and contains(@resource-id, 'com.vcast.mediamanager:id/item_wraper')] (tried for 15 second(s) with 500 milliseconds interval)
+	at testcases.Music.PlaySong(Music.java:136)
+Caused by: org.openqa.selenium.NoSuchElementException: 
+Cannot locate an element using By.xpath: //android.widget.LinearLayout[@index= 0 and contains(@resource-id, 'com.vcast.mediamanager:id/item_wraper')]
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.13.0', revision: '2f0d292', time: '2018-06-25T15:24:21.231Z'
+System info: host: 'IEC02N926BG3QT', ip: 'fe80:0:0:0:1cb8:b03e:f288:39ec%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.13.1', java.version: '1.8.0_25'
+Driver info: driver.version: unknown
+	at testcases.Music.PlaySong(Music.java:136)
+</failure>
+    <system-err><![CDATA[Aug 22, 2018 10:21:56 AM io.appium.java_client.remote.AppiumCommandExecutor$1 lambda$0
+INFO: Detected dialect: OSS
+]]></system-err>
+  </testcase>
+  <testcase name="horizontalSwipingTest" classname="testcases.Playground" time="2.086">
+    <failure message="An element could not be located on the page using the given search parameters. (WARNING: The server did not provide any stacktrace information)&#10;Command duration or timeout: 0 milliseconds&#10;For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html&#10;Build info: version: &apos;3.13.0&apos;, revision: &apos;2f0d292&apos;, time: &apos;2018-06-25T15:24:21.231Z&apos;&#10;System info: host: &apos;IEC02N926BG3QT&apos;, ip: &apos;fe80:0:0:0:1cb8:b03e:f288:39ec%en0&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;10.13.1&apos;, java.version: &apos;1.8.0_25&apos;&#10;Driver info: io.appium.java_client.android.AndroidDriver&#10;Capabilities {appActivity: com.newbay.syncdrive.androi..., appPackage: com.vcast.mediamanager, autoDismissAlerts: true, autoGrantPermissions: true, automationName: uiautomator2, deviceName: Android Device, javascriptEnabled: true, newCommandTimeout: 100, noReset: true, platform: ANDROID, platformName: Android}&#10;Session ID: b2f8e8e0-7993-47d6-8a83-614536ca28f4&#10;*** Element info: {Using=xpath, value=//android.support.v7.widget.RecyclerView[@resource-id = &apos;com.vcast.mediamanager:id/recycler_view&apos; and @index =&apos;0&apos;]}" type="org.openqa.selenium.NoSuchElementException">org.openqa.selenium.NoSuchElementException: 
+An element could not be located on the page using the given search parameters. (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.13.0', revision: '2f0d292', time: '2018-06-25T15:24:21.231Z'
+System info: host: 'IEC02N926BG3QT', ip: 'fe80:0:0:0:1cb8:b03e:f288:39ec%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.13.1', java.version: '1.8.0_25'
+Driver info: io.appium.java_client.android.AndroidDriver
+Capabilities {appActivity: com.newbay.syncdrive.androi..., appPackage: com.vcast.mediamanager, autoDismissAlerts: true, autoGrantPermissions: true, automationName: uiautomator2, deviceName: Android Device, javascriptEnabled: true, newCommandTimeout: 100, noReset: true, platform: ANDROID, platformName: Android}
+Session ID: b2f8e8e0-7993-47d6-8a83-614536ca28f4
+*** Element info: {Using=xpath, value=//android.support.v7.widget.RecyclerView[@resource-id = 'com.vcast.mediamanager:id/recycler_view' and @index ='0']}
+	at testcases.Playground.horizontalSwipingTest(Playground.java:142)
+</failure>
+    <system-err><![CDATA[Aug 22, 2018 10:22:39 AM io.appium.java_client.remote.AppiumCommandExecutor$1 lambda$0
+INFO: Detected dialect: OSS
+]]></system-err>
+  </testcase>
+  <testcase name="DocInfo" classname="testcases.Documents" time="34.056">
+    <failure message="Expected condition failed: waiting for visibility of element located by By.xpath: //android.widget.RelativeLayout[@index= &apos;0&apos; and @resource-id=&apos;com.vcast.mediamanager:id/list_item&apos;] (tried for 30 second(s) with 500 milliseconds interval)" type="org.openqa.selenium.TimeoutException">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.xpath: //android.widget.RelativeLayout[@index= '0' and @resource-id='com.vcast.mediamanager:id/list_item'] (tried for 30 second(s) with 500 milliseconds interval)
+	at testcases.Documents.DocInfo(Documents.java:157)
+Caused by: org.openqa.selenium.NoSuchElementException: 
+Cannot locate an element using By.xpath: //android.widget.RelativeLayout[@index= '0' and @resource-id='com.vcast.mediamanager:id/list_item']
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.13.0', revision: '2f0d292', time: '2018-06-25T15:24:21.231Z'
+System info: host: 'IEC02N926BG3QT', ip: 'fe80:0:0:0:1cb8:b03e:f288:39ec%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.13.1', java.version: '1.8.0_25'
+Driver info: driver.version: unknown
+	at testcases.Documents.DocInfo(Documents.java:157)
+</failure>
+    <system-err><![CDATA[Aug 22, 2018 10:23:00 AM io.appium.java_client.remote.AppiumCommandExecutor$1 lambda$0
+INFO: Detected dialect: OSS
+]]></system-err>
+  </testcase>
+  <testcase name="MessageCenter2" classname="testcases.MessageCenter" time="6.452"/>
+  <testcase name="test" classname="testcases.MessageCenter" time="4.529"/>
+  <testcase name="SetBackUp" classname="testcases.Settings" time="41.689">
+    <failure message="Expected condition failed: waiting for visibility of element located by By.xpath: //android.widget.Button[@text =&apos;OK&apos;] (tried for 30 second(s) with 500 milliseconds interval)" type="org.openqa.selenium.TimeoutException">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.xpath: //android.widget.Button[@text ='OK'] (tried for 30 second(s) with 500 milliseconds interval)
+	at testcases.Settings.SetBackUp(Settings.java:32)
+Caused by: org.openqa.selenium.NoSuchElementException: 
+Cannot locate an element using By.xpath: //android.widget.Button[@text ='OK']
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.13.0', revision: '2f0d292', time: '2018-06-25T15:24:21.231Z'
+System info: host: 'IEC02N926BG3QT', ip: 'fe80:0:0:0:1cb8:b03e:f288:39ec%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.13.1', java.version: '1.8.0_25'
+Driver info: driver.version: unknown
+	at testcases.Settings.SetBackUp(Settings.java:32)
+</failure>
+    <system-err><![CDATA[Aug 22, 2018 10:24:45 AM io.appium.java_client.remote.AppiumCommandExecutor$1 lambda$0
+INFO: Detected dialect: OSS
+]]></system-err>
+  </testcase>
+  <testcase name="SettingsPageLayout" classname="testcases.Settings" time="34.65">
+    <failure message="Expected condition failed: waiting for visibility of element located by By.xpath: //android.widget.TextView[@text =&apos;What to Back Up&apos;] (tried for 30 second(s) with 500 milliseconds interval)" type="org.openqa.selenium.TimeoutException">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.xpath: //android.widget.TextView[@text ='What to Back Up'] (tried for 30 second(s) with 500 milliseconds interval)
+	at testcases.Settings.SettingsPageLayout(Settings.java:43)
+Caused by: org.openqa.selenium.NoSuchElementException: 
+Cannot locate an element using By.xpath: //android.widget.TextView[@text ='What to Back Up']
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.13.0', revision: '2f0d292', time: '2018-06-25T15:24:21.231Z'
+System info: host: 'IEC02N926BG3QT', ip: 'fe80:0:0:0:1cb8:b03e:f288:39ec%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.13.1', java.version: '1.8.0_25'
+Driver info: driver.version: unknown
+	at testcases.Settings.SettingsPageLayout(Settings.java:43)
+</failure>
+    <system-err><![CDATA[Aug 22, 2018 10:25:47 AM io.appium.java_client.remote.AppiumCommandExecutor$1 lambda$0
+INFO: Detected dialect: OSS
+]]></system-err>
+  </testcase>
+  <testcase name="ToDisable" classname="testcases.Settings" time="9.773"/>
+  <testcase name="Tools" classname="testcases.Settings" time="34.041">
+    <failure message="Expected condition failed: waiting for visibility of element located by By.xpath: //android.widget.TextView[@text =&apos;Tools&apos;] (tried for 30 second(s) with 500 milliseconds interval)" type="org.openqa.selenium.TimeoutException">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.xpath: //android.widget.TextView[@text ='Tools'] (tried for 30 second(s) with 500 milliseconds interval)
+	at testcases.Settings.Tools(Settings.java:59)
+Caused by: org.openqa.selenium.NoSuchElementException: 
+Cannot locate an element using By.xpath: //android.widget.TextView[@text ='Tools']
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.13.0', revision: '2f0d292', time: '2018-06-25T15:24:21.231Z'
+System info: host: 'IEC02N926BG3QT', ip: 'fe80:0:0:0:1cb8:b03e:f288:39ec%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.13.1', java.version: '1.8.0_25'
+Driver info: driver.version: unknown
+	at testcases.Settings.Tools(Settings.java:59)
+</failure>
+    <system-err><![CDATA[Aug 22, 2018 10:27:13 AM io.appium.java_client.remote.AppiumCommandExecutor$1 lambda$0
+INFO: Detected dialect: OSS
+]]></system-err>
+  </testcase>
+  <testcase name="FindExt" classname="testcases.AllFiles" time="37.46">
+    <failure message="Expected condition failed: waiting for visibility of element located by By.xpath: //android.widget.TextView[@index = &apos;8&apos; and contains(@text,&apos;All Files&apos;)] (tried for 30 second(s) with 500 milliseconds interval)" type="org.openqa.selenium.TimeoutException">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.xpath: //android.widget.TextView[@index = '8' and contains(@text,'All Files')] (tried for 30 second(s) with 500 milliseconds interval)
+	at testcases.AllFiles.FindExt(AllFiles.java:70)
+Caused by: org.openqa.selenium.NoSuchElementException: 
+Cannot locate an element using By.xpath: //android.widget.TextView[@index = '8' and contains(@text,'All Files')]
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.13.0', revision: '2f0d292', time: '2018-06-25T15:24:21.231Z'
+System info: host: 'IEC02N926BG3QT', ip: 'fe80:0:0:0:1cb8:b03e:f288:39ec%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.13.1', java.version: '1.8.0_25'
+Driver info: driver.version: unknown
+	at testcases.AllFiles.FindExt(AllFiles.java:70)
+</failure>
+    <system-out><![CDATA[FindExt
+]]></system-out>
+    <system-err><![CDATA[Aug 22, 2018 10:28:08 AM io.appium.java_client.remote.AppiumCommandExecutor$1 lambda$0
+INFO: Detected dialect: OSS
+]]></system-err>
+  </testcase>
+  <testcase name="MobileName" classname="testcases.AllFiles" time="37.419">
+    <failure message="Expected condition failed: waiting for visibility of element located by By.xpath: //android.widget.TextView[@index = &apos;8&apos; and contains(@text,&apos;All Files&apos;)] (tried for 30 second(s) with 500 milliseconds interval)" type="org.openqa.selenium.TimeoutException">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.xpath: //android.widget.TextView[@index = '8' and contains(@text,'All Files')] (tried for 30 second(s) with 500 milliseconds interval)
+	at testcases.AllFiles.MobileName(AllFiles.java:209)
+Caused by: org.openqa.selenium.NoSuchElementException: 
+Cannot locate an element using By.xpath: //android.widget.TextView[@index = '8' and contains(@text,'All Files')]
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.13.0', revision: '2f0d292', time: '2018-06-25T15:24:21.231Z'
+System info: host: 'IEC02N926BG3QT', ip: 'fe80:0:0:0:1cb8:b03e:f288:39ec%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.13.1', java.version: '1.8.0_25'
+Driver info: driver.version: unknown
+	at testcases.AllFiles.MobileName(AllFiles.java:209)
+</failure>
+    <system-err><![CDATA[Aug 22, 2018 10:29:07 AM io.appium.java_client.remote.AppiumCommandExecutor$1 lambda$0
+INFO: Detected dialect: OSS
+]]></system-err>
+  </testcase>
+  <testcase name="OpenMobileRepro" classname="testcases.AllFiles" time="37.489">
+    <failure message="Expected condition failed: waiting for visibility of element located by By.xpath: //android.widget.TextView[@index = &apos;8&apos; and contains(@text,&apos;All Files&apos;)] (tried for 30 second(s) with 500 milliseconds interval)" type="org.openqa.selenium.TimeoutException">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.xpath: //android.widget.TextView[@index = '8' and contains(@text,'All Files')] (tried for 30 second(s) with 500 milliseconds interval)
+	at testcases.AllFiles.OpenMobileRepro(AllFiles.java:46)
+Caused by: org.openqa.selenium.NoSuchElementException: 
+Cannot locate an element using By.xpath: //android.widget.TextView[@index = '8' and contains(@text,'All Files')]
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.13.0', revision: '2f0d292', time: '2018-06-25T15:24:21.231Z'
+System info: host: 'IEC02N926BG3QT', ip: 'fe80:0:0:0:1cb8:b03e:f288:39ec%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.13.1', java.version: '1.8.0_25'
+Driver info: driver.version: unknown
+	at testcases.AllFiles.OpenMobileRepro(AllFiles.java:46)
+</failure>
+    <system-err><![CDATA[Aug 22, 2018 10:30:06 AM io.appium.java_client.remote.AppiumCommandExecutor$1 lambda$0
+INFO: Detected dialect: OSS
+]]></system-err>
+  </testcase>
+  <testcase name="CreateAlbums" classname="testcases.PhotosAndVideo" time="34.381">
+    <failure message="Expected condition failed: waiting for visibility of element located by By.xpath: //android.widget.TextView[@resource-id =&apos;com.vcast.mediamanager:id/new_album&apos;] (tried for 30 second(s) with 500 milliseconds interval)" type="org.openqa.selenium.TimeoutException">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.xpath: //android.widget.TextView[@resource-id ='com.vcast.mediamanager:id/new_album'] (tried for 30 second(s) with 500 milliseconds interval)
+	at testcases.PhotosAndVideo.CreateAlbums(PhotosAndVideo.java:91)
+Caused by: org.openqa.selenium.NoSuchElementException: 
+Cannot locate an element using By.xpath: //android.widget.TextView[@resource-id ='com.vcast.mediamanager:id/new_album']
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.13.0', revision: '2f0d292', time: '2018-06-25T15:24:21.231Z'
+System info: host: 'IEC02N926BG3QT', ip: 'fe80:0:0:0:1cb8:b03e:f288:39ec%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.13.1', java.version: '1.8.0_25'
+Driver info: driver.version: unknown
+	at testcases.PhotosAndVideo.CreateAlbums(PhotosAndVideo.java:91)
+</failure>
+    <system-out><![CDATA[Before test
+Rate My App not displayed
+152
+]]></system-out>
+    <system-err><![CDATA[Aug 22, 2018 10:31:05 AM io.appium.java_client.remote.AppiumCommandExecutor$1 lambda$0
+INFO: Detected dialect: OSS
+]]></system-err>
+  </testcase>
+  <testcase name="Fullview" classname="testcases.PhotosAndVideo" time="8.062"/>
+  <testcase name="Info" classname="testcases.PhotosAndVideo" time="9.555"/>
+  <testcase name="LaunchVideo" classname="testcases.PhotosAndVideo" time="38.472">
+    <failure message="Expected condition failed: waiting for visibility of element located by By.xpath: //android.widget.ImageView[@resource-id = &apos;com.vcast.mediamanager:id/icon&apos; and @index =&apos;1&apos;] (tried for 30 second(s) with 500 milliseconds interval)" type="org.openqa.selenium.TimeoutException">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.xpath: //android.widget.ImageView[@resource-id = 'com.vcast.mediamanager:id/icon' and @index ='1'] (tried for 30 second(s) with 500 milliseconds interval)
+	at testcases.PhotosAndVideo.LaunchVideo(PhotosAndVideo.java:215)
+Caused by: org.openqa.selenium.NoSuchElementException: 
+Cannot locate an element using By.xpath: //android.widget.ImageView[@resource-id = 'com.vcast.mediamanager:id/icon' and @index ='1']
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.13.0', revision: '2f0d292', time: '2018-06-25T15:24:21.231Z'
+System info: host: 'IEC02N926BG3QT', ip: 'fe80:0:0:0:1cb8:b03e:f288:39ec%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.13.1', java.version: '1.8.0_25'
+Driver info: driver.version: unknown
+	at testcases.PhotosAndVideo.LaunchVideo(PhotosAndVideo.java:215)
+</failure>
+    <system-out><![CDATA[Before test
+Rate My App not displayed
+]]></system-out>
+    <system-err><![CDATA[Aug 22, 2018 10:33:25 AM io.appium.java_client.remote.AppiumCommandExecutor$1 lambda$0
+INFO: Detected dialect: OSS
+]]></system-err>
+  </testcase>
+  <testcase name="PhotoVidDelete" classname="testcases.PhotosAndVideo" time="20.136"/>
+  <testcase name="PhotoVidDownload" classname="testcases.PhotosAndVideo" time="13.232"/>
+  <testcase name="FavExist" classname="testcases.PhotosAndVideo" time="33.883">
+    <failure message="Expected condition failed: waiting for visibility of element located by By.xpath: //android.widget.ImageView[@index=&apos;2&apos;] (tried for 30 second(s) with 500 milliseconds interval)" type="org.openqa.selenium.TimeoutException">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.xpath: //android.widget.ImageView[@index='2'] (tried for 30 second(s) with 500 milliseconds interval)
+	at testcases.PhotosAndVideo.FavExist(PhotosAndVideo.java:281)
+Caused by: org.openqa.selenium.NoSuchElementException: 
+Cannot locate an element using By.xpath: //android.widget.ImageView[@index='2']
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.13.0', revision: '2f0d292', time: '2018-06-25T15:24:21.231Z'
+System info: host: 'IEC02N926BG3QT', ip: 'fe80:0:0:0:1cb8:b03e:f288:39ec%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.13.1', java.version: '1.8.0_25'
+Driver info: driver.version: unknown
+	at testcases.PhotosAndVideo.FavExist(PhotosAndVideo.java:281)
+</failure>
+    <system-out><![CDATA[Before test
+Rate My App not displayed
+]]></system-out>
+    <system-err><![CDATA[Aug 22, 2018 10:36:08 AM io.appium.java_client.remote.AppiumCommandExecutor$1 lambda$0
+INFO: Detected dialect: OSS
+]]></system-err>
+  </testcase>
+  <testcase name="PhotoVidFav" classname="testcases.PhotosAndVideo" time="65.925"/>
+  <testcase name="ShareCollage" classname="testcases.PhotosAndVideo" time="23.898">
+    <failure message="An element could not be located on the page using the given search parameters. (WARNING: The server did not provide any stacktrace information)&#10;Command duration or timeout: 0 milliseconds&#10;For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html&#10;Build info: version: &apos;3.13.0&apos;, revision: &apos;2f0d292&apos;, time: &apos;2018-06-25T15:24:21.231Z&apos;&#10;System info: host: &apos;IEC02N926BG3QT&apos;, ip: &apos;fe80:0:0:0:1cb8:b03e:f288:39ec%en0&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;10.13.1&apos;, java.version: &apos;1.8.0_25&apos;&#10;Driver info: io.appium.java_client.android.AndroidDriver&#10;Capabilities {appActivity: com.newbay.syncdrive.androi..., appPackage: com.vcast.mediamanager, autoDismissAlerts: true, autoGrantPermissions: true, automationName: uiautomator2, deviceName: Android Device, javascriptEnabled: true, newCommandTimeout: 100, noReset: true, platform: ANDROID, platformName: Android}&#10;Session ID: f44278b4-778d-41e8-a596-d5ee3dd3177b&#10;*** Element info: {Using=xpath, value=//android.widget.ImageView[@index = &apos;2&apos; and @resource-id=&apos;com.vcast.mediamanager:id/icon&apos;]}" type="org.openqa.selenium.NoSuchElementException">org.openqa.selenium.NoSuchElementException: 
+An element could not be located on the page using the given search parameters. (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.13.0', revision: '2f0d292', time: '2018-06-25T15:24:21.231Z'
+System info: host: 'IEC02N926BG3QT', ip: 'fe80:0:0:0:1cb8:b03e:f288:39ec%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.13.1', java.version: '1.8.0_25'
+Driver info: io.appium.java_client.android.AndroidDriver
+Capabilities {appActivity: com.newbay.syncdrive.androi..., appPackage: com.vcast.mediamanager, autoDismissAlerts: true, autoGrantPermissions: true, automationName: uiautomator2, deviceName: Android Device, javascriptEnabled: true, newCommandTimeout: 100, noReset: true, platform: ANDROID, platformName: Android}
+Session ID: f44278b4-778d-41e8-a596-d5ee3dd3177b
+*** Element info: {Using=xpath, value=//android.widget.ImageView[@index = '2' and @resource-id='com.vcast.mediamanager:id/icon']}
+	at testcases.PhotosAndVideo.ShareCollage(PhotosAndVideo.java:318)
+</failure>
+    <system-out><![CDATA[Before test
+Rate My App not displayed
+]]></system-out>
+    <system-err><![CDATA[Aug 22, 2018 10:38:48 AM io.appium.java_client.remote.AppiumCommandExecutor$1 lambda$0
+INFO: Detected dialect: OSS
+]]></system-err>
+  </testcase>
+  <testcase name="SwipeRight" classname="testcases.PhotosAndVideo" time="168.457">
+    <failure message="Expected condition failed: waiting for visibility of element located by By.xpath: //android.widget.Button[@text =&apos;CLOSE&apos;] (tried for 30 second(s) with 500 milliseconds interval)" type="org.openqa.selenium.TimeoutException">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.xpath: //android.widget.Button[@text ='CLOSE'] (tried for 30 second(s) with 500 milliseconds interval)
+	at testcases.PhotosAndVideo.SwipeRight(PhotosAndVideo.java:151)
+Caused by: org.openqa.selenium.NoSuchElementException: 
+Cannot locate an element using By.xpath: //android.widget.Button[@text ='CLOSE']
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.13.0', revision: '2f0d292', time: '2018-06-25T15:24:21.231Z'
+System info: host: 'IEC02N926BG3QT', ip: 'fe80:0:0:0:1cb8:b03e:f288:39ec%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.13.1', java.version: '1.8.0_25'
+Driver info: driver.version: unknown
+	at testcases.PhotosAndVideo.SwipeRight(PhotosAndVideo.java:151)
+</failure>
+    <system-out><![CDATA[Before test
+Rate My App not displayed
+]]></system-out>
+    <system-err><![CDATA[Aug 22, 2018 10:39:42 AM io.appium.java_client.remote.AppiumCommandExecutor$1 lambda$0
+INFO: Detected dialect: OSS
+]]></system-err>
+  </testcase>
+  <testcase name="DeleteAlbum" classname="testcases.PhotosAndVideo" time="0">
+    <skipped message="Method PhotosAndVideo.DeleteAlbum()[pri:0, instance:testcases.PhotosAndVideo@4501b7af] depends on not successfully finished methods"/>
+  </testcase>
+</testsuite>
