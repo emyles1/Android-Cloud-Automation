@@ -37,7 +37,7 @@ public class RestUtilities {
 	public static RequestSpecification getDVRequestSpecification() {
 		REQUEST_BUILDER = new RequestSpecBuilder();
 		REQUEST_BUILDER.setBaseUri(VznPath.DV_URL);
-		REQUEST_BUILDER.setBasePath(VznPath.MSG_COUNT);
+		REQUEST_BUILDER.setBasePath(VznPath.DV_REPO);
 		REQUEST_SPEC = REQUEST_BUILDER.build();
 		return REQUEST_SPEC;
 	}

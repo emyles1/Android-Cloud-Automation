@@ -3,13 +3,11 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="testcases.MessageCenter">
+      <class name="restAPIs.authenicationVzn">
         <methods>
-          <include name="ClickConnected"/>
-          <include name="ClickRecommended"/>
-          <include name="Setup"/>
+          <include name="upload"/>
         </methods>
-      </class> <!-- testcases.MessageCenter -->
+      </class> <!-- restAPIs.authenicationVzn -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

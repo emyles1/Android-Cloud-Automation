@@ -41,7 +41,6 @@ public class PhotosAndVideo extends CloudBase {
 		get.TVDisplay(Strings.TV);
 
 	}
-	
 
 	@Test
 	public void Fullview() throws IOException, MalformedURLException, InterruptedException {
@@ -75,7 +74,6 @@ public class PhotosAndVideo extends CloudBase {
 
 	}
 	
-
 	// ANDRVC-87
 	@Test
 	public void CreateAlbums() throws IOException, MalformedURLException, InterruptedException {
@@ -170,7 +168,6 @@ public class PhotosAndVideo extends CloudBase {
 		get.DuplicateFile();
 		driver.openNotifications();
 
-
 		Assert.assertEquals(get.AssertXpathExists(Strings.downloadComplete), 1);
 
 	}
@@ -212,11 +209,7 @@ public class PhotosAndVideo extends CloudBase {
 		get.Xpath(Strings.ButtonOK, waitinsec).click();
 		get.Xpath(Strings.firstAllitem, waitinsec).click();
 		get.Xpath(Strings.tapFullview, waitinsec).click();
-		
 		get.BackKey(1);
-
-
-
 		get.Xpath(Strings.Elipses, waitinsec).click();
 		get.Xpath(Strings.FilterBy, waitinsec).click();
 		get.Xpath(Strings.filterByEverything, waitinsec).click();
@@ -234,16 +227,13 @@ public class PhotosAndVideo extends CloudBase {
 		get.Xpath(Strings.allHeader, waitinsec).click();
 		get.multiSelect(1);
 		get.Xpath(Strings.Elipses, waitinsec).click();
-
 		WebDriverWait wait = new WebDriverWait(driver, waitinsec);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(Strings.overflowdelete)));
 		List<WebElement> webElements = driver.findElementsByXPath(Strings.addFavMenu);
 		System.out.println(webElements);
-
 		if (webElements.size() == 1) {
 			get.Xpath(Strings.addFavMenu, waitinsec).click();
 			get.Xpath(Strings.albumHeader, waitinsec).click();
-
 			Assert.assertEquals(get.AssertXpathExists(Strings.favAlbum), 1);
 
 		}
@@ -259,7 +249,6 @@ public class PhotosAndVideo extends CloudBase {
 			get.Xpath(Strings.Elipses, waitinsec).click();
 			get.Xpath(Strings.removeFavMenu, waitinsec).click();
 			get.BackKey(1);
-
 			get.Xpath(Strings.allHeader, waitinsec).click();
 			get.multiSelect(1);
 			get.Xpath(Strings.Elipses, waitinsec).click();
@@ -305,7 +294,6 @@ public class PhotosAndVideo extends CloudBase {
 	public void ShareCollage() throws MalformedURLException, InterruptedException {
 
 		Strings string = new Strings();
-
 		get.Xpath(Strings.homeHamburger, waitinsec).click();
 		get.Xpath(Strings.PicAndVids, waitinsec).click();
 		get.Xpath(Strings.allHeader, waitinsec).click();

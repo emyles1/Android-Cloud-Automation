@@ -5,13 +5,21 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import commonutilities.RestUtilities;
+import io.restassured.config.EncoderConfig;
+
+
 import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
+import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import io.restassured.response.ResponseBody;
 import io.restassured.specification.RequestSpecification;
 
 import static org.hamcrest.Matchers.*;
+
+import java.io.File;
+
+import javax.swing.text.Document;
 
 public class authenicationVzn  {
 	
@@ -35,7 +43,7 @@ public class authenicationVzn  {
 				
 				.header("Accept","application/json")
 				.header("x-application-identifier","DV")
-				.header("X-Newbay-User-Uid", "2188080881")
+				.header("X-Newbay-User-Uid", "2188080885")
 				.header("X-Scope-Service","DV")
 				.header("Content-Type", "application/x-www-form-urlencoded")
 				.header("User-Agent", "SyncDrive")
@@ -58,6 +66,8 @@ public class authenicationVzn  {
 
 	}
 	
+	
+	//The MMRequestSpecification has a problem where the LCID is hardcoded.
 	@Test (dependsOnMethods = { "refreshToken" })
 	public void mmCount() {
 		
@@ -70,7 +80,6 @@ public class authenicationVzn  {
 				.header("Accept","application/vnd.newbay.message-1.0+json")
 				.header("Content-Type", "application/vnd.newbay.message-1.0+json")
 				.header("Authorization", "NWB token=\""+access_token+"\"; authVersion=\"1.0\";")
-
 				
 		.when()
 			.get()
@@ -82,23 +91,28 @@ public class authenicationVzn  {
 
 	}
 	
-	@Test (dependsOnMethods = { "mmCount" })
+	@Test
 	public void upload() {
 		
+		File file = new File("/Users/eamon.myles/Desktop/verizon_suite/DareDevil.png");
+		File xmlFile = new File("/Users/eamon.myles/Desktop/verizon_suite/upload_files.xml");
+
+		String checksum = "DF2779D1A7A1AC360EA60F0ED68BD37624D895A8224483E4D10D1A3C4516D7C1";
 
 		Response response = given()
 				.log().all()
 
 				.spec(RestUtilities.getDVRequestSpecification())	
-				.header("Accept","application/vnd.newbay.dv-1.16+json")
+				.header("Accept","application/vnd.newbay.dv-1.19+xml")
 				.header("Content-Type", "multipart/form-data")
 				.header("Authorization", "NWB token=\""+access_token+"\"; authVersion=\"1.0\";")
+				.header("x-newbay-nwb", "access_token")
 				
-				.formParam("files=@Ape.xml", "type=application/vnd.newbay.dv-1.16+xml")
-				.formParam("665a1dacb1679481472227ec77dae34a43efa33afb04bb83d962b56622d063b0=@Ape.png")
-		
+                .multiPart("files", xmlFile, "application/vnd.newbay.dv-1.19+xml")
+                .multiPart(checksum, file)
+				
 		.when()
-			.get()
+			.post()
 		.then()
 		.log().all()
 			.statusCode(200)

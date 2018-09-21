@@ -19,6 +19,7 @@ public class Strings {
 	public final static String ContentDesc = "@content-desc = ";
 	public final static String Index = "@index =";
 	public final static String ADB = "/Users/eamon.myles/Library/Android/sdk/platform-tools/adb";
+	public final static String BASH = "/Users/eamon.myles/Desktop/verizon_suite/upload_files.sh";
 
 	// NavBarRepository strings  
 	public final static String homeHamburger = "//android.widget.ImageButton[@content-desc ='Navigate up']";
@@ -28,7 +29,7 @@ public class Strings {
 	public final static String Documents = "//android.widget.TextView[@index = '3' and contains(@text,'Documents')]";
 	public final static String MessageCenter = "//android.widget.TextView[@index = '5' and contains(@text,'Message Center')]";
 	public final static String APPSUSINGCLOUD = "//android.widget.TextView[@index = '7' and contains(@text,'Apps Using Cloud')]";
-	public final static String AllFiles = "//android.widget.TextView[@index = '8' and contains(@text,'All Files')]";
+	public final static String AllFiles = "//android.widget.TextView[@index = '9' and contains(@text,'All Files')]";
 	public final static String Settings = "//android.widget.TextView[@text = 'Settings']";
 	public final static String Help = "//android.widget.TextView[@text = 'Help']";
 	

@@ -100,7 +100,28 @@ public class Playground extends CloudBase {
 	}
 	
 	
+	@Test
+	public void UploadMedia() throws InterruptedException, IOException {
+		
 
+		// CODE TO ACTIVATE ADB
+		String line = "null";
+		String[] command = { Strings.BASH, "bash", "upload_files"};
+		Runtime run = Runtime.getRuntime();
+		Process pr = run.exec(command);
+		pr.waitFor();
+		BufferedReader buf = new BufferedReader(new InputStreamReader(pr.getInputStream()));
+		System.out.println("the line is" +line);
+		
+		while ((line = buf.readLine()) != null) {
+			System.out.println(line);
+
+//			String Mobile = "//android.widget.TextView[contains(@text,'" + line + "')]";
+//			driver.findElementByXPath(Mobile).click();
+//			Assert.assertEquals(get.AssertXpathExists(Mobile), 1);
+
+		}
+	}
 	
 	
 	
@@ -130,7 +151,7 @@ public class Playground extends CloudBase {
 	
 	
 	
-	@Test
+	//@Test
     public void horizontalSwipingTest() {
 		Dimension size = driver.manage().window().getSize();
 
@@ -569,13 +590,6 @@ public class Playground extends CloudBase {
 	}
 
 
-
-
-
-private void sendBroadcast(Intent scanIntent) {
-	// TODO Auto-generated method stub
-	
-}
 
 
 		

@@ -34,7 +34,7 @@ public class AllFiles extends CloudBase {
 
 	}
 
-	@Test
+	//@Test
 	public void OpenMobileRepro() throws MalformedURLException, InterruptedException {
 		
 //		driver = Capabilities();
@@ -45,7 +45,6 @@ public class AllFiles extends CloudBase {
 		get.Xpath(Strings.homeHamburger, waitinsec).click();
 		get.Xpath(Strings.AllFiles, waitinsec).click();
 		get.Xpath(Strings.mobileRepro, waitinsec).click();
-
 		String foldername = get.GetText(Strings.folderTitle);
 		String devicefolder = get.XpathBuilder(Strings.TextView, Strings.Text, foldername);
 		get.Xpath(devicefolder, waitinsec).click();
@@ -57,7 +56,7 @@ public class AllFiles extends CloudBase {
 	
 	//music plays all the way before stopping
 	
-	@Test
+	//@Test
 	public void FindExt() throws MalformedURLException, InterruptedException {
 		
 		System.out.println("FindExt");
