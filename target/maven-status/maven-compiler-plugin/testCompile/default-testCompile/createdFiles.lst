@@ -1,4 +1,5 @@
 restAPIs/VznPath.class
+restAPIs/authenicationVzn.class
 testcases/AppsUsingCloud.class
 testcases/MessageCenter.class
 commonutilities/RestUtilities.class
